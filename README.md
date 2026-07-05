@@ -2,10 +2,9 @@
 
 Live site: **https://sougatshekhar97-cpu.github.io/portfolio/**
 
-Two pages, built from my Claude Design project:
+Built from my Claude Design project:
 
 - [`index.html`](index.html) — the portfolio (hero, proof of work, configurations, benchmarks, model card, contact)
-- [`360-analysis.html`](360-analysis.html) — the 360° & 3D self-evaluation teardown
 - [`editor.js`](editor.js) — owner edit mode (see below)
 - [`assets/`](assets/) — images
 
