@@ -1,350 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sougat Shekhar — Strategic Account Manager</title>
-<meta name="description" content="Sougat Shekhar — Strategic Account Manager. AI/ML, Process Excellence, Product Management, Data Analytics.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sougat Shekhar Hota — SOUGAT-1</title>
+<meta name="description" content="Sougat Shekhar Hota — enterprise account manager shipping toward Product Management and Process Excellence. ₹384 Mn portfolio, AI in production.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #111111;
-    --ink-soft: #555555;
-    --ink-faint: #999999;
-    --paper: #fafaf8;
-    --line: #e2e2de;
-    --accent: #111111;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
-    background: var(--paper);
-    color: var(--ink);
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
+  body { margin: 0; background: linear-gradient(180deg, #ffffff, #e9eef6) fixed; }
+  ::selection { background: #1f3d7a; color: #f7f8fa; }
+  @keyframes pulseDot { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
+  [data-hidden="true"] { display: none; }
+  @media (max-width: 960px) {
+    .g4, .g3 { grid-template-columns: 1fr 1fr !important; }
+    .g2w { grid-template-columns: 1fr !important; }
   }
-  ::selection { background: var(--ink); color: var(--paper); }
-
-  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
-
-  /* ---------- nav ---------- */
-  nav {
-    position: sticky; top: 0; z-index: 10;
-    background: rgba(250, 250, 248, 0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav-inner {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 24px; max-width: 880px; margin: 0 auto;
-  }
-  .mark { font-size: 1.15rem; letter-spacing: 0.02em; font-weight: 600; text-decoration: none; color: var(--ink); }
-  .mark span { margin-right: 8px; }
-  .nav-links a {
-    color: var(--ink-soft); text-decoration: none; font-size: 0.9rem;
-    margin-left: 22px; letter-spacing: 0.04em;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--ink); }
-
-  /* ---------- hero ---------- */
-  header.hero { padding: 110px 0 90px; border-bottom: 1px solid var(--line); }
-  .hero .glyph { font-size: 2rem; display: block; margin-bottom: 28px; animation: spin 24s linear infinite; width: fit-content; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .hero h1 {
-    font-size: clamp(2.2rem, 6vw, 3.6rem);
-    font-weight: 700; letter-spacing: -0.02em; line-height: 1.12;
-  }
-  .hero .role {
-    margin-top: 18px; font-size: clamp(1.05rem, 2.5vw, 1.3rem);
-    color: var(--ink-soft); font-weight: 400;
-  }
-  .hero .tags { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px; }
-  .tag {
-    border: 1px solid var(--line); border-radius: 999px;
-    padding: 6px 16px; font-size: 0.85rem; color: var(--ink-soft);
-    background: #ffffff;
-  }
-  .hero .cta { margin-top: 42px; }
-  .cta a {
-    display: inline-block; text-decoration: none;
-    border: 1px solid var(--ink); color: var(--ink);
-    padding: 12px 28px; border-radius: 999px; font-size: 0.95rem;
-    transition: background 0.2s, color 0.2s;
-  }
-  .cta a:hover { background: var(--ink); color: var(--paper); }
-  .cta a + a { margin-left: 12px; border-color: var(--line); color: var(--ink-soft); }
-  .cta a + a:hover { background: transparent; border-color: var(--ink); color: var(--ink); }
-
-  /* ---------- sections ---------- */
-  section { padding: 90px 0; border-bottom: 1px solid var(--line); }
-  .kicker {
-    font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--ink-faint); margin-bottom: 18px;
-  }
-  .kicker::before { content: "✲  "; }
-  section h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); letter-spacing: -0.01em; margin-bottom: 28px; }
-  section p.lede { color: var(--ink-soft); max-width: 620px; font-size: 1.05rem; }
-
-  /* ---------- expertise grid ---------- */
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 40px; }
-  .card {
-    background: #ffffff; border: 1px solid var(--line); border-radius: 14px;
-    padding: 28px 26px; transition: transform 0.25s, box-shadow 0.25s;
-  }
-  .card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(17,17,17,0.07); }
-  .card h3 { font-size: 1.05rem; margin-bottom: 10px; }
-  .card p { font-size: 0.92rem; color: var(--ink-soft); }
-  .card .num { font-size: 0.78rem; color: var(--ink-faint); letter-spacing: 0.12em; display: block; margin-bottom: 14px; }
-
-  /* ---------- work ---------- */
-  .work-item {
-    display: block; text-decoration: none; color: inherit;
-    border: 1px solid var(--line); border-radius: 14px; background: #ffffff;
-    padding: 30px 28px; margin-top: 18px;
-    transition: transform 0.25s, box-shadow 0.25s;
-  }
-  .work-item:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(17,17,17,0.07); }
-  .work-item .wi-top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
-  .work-item h3 { font-size: 1.15rem; }
-  .work-item .wi-tag { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); white-space: nowrap; }
-  .work-item p { margin-top: 10px; font-size: 0.95rem; color: var(--ink-soft); max-width: 640px; }
-
-  /* ---------- agents ---------- */
-  .agent-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 40px; }
-  a.card { display: block; text-decoration: none; color: inherit; }
-  .card .fw {
-    display: inline-block; margin-top: 14px; font-size: 0.75rem;
-    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint);
-    border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px;
-  }
-  .attribution { margin-top: 34px; font-size: 0.85rem; color: var(--ink-faint); }
-  .attribution a { color: var(--ink-soft); }
-
-  /* ---------- contact ---------- */
-  #contact { border-bottom: none; padding-bottom: 70px; }
-  .contact-links { margin-top: 34px; display: flex; flex-direction: column; gap: 14px; }
-  .contact-links a {
-    color: var(--ink); text-decoration: none; font-size: 1.15rem; width: fit-content;
-    border-bottom: 1px solid var(--line); padding-bottom: 3px;
-    transition: border-color 0.2s;
-  }
-  .contact-links a:hover { border-color: var(--ink); }
-  .contact-links .label { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: -6px; }
-
-  footer {
-    padding: 30px 0 44px; color: var(--ink-faint); font-size: 0.85rem;
-    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
-  }
-
-  /* ---------- reveal on scroll ---------- */
-  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.in { opacity: 1; transform: none; }
-
-  @media (max-width: 560px) {
-    .nav-links a { margin-left: 14px; font-size: 0.82rem; }
-    header.hero { padding: 70px 0 60px; }
-    section { padding: 64px 0; }
+  @media (max-width: 640px) {
+    .g4, .g3, .g2 { grid-template-columns: 1fr !important; }
+    .nav-links { display: none !important; }
   }
 </style>
+<script src="editor.js" defer></script>
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a class="mark" href="#top"><span>✲</span>SS</a>
-    <div class="nav-links">
-      <a href="#about">about</a>
-      <a href="#expertise">expertise</a>
-      <a href="#work">work</a>
-      <a href="#agents">ai agents</a>
-      <a href="#contact">contact</a>
+<div id="site" style="background:linear-gradient(180deg, #ffffff 0%, #f4f7fb 50%, #e7edf7 100%); color:#101c33; font-family:'Archivo',sans-serif; min-height:100vh">
+
+  <!-- NAV -->
+  <div data-sec data-name="Navigation" style="position:fixed; top:0; left:0; right:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:16px 40px; background:rgba(255,255,255,0.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(16,28,51,0.08)">
+    <div style="display:flex; align-items:center; gap:10px">
+      <div style="width:9px; height:9px; border-radius:50%; background:#1f3d7a; animation:pulseDot 2.4s infinite"></div>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; letter-spacing:0.14em">SOUGAT-1</span>
+    </div>
+    <div class="nav-links" style="display:flex; align-items:center; gap:28px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.06em">
+      <a href="#work" style="color:#54617e; text-decoration:none">PROOF OF WORK</a>
+      <a href="#configs" style="color:#54617e; text-decoration:none">CONFIGURATIONS</a>
+      <a href="#benchmarks" style="color:#54617e; text-decoration:none">BENCHMARKS</a>
+      <a href="#contact" style="color:#54617e; text-decoration:none">CONTACT</a>
+      <a href="360-analysis.html" style="color:#f7f8fa; text-decoration:none; background:#1f3d7a; padding:8px 16px; border-radius:999px; font-weight:700">360° ANALYSIS</a>
     </div>
   </div>
-</nav>
 
-<div class="wrap" id="top">
-
-  <header class="hero">
-    <span class="glyph">✲</span>
-    <h1>Sougat Shekhar</h1>
-    <p class="role">Strategic Account Manager — turning client relationships into growth engines with data, process, and product thinking.</p>
-    <div class="tags">
-      <span class="tag">AI / ML</span>
-      <span class="tag">Process Excellence</span>
-      <span class="tag">Product Management</span>
-      <span class="tag">Data Analytics</span>
-    </div>
-    <div class="cta">
-      <a href="#contact">Get in touch</a>
-      <a href="#work">See my work</a>
-    </div>
-  </header>
-
-  <section id="about" class="reveal">
-    <p class="kicker">About</p>
-    <h2>Strategy at the intersection of people and data.</h2>
-    <p class="lede">
-      I manage strategic accounts end to end — building trusted client relationships, finding
-      the signal in the data, and driving the process improvements that turn good delivery
-      into lasting partnerships. I bring an analytical, product-minded approach to account
-      growth: understand deeply, measure honestly, improve continuously.
-    </p>
-  </section>
-
-  <section id="expertise" class="reveal">
-    <p class="kicker">Expertise</p>
-    <h2>What I bring to the table.</h2>
-    <div class="grid">
-      <div class="card">
-        <span class="num">01</span>
-        <h3>AI / ML</h3>
-        <p>Applying machine learning and AI tooling to real business problems — from opportunity sizing to automating the repetitive so teams focus on the strategic.</p>
+  <!-- HERO -->
+  <div id="top" data-sec data-name="Hero" style="padding:150px 40px 60px; max-width:1240px; margin:0 auto">
+    <div style="display:flex; gap:56px; align-items:flex-end; flex-wrap:wrap">
+      <div style="flex:1 1 560px; display:flex; flex-direction:column; gap:26px">
+        <div data-card data-name="Status badges" style="display:flex; align-items:center; gap:12px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.14em; color:#1f3d7a">
+          <span style="border:1px solid rgba(31,61,122,0.45); padding:5px 12px; border-radius:999px">HUMAN · PRODUCTION-DEPLOYED</span>
+          <span style="color:#54617e">MUMBAI, IN</span>
+        </div>
+        <h1 style="margin:0; font-size:clamp(64px,9vw,124px); font-weight:900; line-height:0.92; letter-spacing:-0.03em">Sougat<br>Shekhar<br>Hota</h1>
+        <p data-card data-name="Tagline: Product Management" style="margin:0; font-size:22px; line-height:1.5; color:#3a4763; max-width:560px">An enterprise account manager, fine-tuned on ₹384 Mn of real customer problems — now shipping toward <strong style="color:#101c33">Product Management</strong> and <strong style="color:#101c33">Process Excellence</strong>.</p>
+        <p data-card data-name="Tagline: Process Excellence (alt)" data-hidden="true" style="margin:0; font-size:22px; line-height:1.5; color:#3a4763; max-width:560px">A Lean Six Sigma operator who turned a ₹384 Mn enterprise portfolio into a laboratory for <strong style="color:#101c33">Process Excellence</strong> — systems, not heroics.</p>
+        <p data-card data-name="Tagline: Partner &amp; Alliances (alt)" data-hidden="true" style="margin:0; font-size:22px; line-height:1.5; color:#3a4763; max-width:560px">Two years inside one of India's largest telecom partner categories — now building <strong style="color:#101c33">Partner &amp; Alliance ecosystems</strong> from the other side of the table.</p>
+        <p data-card data-name="Wit line" style="margin:0; font-family:'JetBrains Mono',monospace; font-size:13px; color:#8791a6">No hallucinations. All metrics reproducible. References available on request.</p>
+        <div data-card data-name="Hero buttons" style="display:flex; gap:14px; flex-wrap:wrap">
+          <a href="#work" style="text-decoration:none; background:#101c33; color:#f7f8fa; font-weight:700; font-size:15px; padding:14px 28px; border-radius:999px">See the proof</a>
+          <a href="360-analysis.html" style="text-decoration:none; border:1px solid rgba(16,28,51,0.3); color:#101c33; font-weight:600; font-size:15px; padding:14px 28px; border-radius:999px">Read the 360° teardown</a>
+        </div>
       </div>
-      <div class="card">
-        <span class="num">02</span>
-        <h3>Process Excellence</h3>
-        <p>Mapping, measuring, and redesigning workflows to remove friction — continuous improvement that shows up in the numbers, not just the slide decks.</p>
-      </div>
-      <div class="card">
-        <span class="num">03</span>
-        <h3>Product Management</h3>
-        <p>Translating client needs into roadmaps and requirements — prioritising ruthlessly, shipping iteratively, and closing the loop with feedback.</p>
-      </div>
-      <div class="card">
-        <span class="num">04</span>
-        <h3>Data Analytics</h3>
-        <p>Building the dashboards and analyses that make decisions obvious — account health, revenue trends, and the early-warning signals that matter.</p>
+      <div data-card data-name="Photo" style="flex:0 1 380px; display:flex; flex-direction:column; gap:14px">
+        <div style="border-radius:20px; overflow:hidden; border:1px solid rgba(16,28,51,0.14); position:relative">
+          <img src="assets/sougat.jpg" alt="Sougat Shekhar Hota" style="display:block; width:100%; height:auto">
+          <div style="position:absolute; bottom:14px; left:14px; right:14px; display:flex; justify-content:space-between; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:rgba(255,255,255,0.95); background:rgba(16,28,51,0.6); backdrop-filter:blur(6px); padding:10px 14px; border-radius:10px">
+            <span>MODEL: SOUGAT-1</span>
+            <span>MBA · XIMB '24</span>
+          </div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#8791a6; display:flex; justify-content:space-between">
+          <span>Power draw: 3 coffees/day</span>
+          <span>Uptime: 99.9%</span>
+        </div>
       </div>
     </div>
-  </section>
 
-  <section id="work" class="reveal">
-    <p class="kicker">Selected Work</p>
-    <h2>Highlights &amp; case studies.</h2>
-    <p class="lede">A snapshot of the kind of impact I focus on. (Detailed case studies available on request.)</p>
-
-    <div class="work-item">
-      <div class="wi-top">
-        <h3>Account growth through data-led QBRs</h3>
-        <span class="wi-tag">Account Strategy</span>
+    <!-- STATS STRIP -->
+    <div data-sec data-name="Stats strip" class="g4" style="margin-top:72px; display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(16,28,51,0.12); border:1px solid rgba(16,28,51,0.12); border-radius:16px; overflow:hidden">
+      <div data-card data-name="Stat: ARR" style="background:#f7f8fa; padding:26px 24px; display:flex; flex-direction:column; gap:6px">
+        <span style="font-size:38px; font-weight:800; letter-spacing:-0.02em">₹384 Mn</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#54617e">ARR portfolio owned · 30+ enterprise accounts</span>
       </div>
-      <p>Reframed quarterly business reviews around outcome metrics instead of activity reports — turning renewals into expansion conversations.</p>
-    </div>
-
-    <div class="work-item">
-      <div class="wi-top">
-        <h3>Process excellence programme</h3>
-        <span class="wi-tag">Operations</span>
+      <div data-card data-name="Stat: Churn" style="background:#f7f8fa; padding:26px 24px; display:flex; flex-direction:column; gap:6px">
+        <span style="font-size:38px; font-weight:800; letter-spacing:-0.02em; color:#1f3d7a">−46%</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#54617e">YoY churn, via a health-scoring system built from scratch</span>
       </div>
-      <p>Led end-to-end mapping of client-facing workflows, eliminating handoff delays and cutting turnaround time on key deliverables.</p>
-    </div>
-
-    <div class="work-item">
-      <div class="wi-top">
-        <h3>AI-assisted account intelligence</h3>
-        <span class="wi-tag">AI / Analytics</span>
+      <div data-card data-name="Stat: Incidents" style="background:#f7f8fa; padding:26px 24px; display:flex; flex-direction:column; gap:6px">
+        <span style="font-size:38px; font-weight:800; letter-spacing:-0.02em; color:#1f3d7a">−80%</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#54617e">Recurring incidents, via AI automation shipped to production</span>
       </div>
-      <p>Introduced AI tooling to surface account health signals early — consolidating scattered data into a single view the whole team acts on.</p>
+      <div data-card data-name="Stat: SLA" style="background:#f7f8fa; padding:26px 24px; display:flex; flex-direction:column; gap:6px">
+        <span style="font-size:38px; font-weight:800; letter-spacing:-0.02em">₹60L+</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#54617e">SLA value recovered through data-backed CXO negotiation</span>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <section id="agents" class="reveal">
-    <p class="kicker">AI Agent Toolkit</p>
-    <h2>Agents I put to work.</h2>
-    <p class="lede">
-      A curated set of open-source AI agents I explore and apply to account management —
-      from lead prioritisation to client analytics. Each card links to the original project.
-    </p>
-
-    <div class="agent-grid">
-      <a class="card" href="https://github.com/crewAIInc/crewAI-examples/tree/main/flows/lead-score-flow" target="_blank" rel="noopener">
-        <span class="num">Account Strategy</span>
-        <h3>Lead Score Flow</h3>
-        <p>Scores and prioritises leads so outreach effort goes where the growth is.</p>
-        <span class="fw">CrewAI</span>
-      </a>
-      <a class="card" href="https://github.com/crewAIInc/crewAI-examples/tree/main/crews/marketing_strategy" target="_blank" rel="noopener">
-        <span class="num">Account Strategy</span>
-        <h3>Marketing Strategy Generator</h3>
-        <p>Builds growth strategies from market-trend analysis — faster account planning.</p>
-        <span class="fw">CrewAI</span>
-      </a>
-      <a class="card" href="https://github.com/agno-agi/agno/blob/main/cookbook/examples/agents/research_agent.py" target="_blank" rel="noopener">
-        <span class="num">Account Research</span>
-        <h3>Research Agent</h3>
-        <p>Deep, structured investigations — pre-meeting intelligence in minutes, not hours.</p>
-        <span class="fw">Agno</span>
-      </a>
-      <a class="card" href="https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/customer-support/customer-support.ipynb" target="_blank" rel="noopener">
-        <span class="num">Client Experience</span>
-        <h3>Customer Support Agent</h3>
-        <p>Graph-based agent that handles client inquiries consistently, around the clock.</p>
-        <span class="fw">LangGraph</span>
-      </a>
-      <a class="card" href="https://github.com/crewAIInc/crewAI-examples/tree/main/flows/email_auto_responder_flow" target="_blank" rel="noopener">
-        <span class="num">Process Excellence</span>
-        <h3>Email Auto Responder</h3>
-        <p>Automates routine email responses — takes inbox triage off the team's plate.</p>
-        <span class="fw">CrewAI</span>
-      </a>
-      <a class="card" href="https://github.com/crewAIInc/crewAI-examples/tree/main/flows/meeting_assistant_flow" target="_blank" rel="noopener">
-        <span class="num">Process Excellence</span>
-        <h3>Meeting Assistant Flow</h3>
-        <p>Scheduling and agenda prep automated — every QBR consistently prepared.</p>
-        <span class="fw">CrewAI</span>
-      </a>
-      <a class="card" href="https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/sql-agent.ipynb" target="_blank" rel="noopener">
-        <span class="num">Data Analytics</span>
-        <h3>Natural Language → SQL</h3>
-        <p>Plain-English questions over account databases — insight without the BI queue.</p>
-        <span class="fw">LangGraph</span>
-      </a>
-      <a class="card" href="https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_groupchat_vis" target="_blank" rel="noopener">
-        <span class="num">Data Analytics</span>
-        <h3>Data Visualization Agents</h3>
-        <p>Multi-agent collaboration that turns raw account data into review-ready visuals.</p>
-        <span class="fw">AutoGen</span>
-      </a>
-      <a class="card" href="https://github.com/agno-agi/agno/blob/main/cookbook/examples/agents/media_trend_analysis_agent.py" target="_blank" rel="noopener">
-        <span class="num">Market Intelligence</span>
-        <h3>Media Trend Analysis</h3>
-        <p>Surfaces emerging trends early — fuel for proactive client conversations.</p>
-        <span class="fw">Agno</span>
-      </a>
+  <!-- PROOF OF WORK -->
+  <div id="work" data-sec data-name="Proof of Work" style="max-width:1240px; margin:0 auto; padding:90px 40px 30px; display:flex; flex-direction:column; gap:80px">
+    <div data-card data-name="Section heading" style="display:flex; flex-direction:column; gap:12px">
+      <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.16em; color:#1f3d7a">01 — PROOF OF WORK</span>
+      <h2 style="margin:0; font-size:clamp(40px,5vw,64px); font-weight:900; letter-spacing:-0.02em; line-height:1">Powered by actual shipping<span style="color:#1f3d7a">.</span></h2>
+      <p style="margin:0; font-size:18px; color:#54617e; max-width:640px">Four systems built inside Bharti Airtel's strategic enterprise business — each one product thinking applied to a live operational problem.</p>
     </div>
 
-    <p class="attribution">
-      Full curated list with notes: <a href="https://github.com/sougatshekhar97-cpu/ai-agent-toolkit" target="_blank" rel="noopener">github.com/sougatshekhar97-cpu/ai-agent-toolkit</a>
-      &nbsp;·&nbsp; sourced from <a href="https://github.com/ashishpatel26/500-AI-Agents-Projects" target="_blank" rel="noopener">500-AI-Agents-Projects</a> — each agent belongs to its original authors.
-    </p>
-  </section>
-
-  <section id="contact" class="reveal">
-    <p class="kicker">Contact</p>
-    <h2>Let's talk.</h2>
-    <p class="lede">Open to conversations about strategic accounts, process, product, and where AI genuinely helps.</p>
-    <div class="contact-links">
-      <span class="label">Email</span>
-      <a href="mailto:sougatshekhar97@gmail.com">sougatshekhar97@gmail.com</a>
-      <span class="label">GitHub</span>
-      <a href="https://github.com/sougatshekhar97-cpu" target="_blank" rel="noopener">github.com/sougatshekhar97-cpu</a>
+    <div class="g2 g2w" style="display:grid; grid-template-columns:1fr 1fr; gap:24px">
+      <div data-card data-name="Project: Churn engine" style="border:1px solid rgba(16,28,51,0.14); border-radius:20px; padding:36px; display:flex; flex-direction:column; gap:16px; background:linear-gradient(160deg, rgba(31,61,122,0.08), transparent 50%)">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.14em; color:#1f3d7a">CHURN ENGINE · 2024–26</span>
+        <h3 style="margin:0; font-size:28px; font-weight:800; letter-spacing:-0.01em">Proactive health-scoring model</h3>
+        <p style="margin:0; font-size:16px; line-height:1.6; color:#3a4763">Built a churn prediction and intervention system across 30+ accounts — weighted signals, SLA governance, structured QBR/MBR cadence. Recognised by regional leadership as a best-practice model.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:auto">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; border:1px solid rgba(16,28,51,0.2); padding:6px 12px; border-radius:999px; color:#54617e">46% churn ↓</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; border:1px solid rgba(16,28,51,0.2); padding:6px 12px; border-radius:999px; color:#54617e">₹4 Cr account saved</span>
+        </div>
+      </div>
+      <div data-card data-name="Project: AI ticketing" style="border:1px solid rgba(16,28,51,0.14); border-radius:20px; padding:36px; display:flex; flex-direction:column; gap:16px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.14em; color:#1f3d7a">AI IN PRODUCTION · ASIAN PAINTS</span>
+        <h3 style="margin:0; font-size:28px; font-weight:800; letter-spacing:-0.01em">Predictive ticketing &amp; incident automation</h3>
+        <p style="margin:0; font-size:16px; line-height:1.6; color:#3a4763">Independently designed and deployed an n8n + LLM-agent system with REST API integrations in a live enterprise environment — one of the few account managers in Airtel's enterprise division to ship AI to production. Playbook adopted across multiple accounts.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:auto">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; border:1px solid rgba(16,28,51,0.2); padding:6px 12px; border-radius:999px; color:#54617e">80% incidents ↓</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; border:1px solid rgba(16,28,51,0.2); padding:6px 12px; border-radius:999px; color:#54617e">n8n · LLM agents · APIs</span>
+        </div>
+      </div>
+      <div data-card data-name="Project: SD-WAN framework" style="border:1px solid rgba(16,28,51,0.14); border-radius:20px; padding:36px; display:flex; flex-direction:column; gap:16px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.14em; color:#1f3d7a">NATIONAL FRAMEWORK · SD-WAN</span>
+        <h3 style="margin:0; font-size:28px; font-weight:800; letter-spacing:-0.01em">Service transformation framework, adopted by HQ</h3>
+        <p style="margin:0; font-size:16px; line-height:1.6; color:#3a4763">Authored the Fortinet SD-WAN Service Transformation framework while leading 15+ engineers with Cisco and Fortinet partners across 2,000+ enterprise sites. Airtel HQ adopted it for national rollout.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:auto">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; border:1px solid rgba(16,28,51,0.2); padding:6px 12px; border-radius:999px; color:#54617e">25% FTR/TAT ↑</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; border:1px solid rgba(16,28,51,0.2); padding:6px 12px; border-radius:999px; color:#54617e">2,000+ sites</span>
+        </div>
+      </div>
+      <div data-card data-name="Project: Power BI dashboards" style="border:1px solid rgba(16,28,51,0.14); border-radius:20px; padding:36px; display:flex; flex-direction:column; gap:16px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.14em; color:#1f3d7a">EXECUTIVE INTELLIGENCE · POWER BI</span>
+        <h3 style="margin:0; font-size:28px; font-weight:800; letter-spacing:-0.01em">Service intelligence dashboards for MBR governance</h3>
+        <p style="margin:0; font-size:16px; line-height:1.6; color:#3a4763">Real-time account-health visibility for executive reviews — the data layer behind ₹60L+ in SLA penalty waivers, negotiated with RCA documentation and transformation roadmaps at CXO level.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:auto">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; border:1px solid rgba(16,28,51,0.2); padding:6px 12px; border-radius:999px; color:#54617e">₹60L+ recovered</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; border:1px solid rgba(16,28,51,0.2); padding:6px 12px; border-radius:999px; color:#54617e">NPS ↑ · VoC loops</span>
+        </div>
+      </div>
     </div>
-  </section>
 
-  <footer>
-    <span>© 2026 Sougat Shekhar</span>
-    <span>✲ built with intent</span>
-  </footer>
+    <!-- FLAGSHIP BUILD -->
+    <div data-sec data-name="Flagship build" style="border:1px solid rgba(31,61,122,0.35); border-radius:24px; padding:48px; display:flex; gap:48px; align-items:center; flex-wrap:wrap; background:linear-gradient(120deg, rgba(31,61,122,0.07), transparent 60%)">
+      <div style="flex:1 1 420px; display:flex; flex-direction:column; gap:18px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.16em; color:#1f3d7a">FLAGSHIP SIDE-BUILD</span>
+        <h3 style="margin:0; font-size:40px; font-weight:900; letter-spacing:-0.02em; line-height:1.05">Customer Health Score Engine</h3>
+        <p style="margin:0; font-size:17px; line-height:1.65; color:#3a4763">A weekend build: React frontend, Claude API for narrative risk analysis, no backend. Computes weighted health scores across a mock enterprise CSM portfolio, then generates churn-risk narratives and recommended actions per account — the churn playbook from Airtel, productised.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; background:rgba(31,61,122,0.14); color:#1f3d7a; padding:6px 12px; border-radius:999px">React</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; background:rgba(31,61,122,0.14); color:#1f3d7a; padding:6px 12px; border-radius:999px">Claude API</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; background:rgba(31,61,122,0.14); color:#1f3d7a; padding:6px 12px; border-radius:999px">5-phase build plan</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; background:rgba(31,61,122,0.14); color:#1f3d7a; padding:6px 12px; border-radius:999px">~1 weekend</span>
+        </div>
+      </div>
+      <div style="flex:1 1 400px; border-radius:16px; overflow:hidden; border:1px solid rgba(16,28,51,0.14); background:#ffffff">
+        <img src="assets/build_workflow.png" alt="Customer Health Score Engine build workflow" style="display:block; width:100%; height:auto">
+      </div>
+    </div>
+  </div>
 
+  <!-- CONFIGURATIONS -->
+  <div id="configs" data-sec data-name="Configurations" style="max-width:1240px; margin:0 auto; padding:90px 40px; display:flex; flex-direction:column; gap:48px">
+    <div data-card data-name="Section heading" style="display:flex; flex-direction:column; gap:12px">
+      <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.16em; color:#1f3d7a">02 — CONFIGURATIONS</span>
+      <h2 style="margin:0; font-size:clamp(40px,5vw,64px); font-weight:900; letter-spacing:-0.02em; line-height:1">One profile. Three deployments<span style="color:#1f3d7a">.</span></h2>
+      <p style="margin:0; font-size:18px; color:#54617e; max-width:640px">The same underlying capabilities, configured for the role in front of them.</p>
+    </div>
+    <div class="g3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px">
+      <div data-card data-name="Config: Product Manager" style="border:1px solid rgba(31,61,122,0.4); border-radius:20px; padding:34px; display:flex; flex-direction:column; gap:18px; background:linear-gradient(180deg, rgba(31,61,122,0.08), transparent 40%)">
+        <div style="display:flex; justify-content:space-between; align-items:center">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; letter-spacing:0.1em">PRODUCT MANAGER</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:10px; background:#1f3d7a; color:#f7f8fa; font-weight:700; padding:4px 10px; border-radius:999px">PRIMARY</span>
+        </div>
+        <p style="margin:0; font-size:15px; line-height:1.6; color:#3a4763">Customer-obsessed by profession, not by slide. Two years of living inside enterprise users' pain, plus hands-on LLM product builds.</p>
+        <div style="display:flex; flex-direction:column; gap:10px; font-size:14px; color:#54617e; border-top:1px solid rgba(16,28,51,0.12); padding-top:16px">
+          <div style="display:flex; justify-content:space-between; gap:12px"><span>Discovery</span><span style="color:#101c33; text-align:right">30+ accounts of VoC</span></div>
+          <div style="display:flex; justify-content:space-between; gap:12px"><span>Artifacts</span><span style="color:#101c33; text-align:right">BRD/PRD · GTM (Amazon capstone)</span></div>
+          <div style="display:flex; justify-content:space-between; gap:12px"><span>Build</span><span style="color:#101c33; text-align:right">n8n · LLM agents · APIs</span></div>
+          <div style="display:flex; justify-content:space-between; gap:12px"><span>Cert</span><span style="color:#101c33; text-align:right">Certified Product Manager</span></div>
+        </div>
+      </div>
+      <div data-card data-name="Config: Process Excellence" style="border:1px solid rgba(16,28,51,0.16); border-radius:20px; padding:34px; display:flex; flex-direction:column; gap:18px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; letter-spacing:0.1em">PROCESS EXCELLENCE</span>
+        <p style="margin:0; font-size:15px; line-height:1.6; color:#3a4763">Systematises everything it touches: churn, incidents, governance, delivery. Measures before and after, then writes the playbook.</p>
+        <div style="display:flex; flex-direction:column; gap:10px; font-size:14px; color:#54617e; border-top:1px solid rgba(16,28,51,0.12); padding-top:16px">
+          <div style="display:flex; justify-content:space-between; gap:12px"><span>Method</span><span style="color:#101c33; text-align:right">Lean Six Sigma GB (KPMG)</span></div>
+          <div style="display:flex; justify-content:space-between; gap:12px"><span>Automation</span><span style="color:#101c33; text-align:right">80% incident elimination</span></div>
+          <div style="display:flex; justify-content:space-between; gap:12px"><span>Scale</span><span style="color:#101c33; text-align:right">Framework → national rollout</span></div>
+          <div style="display:flex; justify-content:space-between; gap:12px"><span>Governance</span><span style="color:#101c33; text-align:right">SLA · QBR/MBR · RCA</span></div>
+        </div>
+      </div>
+      <div data-card data-name="Config: Partner &amp; Alliances" style="border:1px solid rgba(16,28,51,0.16); border-radius:20px; padding:34px; display:flex; flex-direction:column; gap:18px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; letter-spacing:0.1em">PARTNER &amp; ALLIANCES</span>
+        <p style="margin:0; font-size:15px; line-height:1.6; color:#3a4763">Comes from inside a partner category — knows how a large telecom evaluates, sells, and delivers. Governance discipline transfers 1:1.</p>
+        <div style="display:flex; flex-direction:column; gap:10px; font-size:14px; color:#54617e; border-top:1px solid rgba(16,28,51,0.12); padding-top:16px">
+          <div style="display:flex; justify-content:space-between; gap:12px"><span>Ecosystem</span><span style="color:#101c33; text-align:right">Cisco · Fortinet · Zscaler</span></div>
+          <div style="display:flex; justify-content:space-between; gap:12px"><span>Co-delivery</span><span style="color:#101c33; text-align:right">Joint accountability mapping</span></div>
+          <div style="display:flex; justify-content:space-between; gap:12px"><span>Governance</span><span style="color:#101c33; text-align:right">CXO QBRs · joint plans</span></div>
+          <div style="display:flex; justify-content:space-between; gap:12px"><span>Certs</span><span style="color:#101c33; text-align:right">ZTCA · ZCSP</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BENCHMARKS / 360 SUMMARY -->
+  <div id="benchmarks" data-sec data-name="Benchmarks" style="background:#e9eef6; border-top:1px solid rgba(16,28,51,0.08); border-bottom:1px solid rgba(16,28,51,0.08)">
+    <div style="max-width:1240px; margin:0 auto; padding:90px 40px; display:flex; flex-direction:column; gap:48px">
+      <div data-card data-name="Section heading" style="display:flex; flex-direction:column; gap:12px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.16em; color:#1f3d7a">03 — BENCHMARKS</span>
+        <h2 style="margin:0; font-size:clamp(40px,5vw,64px); font-weight:900; letter-spacing:-0.02em; line-height:1">Self-evaluated. Honestly<span style="color:#1f3d7a">.</span></h2>
+        <p style="margin:0; font-size:18px; color:#54617e; max-width:680px">A 360° readiness audit of this profile against target roles — strengths, gaps, and the plan to close them. Scores are self-assessed against typical job descriptions, not vibes.</p>
+      </div>
+      <div class="g3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px">
+        <div data-card data-name="Score: Product Management" style="display:flex; flex-direction:column; gap:14px; border:1px solid rgba(16,28,51,0.14); border-radius:20px; padding:32px; background:#f7f8fa">
+          <div style="display:flex; justify-content:space-between; align-items:baseline">
+            <span style="font-weight:700; font-size:17px">Product Management</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:26px; font-weight:700; color:#1f3d7a">72<span style="font-size:14px; color:#8791a6">/100</span></span>
+          </div>
+          <div style="height:6px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="width:72%; height:100%; background:#1f3d7a; border-radius:999px"></div></div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#54617e">Elite customer insight and GTM artifacts; gap is a shipped software product owned end-to-end and deeper analytics tooling.</p>
+        </div>
+        <div data-card data-name="Score: Process Excellence" style="display:flex; flex-direction:column; gap:14px; border:1px solid rgba(16,28,51,0.14); border-radius:20px; padding:32px; background:#f7f8fa">
+          <div style="display:flex; justify-content:space-between; align-items:baseline">
+            <span style="font-weight:700; font-size:17px">Process Excellence</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:26px; font-weight:700; color:#1f3d7a">81<span style="font-size:14px; color:#8791a6">/100</span></span>
+          </div>
+          <div style="height:6px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="width:81%; height:100%; background:#1f3d7a; border-radius:999px"></div></div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#54617e">Strongest track: LSS Green Belt with proven, quantified process wins at scale. Gap is Black Belt and a formal transformation program.</p>
+        </div>
+        <div data-card data-name="Score: Partner &amp; Alliances" style="display:flex; flex-direction:column; gap:14px; border:1px solid rgba(16,28,51,0.14); border-radius:20px; padding:32px; background:#f7f8fa">
+          <div style="display:flex; justify-content:space-between; align-items:baseline">
+            <span style="font-weight:700; font-size:17px">Partner &amp; Alliances</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:26px; font-weight:700; color:#1f3d7a">76<span style="font-size:14px; color:#8791a6">/100</span></span>
+          </div>
+          <div style="height:6px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="width:76%; height:100%; background:#1f3d7a; border-radius:999px"></div></div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#54617e">Rare insider perspective on how partners actually operate; gap is direct channel ownership — offset by 1:1 transferable governance.</p>
+        </div>
+      </div>
+      <a data-card data-name="360 link button" href="360-analysis.html" style="align-self:flex-start; text-decoration:none; background:#1f3d7a; color:#f7f8fa; font-weight:700; font-size:16px; padding:16px 32px; border-radius:999px">Open the full 360° &amp; 3D analysis →</a>
+    </div>
+  </div>
+
+  <!-- MODEL CARD -->
+  <div data-sec data-name="Model card (Training data)" style="max-width:1240px; margin:0 auto; padding:90px 40px; display:flex; flex-direction:column; gap:40px">
+    <div data-card data-name="Section heading" style="display:flex; flex-direction:column; gap:12px">
+      <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.16em; color:#1f3d7a">04 — MODEL CARD</span>
+      <h2 style="margin:0; font-size:clamp(40px,5vw,64px); font-weight:900; letter-spacing:-0.02em; line-height:1">Training data<span style="color:#1f3d7a">.</span></h2>
+    </div>
+    <div class="g2w" style="display:grid; grid-template-columns:1.2fr 1fr; gap:24px">
+      <div style="display:flex; flex-direction:column; gap:24px">
+        <div data-card data-name="Experience timeline" style="border:1px solid rgba(16,28,51,0.14); border-radius:20px; padding:32px; display:flex; flex-direction:column; gap:20px">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.14em; color:#8791a6">PRE-TRAINING</span>
+          <div style="display:flex; flex-direction:column; gap:6px">
+            <div style="display:flex; justify-content:space-between; gap:16px; align-items:baseline">
+              <span style="font-size:19px; font-weight:700">Bharti Airtel — Account Manager, Strategic Enterprise</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#8791a6; white-space:nowrap">2024 — NOW</span>
+            </div>
+            <p style="margin:0; font-size:15px; line-height:1.6; color:#54617e">ICICI Bank, Asian Paints, Credit Suisse, Godrej Group. Full lifecycle: renewals, upsell, escalations, executive governance across BFSI, IT, FMCG.</p>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:6px; border-top:1px solid rgba(16,28,51,0.1); padding-top:20px">
+            <div style="display:flex; justify-content:space-between; gap:16px; align-items:baseline">
+              <span style="font-size:19px; font-weight:700">ITC — Area Sales Manager Intern, Personal Care</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#8791a6; white-space:nowrap">2023</span>
+            </div>
+            <p style="margin:0; font-size:15px; line-height:1.6; color:#54617e">460+ outlet audit, competitor intelligence vs. Skinn/Nykaa/Sugar, promoter-effectiveness scoring → 25% campaign ROI improvement.</p>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:6px; border-top:1px solid rgba(16,28,51,0.1); padding-top:20px">
+            <div style="display:flex; justify-content:space-between; gap:16px; align-items:baseline">
+              <span style="font-size:19px; font-weight:700">XIMB — MBA, Business Management</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#8791a6; white-space:nowrap">2022 — 24</span>
+            </div>
+            <p style="margin:0; font-size:15px; line-height:1.6; color:#54617e">Marketing · Operations · Strategy. Capstone: full BRD + GTM for Amazon India Fitness &amp; Health — awarded distinction.</p>
+          </div>
+        </div>
+        <div data-card data-name="Cite-as joke block" style="border:1px solid rgba(16,28,51,0.14); border-radius:20px; padding:28px; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.7; color:#54617e; background:#eef2f8">
+          <span style="color:#8791a6">// cite as</span><br>
+          @misc{sougat2026,<br>
+          &nbsp;&nbsp;title = {SOUGAT-1: An Open-Minded Enterprise Model},<br>
+          &nbsp;&nbsp;author = {Hota, Sougat Shekhar},<br>
+          &nbsp;&nbsp;year = {2026},<br>
+          &nbsp;&nbsp;note = {Weights: gym-dependent. Alignment: customer-first.}<br>
+          }
+        </div>
+      </div>
+      <div data-card data-name="Certifications &amp; stack" style="border:1px solid rgba(16,28,51,0.14); border-radius:20px; padding:32px; display:flex; flex-direction:column; gap:16px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.14em; color:#8791a6">FINE-TUNES &amp; CERTIFICATIONS</span>
+        <div style="display:flex; flex-direction:column; gap:12px; font-size:15px">
+          <div style="display:flex; align-items:center; gap:12px"><span style="width:6px; height:6px; border-radius:50%; background:#1f3d7a"></span><span>Lean Six Sigma Green Belt — KPMG</span></div>
+          <div style="display:flex; align-items:center; gap:12px"><span style="width:6px; height:6px; border-radius:50%; background:#1f3d7a"></span><span>Certified Product Manager — Phoenix Global</span></div>
+          <div style="display:flex; align-items:center; gap:12px"><span style="width:6px; height:6px; border-radius:50%; background:#1f3d7a"></span><span>Zero Trust Cyber Associate (ZTCA) — Zscaler</span></div>
+          <div style="display:flex; align-items:center; gap:12px"><span style="width:6px; height:6px; border-radius:50%; background:#1f3d7a"></span><span>Zscaler Certified Sales Professional (ZCSP)</span></div>
+          <div style="display:flex; align-items:center; gap:12px"><span style="width:6px; height:6px; border-radius:50%; background:#1f3d7a"></span><span>AI Automation: LLM Apps, Agents &amp; APIs — Udemy</span></div>
+          <div style="display:flex; align-items:center; gap:12px"><span style="width:6px; height:6px; border-radius:50%; background:#1f3d7a"></span><span>McKinsey Forward Program</span></div>
+        </div>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.14em; color:#8791a6; margin-top:12px">STACK</span>
+        <div style="display:flex; gap:8px; flex-wrap:wrap">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; border:1px solid rgba(16,28,51,0.2); padding:5px 11px; border-radius:999px; color:#3a4763">Power BI</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; border:1px solid rgba(16,28,51,0.2); padding:5px 11px; border-radius:999px; color:#3a4763">Salesforce</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; border:1px solid rgba(16,28,51,0.2); padding:5px 11px; border-radius:999px; color:#3a4763">n8n</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; border:1px solid rgba(16,28,51,0.2); padding:5px 11px; border-radius:999px; color:#3a4763">Prompt engineering</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; border:1px solid rgba(16,28,51,0.2); padding:5px 11px; border-radius:999px; color:#3a4763">REST APIs</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; border:1px solid rgba(16,28,51,0.2); padding:5px 11px; border-radius:999px; color:#3a4763">SD-WAN</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; border:1px solid rgba(16,28,51,0.2); padding:5px 11px; border-radius:999px; color:#3a4763">ZTNA</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; border:1px solid rgba(16,28,51,0.2); padding:5px 11px; border-radius:999px; color:#3a4763">Advanced Excel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="contact" data-sec data-name="Contact" style="border-top:1px solid rgba(16,28,51,0.08); background:#e9eef6">
+    <div style="max-width:1240px; margin:0 auto; padding:100px 40px 60px; display:flex; flex-direction:column; gap:48px">
+      <h2 style="margin:0; font-size:clamp(44px,6vw,80px); font-weight:900; letter-spacing:-0.03em; line-height:1.02; max-width:900px">If I can systematise a ₹384 Mn portfolio, imagine what I can do for your product<span style="color:#1f3d7a">.</span></h2>
+      <div style="display:flex; gap:16px; flex-wrap:wrap">
+        <a href="mailto:sougatshekhar97@gmail.com" style="text-decoration:none; background:#1f3d7a; color:#f7f8fa; font-weight:700; font-size:16px; padding:16px 32px; border-radius:999px">sougatshekhar97@gmail.com</a>
+        <a href="https://linkedin.com/in/sougat-shekhar-hota" style="text-decoration:none; border:1px solid rgba(16,28,51,0.3); color:#101c33; font-weight:600; font-size:16px; padding:16px 32px; border-radius:999px">LinkedIn ↗</a>
+        <span style="border:1px solid rgba(16,28,51,0.14); color:#54617e; font-family:'JetBrains Mono',monospace; font-size:14px; padding:16px 32px; border-radius:999px">+91 76558 45685</span>
+        <span style="border:1px solid rgba(16,28,51,0.14); color:#54617e; font-family:'JetBrains Mono',monospace; font-size:14px; padding:16px 32px; border-radius:999px">Mumbai, India</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(16,28,51,0.1); padding-top:24px; font-family:'JetBrains Mono',monospace; font-size:11px; color:#8791a6; flex-wrap:wrap; gap:12px">
+        <span>SOUGAT-1 · v2026.07 · Open to PM, Process Excellence &amp; Partner roles</span>
+        <span>All claims verifiable. Unlike most launch pages.</span>
+      </div>
+    </div>
+  </div>
 </div>
-
-<script>
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
-</script>
 
 </body>
 </html>

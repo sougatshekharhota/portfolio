@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 360° &amp; 3D Teardown — Sougat Shekhar Hota</title>
+<meta name="description" content="A 360° and 3D self-evaluation of the SOUGAT-1 profile: altitude, breadth, depth, stakeholder lenses, role scorecards, and a 12-month roadmap.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: linear-gradient(180deg, #ffffff, #e9eef6) fixed; }
+  ::selection { background: #1f3d7a; color: #f7f8fa; }
+  [data-hidden="true"] { display: none; }
+  @media (max-width: 960px) {
+    .g4, .g3 { grid-template-columns: 1fr 1fr !important; }
+  }
+  @media (max-width: 640px) {
+    .g4, .g3, .g2 { grid-template-columns: 1fr !important; }
+    .nav-links { display: none !important; }
+  }
+</style>
+<script src="editor.js" defer></script>
+</head>
+<body>
+
+<div id="site" style="background:linear-gradient(180deg, #ffffff 0%, #f4f7fb 50%, #e7edf7 100%); color:#101c33; font-family:'Archivo',sans-serif; min-height:100vh">
+
+  <!-- NAV -->
+  <div data-sec data-name="Navigation" style="position:fixed; top:0; left:0; right:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:16px 40px; background:rgba(255,255,255,0.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(16,28,51,0.08)">
+    <a href="index.html" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:#101c33">
+      <span style="font-family:'JetBrains Mono',monospace; font-size:13px; color:#1f3d7a">←</span>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; letter-spacing:0.14em">SOUGAT-1 / EVALS</span>
+    </a>
+    <div class="nav-links" style="display:flex; align-items:center; gap:28px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.06em">
+      <a href="#axes" style="color:#54617e; text-decoration:none">3D AXES</a>
+      <a href="#lenses" style="color:#54617e; text-decoration:none">360° LENSES</a>
+      <a href="#scorecards" style="color:#54617e; text-decoration:none">SCORECARDS</a>
+      <a href="#roadmap" style="color:#54617e; text-decoration:none">ROADMAP</a>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div data-sec data-name="Header" style="max-width:1140px; margin:0 auto; padding:150px 40px 40px; display:flex; flex-direction:column; gap:24px">
+    <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.16em; color:#1f3d7a">EVALUATION REPORT · JULY 2026 · SELF-COMMISSIONED</span>
+    <h1 style="margin:0; font-size:clamp(52px,7vw,96px); font-weight:900; line-height:0.95; letter-spacing:-0.03em">The 360° &amp; 3D teardown<span style="color:#1f3d7a">.</span></h1>
+    <p style="margin:0; font-size:20px; line-height:1.6; color:#3a4763; max-width:760px">One profile, examined from every stakeholder's chair (360°) and along three structural axes (3D): altitude, breadth, and depth. Target roles: <strong style="color:#101c33">Product Management</strong> and <strong style="color:#101c33">Process Excellence</strong>, with Partner &amp; Alliances as a live third track.</p>
+
+    <!-- EXEC SUMMARY -->
+    <div data-card data-name="Executive summary" style="border:1px solid rgba(31,61,122,0.4); border-radius:20px; padding:36px; display:flex; flex-direction:column; gap:14px; background:linear-gradient(140deg, rgba(31,61,122,0.08), transparent 55%)">
+      <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.16em; color:#1f3d7a">EXECUTIVE SUMMARY — THE EAGLE-EYE VIEW</span>
+      <p style="margin:0; font-size:17px; line-height:1.7; color:#1c2a47">This is a <strong>builder wearing an account manager's badge</strong>. The resume reads "Customer Success," but the evidence pattern — health-scoring model, production AI automation, a framework adopted nationally, dashboards that changed executive behavior — is a product and process portfolio hiding inside a sales role. The core career move is not a pivot; it is a <strong>relabeling plus one missing proof point</strong>: a product owned end-to-end, in public, with users.</p>
+      <div style="display:flex; gap:24px; flex-wrap:wrap; border-top:1px solid rgba(16,28,51,0.12); padding-top:18px; font-family:'JetBrains Mono',monospace; font-size:13px">
+        <span style="color:#54617e">Strongest track: <span style="color:#1f3d7a">Process Excellence (81)</span></span>
+        <span style="color:#54617e">Aspired track: <span style="color:#1f3d7a">Product Management (72)</span></span>
+        <span style="color:#54617e">Insider edge: <span style="color:#1f3d7a">Partner &amp; Alliances (76)</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3D AXES -->
+  <div id="axes" data-sec data-name="3D Axes" style="max-width:1140px; margin:0 auto; padding:70px 40px; display:flex; flex-direction:column; gap:36px">
+    <div data-card data-name="Section heading" style="display:flex; flex-direction:column; gap:10px">
+      <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.16em; color:#1f3d7a">01 — THE 3D ANALYSIS</span>
+      <h2 style="margin:0; font-size:clamp(36px,4.5vw,56px); font-weight:900; letter-spacing:-0.02em; line-height:1">Altitude · Breadth · Depth</h2>
+    </div>
+    <div class="g3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px">
+      <div data-card data-name="Axis: Altitude" style="border:1px solid rgba(16,28,51,0.14); border-radius:20px; padding:32px; display:flex; flex-direction:column; gap:16px">
+        <div style="display:flex; justify-content:space-between; align-items:center">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.14em; color:#1f3d7a">AXIS 1 — ALTITUDE</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#8791a6">strategy ↔ execution</span>
+        </div>
+        <h3 style="margin:0; font-size:22px; font-weight:800">Rare mid-altitude operator</h3>
+        <p style="margin:0; font-size:15px; line-height:1.65; color:#3a4763">Comfortable at CXO altitude (₹60L negotiations, board-grade narratives) <em>and</em> in the weeds (n8n workflows, RCA docs). Most candidates hold one altitude; he moves between them. This is the classic PM altitude profile.</p>
+        <p style="margin:0; font-size:14px; line-height:1.6; color:#54617e; border-top:1px solid rgba(16,28,51,0.1); padding-top:14px"><strong style="color:#101c33">Watch-out:</strong> no evidence yet of setting multi-year strategy he was accountable for — his strategic work executed someone else's mandate.</p>
+      </div>
+      <div data-card data-name="Axis: Breadth" style="border:1px solid rgba(16,28,51,0.14); border-radius:20px; padding:32px; display:flex; flex-direction:column; gap:16px">
+        <div style="display:flex; justify-content:space-between; align-items:center">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.14em; color:#1f3d7a">AXIS 2 — BREADTH</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#8791a6">functions spanned</span>
+        </div>
+        <h3 style="margin:0; font-size:22px; font-weight:800">Unusually wide for 2 years</h3>
+        <p style="margin:0; font-size:15px; line-height:1.65; color:#3a4763">Sales, customer success, service delivery, analytics, AI automation, vendor management, FMCG GTM — a breadth profile most people build over a decade. It's why three role tracks are all plausible.</p>
+        <p style="margin:0; font-size:14px; line-height:1.6; color:#54617e; border-top:1px solid rgba(16,28,51,0.1); padding-top:14px"><strong style="color:#101c33">Watch-out:</strong> breadth without a declared spike reads as "generalist AM." The portfolio must pick a headline spike per application — never all three at once.</p>
+      </div>
+      <div data-card data-name="Axis: Depth" style="border:1px solid rgba(16,28,51,0.14); border-radius:20px; padding:32px; display:flex; flex-direction:column; gap:16px">
+        <div style="display:flex; justify-content:space-between; align-items:center">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.14em; color:#1f3d7a">AXIS 3 — DEPTH</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#8791a6">technical spike</span>
+        </div>
+        <h3 style="margin:0; font-size:22px; font-weight:800">Deep in networks, rising in AI</h3>
+        <p style="margin:0; font-size:15px; line-height:1.65; color:#3a4763">Genuine depth in enterprise networking (SD-WAN, ZTNA, MPLS — certified, not claimed) and a fast-compounding AI-builder spike: LLM agents in production is a differentiator almost no AM peer has.</p>
+        <p style="margin:0; font-size:14px; line-height:1.6; color:#54617e; border-top:1px solid rgba(16,28,51,0.1); padding-top:14px"><strong style="color:#101c33">Watch-out:</strong> software product craft is the shallow end — no SQL/product analytics, A/B testing, or agile delivery evidence on the resume.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 360 LENSES -->
+  <div id="lenses" data-sec data-name="360° Lenses" style="background:#e9eef6; border-top:1px solid rgba(16,28,51,0.08); border-bottom:1px solid rgba(16,28,51,0.08)">
+    <div style="max-width:1140px; margin:0 auto; padding:80px 40px; display:flex; flex-direction:column; gap:36px">
+      <div data-card data-name="Section heading" style="display:flex; flex-direction:column; gap:10px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.16em; color:#1f3d7a">02 — THE 360° VIEW</span>
+        <h2 style="margin:0; font-size:clamp(36px,4.5vw,56px); font-weight:900; letter-spacing:-0.02em; line-height:1">Six chairs around the table</h2>
+        <p style="margin:0; font-size:17px; color:#54617e; max-width:640px">What each stakeholder sees in the first 60 seconds — and the doubt they won't say out loud.</p>
+      </div>
+      <div class="g2" style="display:grid; grid-template-columns:1fr 1fr; gap:20px">
+        <div data-card data-name="Lens: Recruiter / ATS" style="border:1px solid rgba(16,28,51,0.14); border-radius:18px; padding:28px; background:#f7f8fa; display:flex; flex-direction:column; gap:12px">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.12em; color:#1f3d7a">THE RECRUITER / ATS</span>
+          <p style="margin:0; font-size:15px; line-height:1.65; color:#3a4763"><strong style="color:#101c33">Sees:</strong> strong keyword density (PRD, GTM, roadmap, Six Sigma, LLM), brand-name accounts, quantified everything. Passes screening for all three tracks.</p>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#54617e; border-top:1px solid rgba(16,28,51,0.1); padding-top:12px"><strong style="color:#1f3d7a">Silent doubt:</strong> title says Account Manager — for PM roles he'll be auto-bucketed as "career switcher" unless the summary line reframes him first.</p>
+        </div>
+        <div data-card data-name="Lens: PM Hiring Manager" style="border:1px solid rgba(16,28,51,0.14); border-radius:18px; padding:28px; background:#f7f8fa; display:flex; flex-direction:column; gap:12px">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.12em; color:#1f3d7a">THE PM HIRING MANAGER</span>
+          <p style="margin:0; font-size:15px; line-height:1.65; color:#3a4763"><strong style="color:#101c33">Sees:</strong> real customer empathy earned in escalations, an actual shipped AI system, BRD/PRD literacy, and a capstone GTM with distinction. Better raw material than most APM applicants.</p>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#54617e; border-top:1px solid rgba(16,28,51,0.1); padding-top:12px"><strong style="color:#1f3d7a">Silent doubt:</strong> "Has he ever prioritised a backlog, killed a feature, or sat in sprint planning?" No engineering-collaboration evidence yet.</p>
+        </div>
+        <div data-card data-name="Lens: Engineer" style="border:1px solid rgba(16,28,51,0.14); border-radius:18px; padding:28px; background:#f7f8fa; display:flex; flex-direction:column; gap:12px">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.12em; color:#1f3d7a">THE ENGINEER</span>
+          <p style="margin:0; font-size:15px; line-height:1.65; color:#3a4763"><strong style="color:#101c33">Sees:</strong> someone who actually built the automation instead of commissioning it — reads APIs, writes prompts, debugs workflows. Will respect that immediately.</p>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#54617e; border-top:1px solid rgba(16,28,51,0.1); padding-top:12px"><strong style="color:#1f3d7a">Silent doubt:</strong> no-code tools ≠ software engineering. He should never oversell "AI builder" to a technical panel — "I automate; I don't ship code" is the credible line.</p>
+        </div>
+        <div data-card data-name="Lens: CXO Customer" style="border:1px solid rgba(16,28,51,0.14); border-radius:18px; padding:28px; background:#f7f8fa; display:flex; flex-direction:column; gap:12px">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.12em; color:#1f3d7a">THE CXO CUSTOMER</span>
+          <p style="margin:0; font-size:15px; line-height:1.65; color:#3a4763"><strong style="color:#101c33">Sees:</strong> the AM who showed up with data, owned the RCA, and saved them money — the person they'd take a call from after he changes jobs. That is durable career capital.</p>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#54617e; border-top:1px solid rgba(16,28,51,0.1); padding-top:12px"><strong style="color:#1f3d7a">Silent doubt:</strong> none — this is the strongest lens. Get 2–3 of these voices as LinkedIn recommendations before applying anywhere.</p>
+        </div>
+        <div data-card data-name="Lens: Peer / Team" style="border:1px solid rgba(16,28,51,0.14); border-radius:18px; padding:28px; background:#f7f8fa; display:flex; flex-direction:column; gap:12px">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.12em; color:#1f3d7a">THE PEER / TEAM</span>
+          <p style="margin:0; font-size:15px; line-height:1.65; color:#3a4763"><strong style="color:#101c33">Sees:</strong> led 15+ engineers and two vendor orgs without formal authority — the exact influence-without-authority muscle PM and process roles run on.</p>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#54617e; border-top:1px solid rgba(16,28,51,0.1); padding-top:12px"><strong style="color:#1f3d7a">Silent doubt:</strong> everything on the resume is "I" — for leadership-track roles, add one story where he made someone <em>else</em> successful.</p>
+        </div>
+        <div data-card data-name="Lens: Self-view" style="border:1px solid rgba(16,28,51,0.14); border-radius:18px; padding:28px; background:#f7f8fa; display:flex; flex-direction:column; gap:12px">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.12em; color:#1f3d7a">THE SELF-VIEW</span>
+          <p style="margin:0; font-size:15px; line-height:1.65; color:#3a4763"><strong style="color:#101c33">Sees:</strong> running three role tracks at once (PM, process excellence, partner/alliances — the STT GDC prep shows real rigor). Optionality is rational at 2 years' tenure.</p>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#54617e; border-top:1px solid rgba(16,28,51,0.1); padding-top:12px"><strong style="color:#1f3d7a">Silent doubt:</strong> optionality becomes drift after ~12 months. Decision deadline: pick the primary track by mid-2027 and let the others become flavor, not destinations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCORECARDS -->
+  <div id="scorecards" data-sec data-name="Scorecards" style="max-width:1140px; margin:0 auto; padding:80px 40px; display:flex; flex-direction:column; gap:36px">
+    <div data-card data-name="Section heading" style="display:flex; flex-direction:column; gap:10px">
+      <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.16em; color:#1f3d7a">03 — ROLE READINESS SCORECARDS</span>
+      <h2 style="margin:0; font-size:clamp(36px,4.5vw,56px); font-weight:900; letter-spacing:-0.02em; line-height:1">Scored against the job description</h2>
+    </div>
+    <div class="g3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px">
+
+      <div data-card data-name="Scorecard: Product Management" style="border:1px solid rgba(16,28,51,0.14); border-radius:20px; padding:30px; display:flex; flex-direction:column; gap:18px">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px">
+          <span style="font-weight:800; font-size:18px">Product Management</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:30px; font-weight:700; color:#1f3d7a">72<span style="font-size:14px; color:#8791a6">/100</span></span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px">
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#3a4763">Customer insight &amp; discovery</span><span style="font-family:'JetBrains Mono',monospace; color:#54617e">9/10</span></div>
+            <div style="height:5px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="height:100%; border-radius:999px; background:#1f3d7a; width:90%"></div></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#3a4763">Execution &amp; cross-functional delivery</span><span style="font-family:'JetBrains Mono',monospace; color:#54617e">8/10</span></div>
+            <div style="height:5px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="height:100%; border-radius:999px; background:#1f3d7a; width:80%"></div></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#3a4763">Data &amp; narrative</span><span style="font-family:'JetBrains Mono',monospace; color:#54617e">8/10</span></div>
+            <div style="height:5px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="height:100%; border-radius:999px; background:#1f3d7a; width:80%"></div></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#3a4763">Technical fluency (AI/APIs)</span><span style="font-family:'JetBrains Mono',monospace; color:#54617e">7/10</span></div>
+            <div style="height:5px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="height:100%; border-radius:999px; background:#1f3d7a; width:70%"></div></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#3a4763">Product craft (backlog, agile, A/B)</span><span style="font-family:'JetBrains Mono',monospace; color:#54617e">5/10</span></div>
+            <div style="height:5px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="height:100%; border-radius:999px; background:#5c7bb8; width:50%"></div></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#3a4763">Shipped product ownership</span><span style="font-family:'JetBrains Mono',monospace; color:#54617e">5/10</span></div>
+            <div style="height:5px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="height:100%; border-radius:999px; background:#5c7bb8; width:50%"></div></div>
+          </div>
+        </div>
+        <p style="margin:0; font-size:13px; line-height:1.6; color:#54617e; border-top:1px solid rgba(16,28,51,0.1); padding-top:14px">Hire-able today as an APM / domain PM in enterprise AI or CS-tooling; the two 5s are closable within two quarters.</p>
+      </div>
+
+      <div data-card data-name="Scorecard: Process Excellence" style="border:1px solid rgba(16,28,51,0.14); border-radius:20px; padding:30px; display:flex; flex-direction:column; gap:18px">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px">
+          <span style="font-weight:800; font-size:18px">Process Excellence</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:30px; font-weight:700; color:#1f3d7a">81<span style="font-size:14px; color:#8791a6">/100</span></span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px">
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#3a4763">Method (Lean Six Sigma)</span><span style="font-family:'JetBrains Mono',monospace; color:#54617e">8/10</span></div>
+            <div style="height:5px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="height:100%; border-radius:999px; background:#1f3d7a; width:80%"></div></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#3a4763">Quantified process wins</span><span style="font-family:'JetBrains Mono',monospace; color:#54617e">9/10</span></div>
+            <div style="height:5px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="height:100%; border-radius:999px; background:#1f3d7a; width:90%"></div></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#3a4763">Governance &amp; SLA discipline</span><span style="font-family:'JetBrains Mono',monospace; color:#54617e">9/10</span></div>
+            <div style="height:5px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="height:100%; border-radius:999px; background:#1f3d7a; width:90%"></div></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#3a4763">Automation capability</span><span style="font-family:'JetBrains Mono',monospace; color:#54617e">8/10</span></div>
+            <div style="height:5px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="height:100%; border-radius:999px; background:#1f3d7a; width:80%"></div></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#3a4763">Formal transformation program</span><span style="font-family:'JetBrains Mono',monospace; color:#54617e">6/10</span></div>
+            <div style="height:5px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="height:100%; border-radius:999px; background:#5c7bb8; width:60%"></div></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#3a4763">Change management at org scale</span><span style="font-family:'JetBrains Mono',monospace; color:#54617e">6/10</span></div>
+            <div style="height:5px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="height:100%; border-radius:999px; background:#5c7bb8; width:60%"></div></div>
+          </div>
+        </div>
+        <p style="margin:0; font-size:13px; line-height:1.6; color:#54617e; border-top:1px solid rgba(16,28,51,0.1); padding-top:14px">Strongest track on evidence. A Black Belt plus one org-wide program makes this a senior-level case within 18 months.</p>
+      </div>
+
+      <div data-card data-name="Scorecard: Partner &amp; Alliances" style="border:1px solid rgba(16,28,51,0.14); border-radius:20px; padding:30px; display:flex; flex-direction:column; gap:18px">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px">
+          <span style="font-weight:800; font-size:18px">Partner &amp; Alliances</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:30px; font-weight:700; color:#1f3d7a">76<span style="font-size:14px; color:#8791a6">/100</span></span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px">
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#3a4763">Partner-side insider knowledge</span><span style="font-family:'JetBrains Mono',monospace; color:#54617e">9/10</span></div>
+            <div style="height:5px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="height:100%; border-radius:999px; background:#1f3d7a; width:90%"></div></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#3a4763">Governance (QBR/MBR) transfer</span><span style="font-family:'JetBrains Mono',monospace; color:#54617e">9/10</span></div>
+            <div style="height:5px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="height:100%; border-radius:999px; background:#1f3d7a; width:90%"></div></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#3a4763">Vendor ecosystem experience</span><span style="font-family:'JetBrains Mono',monospace; color:#54617e">8/10</span></div>
+            <div style="height:5px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="height:100%; border-radius:999px; background:#1f3d7a; width:80%"></div></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#3a4763">Executive relationship craft</span><span style="font-family:'JetBrains Mono',monospace; color:#54617e">8/10</span></div>
+            <div style="height:5px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="height:100%; border-radius:999px; background:#1f3d7a; width:80%"></div></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#3a4763">Direct channel P&amp;L ownership</span><span style="font-family:'JetBrains Mono',monospace; color:#54617e">4/10</span></div>
+            <div style="height:5px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="height:100%; border-radius:999px; background:#9db1d4; width:40%"></div></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <div style="display:flex; justify-content:space-between; font-size:13px"><span style="color:#3a4763">MDF / deal-reg mechanics</span><span style="font-family:'JetBrains Mono',monospace; color:#54617e">5/10</span></div>
+            <div style="height:5px; border-radius:999px; background:rgba(16,28,51,0.1); overflow:hidden"><div style="height:100%; border-radius:999px; background:#5c7bb8; width:50%"></div></div>
+          </div>
+        </div>
+        <p style="margin:0; font-size:13px; line-height:1.6; color:#54617e; border-top:1px solid rgba(16,28,51,0.1); padding-top:14px">The Airtel-insider angle is a genuine differentiator; the mechanics gaps are learnable in the first 90 days on the job.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROADMAP -->
+  <div id="roadmap" data-sec data-name="Roadmap" style="background:#e9eef6; border-top:1px solid rgba(16,28,51,0.08)">
+    <div style="max-width:1140px; margin:0 auto; padding:80px 40px 60px; display:flex; flex-direction:column; gap:36px">
+      <div data-card data-name="Section heading" style="display:flex; flex-direction:column; gap:10px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.16em; color:#1f3d7a">04 — GAP-CLOSURE ROADMAP</span>
+        <h2 style="margin:0; font-size:clamp(36px,4.5vw,56px); font-weight:900; letter-spacing:-0.02em; line-height:1">Next 12 months, sequenced</h2>
+      </div>
+      <div class="g4" style="display:grid; grid-template-columns:repeat(4,1fr); gap:20px">
+        <div data-card data-name="Q3 2026 — Ship" style="border:1px solid rgba(31,61,122,0.4); border-radius:18px; padding:26px; display:flex; flex-direction:column; gap:12px; background:#f7f8fa">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; color:#1f3d7a">Q3 2026 — SHIP</span>
+          <p style="margin:0; font-size:14px; line-height:1.65; color:#3a4763">Finish the Customer Health Score Engine. Deploy on Vercel, record the 3-min Loom on a critical account, post the story on LinkedIn. This single artifact converts "aspiring PM" into "PM with a shipped product."</p>
+        </div>
+        <div data-card data-name="Q4 2026 — Tool up" style="border:1px solid rgba(16,28,51,0.14); border-radius:18px; padding:26px; display:flex; flex-direction:column; gap:12px; background:#f7f8fa">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; color:#1f3d7a">Q4 2026 — TOOL UP</span>
+          <p style="margin:0; font-size:14px; line-height:1.65; color:#3a4763">Close the analytics gap: SQL + one product analytics stack (Mixpanel/Amplitude), and instrument the shipped engine with it. For the process track, start LSS Black Belt.</p>
+        </div>
+        <div data-card data-name="Q1 2027 — Prove" style="border:1px solid rgba(16,28,51,0.14); border-radius:18px; padding:26px; display:flex; flex-direction:column; gap:12px; background:#f7f8fa">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; color:#1f3d7a">Q1 2027 — PROVE</span>
+          <p style="margin:0; font-size:14px; line-height:1.65; color:#3a4763">Publish two written case studies: the churn engine and the SD-WAN framework, written as PM/process post-mortems (problem → options → decision → metrics). Collect 2–3 CXO LinkedIn recommendations.</p>
+        </div>
+        <div data-card data-name="Q2 2027 — Decide" style="border:1px solid rgba(16,28,51,0.14); border-radius:18px; padding:26px; display:flex; flex-direction:column; gap:12px; background:#f7f8fa">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; color:#1f3d7a">Q2 2027 — DECIDE</span>
+          <p style="margin:0; font-size:14px; line-height:1.65; color:#3a4763">Pick the primary track. If PM: target AI/SaaS platform roles where enterprise CS background is an asset (CS-adjacent PM, platform PM, AI adoption PM). If process: transformation offices at scale-ups or GCCs.</p>
+        </div>
+      </div>
+
+      <div data-card data-name="Resume fixes — blunt mode" style="border:1px solid rgba(16,28,51,0.14); border-radius:20px; padding:32px; display:flex; flex-direction:column; gap:16px; background:#f7f8fa">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.16em; color:#1f3d7a">RESUME-LEVEL FIXES — BLUNT MODE</span>
+        <div class="g2" style="display:grid; grid-template-columns:1fr 1fr; gap:14px 32px; font-size:14px; line-height:1.6">
+          <div style="display:flex; gap:12px"><span style="color:#1f3d7a; font-weight:700">01</span><span style="color:#3a4763">Retitle the identity line per application — "Enterprise AM · Customer Success · AI Transformation" is three hedges. One spike per resume version.</span></div>
+          <div style="display:flex; gap:12px"><span style="color:#1f3d7a; font-weight:700">02</span><span style="color:#3a4763">The summary is 90 words; recruiters read ~7 seconds. Cut to 40, lead with the AI-in-production claim — it's the rarest line on the page.</span></div>
+          <div style="display:flex; gap:12px"><span style="color:#1f3d7a; font-weight:700">03</span><span style="color:#3a4763">"2+ years" invites a seniority discount. Let the ₹384 Mn scope carry seniority instead of the tenure line.</span></div>
+          <div style="display:flex; gap:12px"><span style="color:#1f3d7a; font-weight:700">04</span><span style="color:#3a4763">Five competency buckets ≈ 60 keywords — ATS-friendly, human-hostile. Bold the 8 that match the target JD; prune the rest per version.</span></div>
+          <div style="display:flex; gap:12px"><span style="color:#1f3d7a; font-weight:700">05</span><span style="color:#3a4763">The Amazon GTM capstone is buried in achievements. For PM applications it belongs in a "Product Work" section next to the Health Score Engine.</span></div>
+          <div style="display:flex; gap:12px"><span style="color:#1f3d7a; font-weight:700">06</span><span style="color:#3a4763">Add links: the deployed engine, the Loom, LinkedIn posts. A PM resume without artifacts is testimony without evidence.</span></div>
+        </div>
+      </div>
+
+      <div data-card data-name="Footer" style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(16,28,51,0.1); padding-top:24px; font-family:'JetBrains Mono',monospace; font-size:11px; color:#8791a6; flex-wrap:wrap; gap:12px">
+        <span>EVAL SUITE: SOUGAT-BENCH v1 · Conducted on a single desk. Possibly rigged in his favor — but the numbers aren't.</span>
+        <a href="index.html" style="color:#1f3d7a; text-decoration:none">← BACK TO PORTFOLIO</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
