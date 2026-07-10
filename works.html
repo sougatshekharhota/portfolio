@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sougat Shekhar Hota ✲ Projects</title>
+<meta name="description" content="An interactive index of systems built by Sougat Shekhar Hota — enterprise account management run like product work: churn engines, AI in production, supply chain intelligence.">
+<meta property="og:title" content="Sougat Shekhar Hota ✲ Portfolio">
+<meta property="og:description" content="An interactive index of systems built by Sougat Shekhar Hota.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* McKinsey-inspired: deep blue ink, electric blue accent, cool paper */
+    --bg:#F6F8FA; --ink:#051C2C; --mut:rgba(5,28,44,.55);
+    --line:rgba(5,28,44,.16); --card:#E6EBF1; --accent:#2251FF;
+    --serif:'Newsreader', Georgia, 'Times New Roman', serif;
+    --sans:'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+       -webkit-font-smoothing:antialiased; overflow-x:hidden}
+  body::before{ /* faint graph-paper grid */
+    content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:linear-gradient(var(--line) 1px, transparent 1px),
+                     linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:72px 72px; opacity:.16;
+  }
+  button{font:inherit; color:inherit; background:none; border:0; cursor:pointer}
+  a{color:inherit}
+  img{user-select:none; -webkit-user-drag:none}
+  .caps{font:500 11px/1 var(--sans); text-transform:uppercase; letter-spacing:.1em}
+  [data-hidden="true"]{display:none}
+
+  /* ============ entry gate ============ */
+  #gate{position:fixed; inset:0; z-index:60; background:var(--bg);
+        display:flex; flex-direction:column; align-items:center; justify-content:center;
+        gap:26px; text-align:center; padding:24px;
+        transition:opacity .8s cubic-bezier(.65,0,.35,1)}
+  #gate.leaving{opacity:0; pointer-events:none}
+  #gate .dot{width:20px; height:20px; border-radius:50%; background:var(--accent);
+             animation:gatePulse 1.6s cubic-bezier(.45,0,.55,1) infinite}
+  @keyframes gatePulse{0%,100%{transform:scale(1)} 50%{transform:scale(1.55)}}
+  #gate h1{font:400 clamp(40px,7.5vw,92px)/1 var(--serif); letter-spacing:-.015em;
+           animation:gateUp .9s cubic-bezier(.22,1,.36,1) both .15s}
+  #gate .tag{font:400 clamp(17px,2vw,22px)/1.4 var(--serif); color:var(--mut);
+             animation:gateUp .9s cubic-bezier(.22,1,.36,1) both .3s}
+  @keyframes gateUp{from{opacity:0; transform:translateY(26px)} to{opacity:1; transform:none}}
+  #gate .doors{display:flex; gap:14px; flex-wrap:wrap; justify-content:center;
+               animation:gateUp .9s cubic-bezier(.22,1,.36,1) both .55s}
+  #gate .doors button{padding:13px 26px; border:1px solid var(--ink); border-radius:999px;
+        font:500 12px/1 var(--sans); text-transform:uppercase; letter-spacing:.1em;
+        transition:background .3s,color .3s,border-color .3s}
+  #gate .doors button:hover{background:var(--accent); border-color:var(--accent); color:var(--bg)}
+
+  /* ============ header ============ */
+  .site-head{position:fixed; top:0; left:0; right:0; z-index:40;
+             display:flex; align-items:center; justify-content:space-between;
+             padding:18px clamp(16px,3.5vw,40px); pointer-events:none}
+  .site-head>*{pointer-events:auto; position:relative}
+  .site-head::before{content:""; position:absolute; left:0; right:0; top:0; bottom:-26px;
+    background:linear-gradient(180deg, var(--bg) 58%, rgba(246,248,250,0));
+    z-index:-1; pointer-events:none}
+  .brand{font:600 13px/1 var(--sans); text-transform:uppercase; letter-spacing:.1em;
+         text-decoration:none; display:flex; align-items:center; gap:8px}
+  .brand .mark{color:var(--accent); font:400 16px/1 var(--serif);
+               display:inline-block; animation:spinMark 14s linear infinite}
+  @keyframes spinMark{to{transform:rotate(360deg)}}
+  .mode{position:absolute; left:50%; transform:translateX(-50%);
+        display:flex; align-items:center; gap:12px}
+  .mode button{font:500 12px/1 var(--sans); text-transform:uppercase; letter-spacing:.1em;
+               color:var(--mut); padding:8px 2px; transition:color .3s}
+  .mode button[aria-pressed="true"]{color:var(--ink)}
+  .mode button:hover{color:var(--accent)}
+  .mode .sep{width:5px; height:5px; border-radius:50%; background:var(--accent)}
+  body.about .mode{display:none}
+  .menu-btn{border:1px solid var(--line); border-radius:999px; padding:11px 20px;
+            background:var(--bg); font:500 12px/1 var(--sans); text-transform:uppercase;
+            letter-spacing:.1em; display:flex; align-items:center; gap:9px;
+            transition:border-color .3s}
+  .menu-btn:hover{border-color:var(--ink)}
+  .menu-btn .dot2{width:6px; height:6px; border-radius:50%; background:var(--accent)}
+
+  /* ============ works : orbit ============ */
+  #view-works{position:relative; z-index:1; height:100vh; height:100dvh; overflow:hidden;
+              display:flex; flex-direction:column}
+  #orbit-zone{flex:1; position:relative; touch-action:pan-y; cursor:grab}
+  #orbit-zone.dragging{cursor:grabbing}
+  .stage{position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+         perspective:1500px}
+  .ring{position:relative; transform-style:preserve-3d; width:0; height:0}
+  .oc{position:absolute; transform-style:preserve-3d;
+      width:var(--cw); height:calc(var(--cw)*.625);
+      left:calc(var(--cw)/-2); top:calc(var(--cw)*.625/-2);
+      background:var(--card); border:1px solid var(--line);
+      overflow:hidden; will-change:transform,opacity;
+      backface-visibility:hidden; -webkit-backface-visibility:hidden}
+  .oc img{width:100%; height:100%; object-fit:cover; object-position:top; display:block}
+  .oc .no-badge{position:absolute; top:10px; left:12px; font:italic 400 13px/1 var(--serif);
+                color:var(--bg); background:var(--ink); padding:5px 9px; border-radius:999px;
+                opacity:.92}
+  .orbit-caption{position:relative; z-index:2; text-align:center;
+                 padding:0 20px clamp(22px,4vh,44px)}
+  .orbit-caption .no{font:italic 400 14px/1 var(--serif); color:var(--accent)}
+  .orbit-caption h2{font:400 clamp(34px,5vw,64px)/1.05 var(--serif); letter-spacing:-.01em;
+                    margin:6px 0 8px}
+  .orbit-caption .tg{color:var(--mut)}
+  .orbit-caption .hint{margin-top:14px; color:var(--mut);
+                       font:italic 400 14px/1 var(--serif)}
+  .orbit-caption .hint b{color:var(--ink); font-weight:400}
+  .cap-anim{animation:capIn .45s cubic-bezier(.22,1,.36,1)}
+  @keyframes capIn{from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:none}}
+
+  /* ============ works : list ============ */
+  #list-zone{flex:1; display:none; flex-direction:column; align-items:center;
+             justify-content:center; gap:2px; position:relative; padding:90px 16px 60px}
+  #view-works.list-mode #orbit-zone, #view-works.list-mode .orbit-caption{display:none}
+  #view-works.list-mode #list-zone{display:flex}
+  .li-item{font:400 clamp(28px,5vh,52px)/1.22 var(--serif); letter-spacing:-.01em;
+           transition:opacity .35s, color .35s; position:relative; z-index:2}
+  #list-zone:hover .li-item{opacity:.28}
+  #list-zone .li-item:hover{opacity:1; color:var(--accent)}
+  #float-prev{position:fixed; z-index:1; width:min(300px,32vw); aspect-ratio:16/10;
+              border:1px solid var(--line); background:var(--card); overflow:hidden;
+              pointer-events:none; opacity:0; transition:opacity .25s;
+              transform:translate(-50%,-115%) rotate(-2deg)}
+  #float-prev img{width:100%; height:100%; object-fit:cover; object-position:top}
+  #float-prev.on{opacity:1}
+
+  /* ============ slide-up overlays (project detail + cv) ============ */
+  .sheet{position:fixed; inset:0; z-index:45; background:var(--bg);
+         transform:translateY(103%); transition:transform .65s cubic-bezier(.76,0,.24,1);
+         overflow-y:auto; overscroll-behavior:contain}
+  .sheet.open{transform:none}
+  .sheet .inner{max-width:1100px; margin:0 auto; padding:100px clamp(18px,4vw,48px) 80px}
+  #detail .d-head{display:flex; align-items:baseline; gap:12px 22px; flex-wrap:wrap}
+  #detail .d-no{font:italic 400 clamp(16px,2vw,22px)/1 var(--serif); color:var(--accent)}
+  #detail h2{font:400 clamp(46px,8vw,104px)/.98 var(--serif); letter-spacing:-.02em}
+  #detail .d-tag{color:var(--mut); margin-top:4px}
+  #detail .d-shot{margin:clamp(24px,4vh,40px) 0; border:1px solid var(--line);
+                  background:var(--card); overflow:hidden}
+  #detail .d-shot img{width:100%; display:block; aspect-ratio:16/10; object-fit:cover; object-position:top}
+  #detail .d-lede{font:400 clamp(21px,2.6vw,30px)/1.35 var(--serif); max-width:26em; text-wrap:pretty}
+  #detail .d-about{margin-top:18px; font:400 15.5px/1.65 var(--sans); color:var(--mut); max-width:64ch}
+  #detail .d-proof{margin-top:14px; font:italic 400 15px/1.5 var(--serif); color:var(--accent)}
+  .pill-links{display:flex; gap:14px; flex-wrap:wrap; margin-top:30px}
+  .pill-links a{text-decoration:none; padding:13px 26px; border-radius:999px;
+        border:1px solid var(--ink); font:500 12px/1 var(--sans); text-transform:uppercase;
+        letter-spacing:.1em; transition:background .3s,color .3s,border-color .3s}
+  .pill-links a:hover{background:var(--accent); border-color:var(--accent); color:var(--bg)}
+  .pill-links a.ghost{border-color:var(--line); color:var(--mut)}
+  .pill-links a.ghost:hover{color:var(--bg)}
+  #detail .d-next{margin-top:clamp(48px,9vh,90px); padding-top:26px; border-top:1px solid var(--line);
+                  display:block; text-decoration:none}
+  #detail .d-next .caps{color:var(--mut)}
+  #detail .d-next .nx{font:400 clamp(34px,5.5vw,66px)/1.05 var(--serif); margin-top:8px;
+                      transition:color .3s}
+  #detail .d-next:hover .nx{color:var(--accent)}
+  .sheet-close{position:fixed; top:18px; right:clamp(16px,3.5vw,40px); z-index:46;
+           border:1px solid var(--line); border-radius:999px; padding:11px 20px;
+           background:var(--bg); font:500 12px/1 var(--sans); text-transform:uppercase;
+           letter-spacing:.1em; opacity:0; pointer-events:none; transition:opacity .3s .3s, border-color .3s}
+  .sheet-close.on{opacity:1; pointer-events:auto}
+  .sheet-close:hover{border-color:var(--ink)}
+
+  /* cv sheet content */
+  #cv h2.cv-title{font:400 clamp(46px,7vw,92px)/1 var(--serif); letter-spacing:-.02em}
+  #cv .cv-sub{color:var(--mut); margin-top:8px}
+  #cv .cv-sec{margin-top:clamp(38px,6vh,64px)}
+  #cv .cv-sec>.caps{color:var(--accent)}
+  #cv h3{font:400 clamp(26px,3.4vw,40px)/1.1 var(--serif); margin-top:10px}
+  #cv .row{display:flex; gap:14px 36px; padding:22px 0; border-bottom:1px solid var(--line); flex-wrap:wrap}
+  #cv .row .when{flex:0 0 120px; font:italic 400 15px/1.5 var(--serif); color:var(--accent)}
+  #cv .row .what{flex:1 1 380px}
+  #cv .row .what h4{font:400 22px/1.25 var(--serif)}
+  #cv .row .what .role{color:var(--mut); font:500 11px/1.6 var(--sans);
+                       text-transform:uppercase; letter-spacing:.1em; margin:3px 0 8px}
+  #cv .row .what p, #cv .row .what li{font:400 15px/1.65 var(--sans); color:var(--mut)}
+  #cv .row .what ul{padding-left:18px}
+  #cv .two{columns:2; column-gap:44px}
+  #cv .two p{break-inside:avoid; padding:9px 0; border-bottom:1px solid var(--line);
+             font:400 15.5px/1.5 var(--sans)}
+  #cv .two p small{color:var(--mut)}
+  @media (max-width:700px){ #cv .two{columns:1} }
+
+  /* ============ about ============ */
+  #view-about{display:none; position:relative; z-index:1;
+              max-width:1200px; margin:0 auto; padding:0 clamp(18px,4vw,48px)}
+  body.about #view-works{display:none}
+  body.about #view-about{display:block}
+  .bio-stage{min-height:100vh; min-height:100dvh; display:flex; align-items:center;
+             padding:110px 0 40px}
+  .bio{font:400 clamp(27px,3.6vw,46px)/1.35 var(--serif); letter-spacing:-.005em;
+       max-width:24em; text-wrap:pretty}
+  .bio .w{color:var(--line); transition:color .4s}
+  .bio .w.lit{color:var(--ink)}
+  .bio .accent-w.lit{color:var(--accent); font-style:italic}
+  .about-photo{display:flex; flex-direction:row-reverse; gap:clamp(20px,4vw,52px); flex-wrap:wrap;
+               align-items:center; margin:0 0 clamp(48px,9vh,100px)}
+  .about-photo img{width:clamp(190px,22vw,290px); height:auto; border:1px solid var(--line); display:block}
+  .about-photo figcaption{margin-top:8px; color:var(--mut)}
+  .about-photo .aside{flex:1 1 300px; font:400 16px/1.65 var(--sans); color:var(--mut); max-width:52ch}
+  .offduty{border-top:1px solid var(--line); padding:clamp(22px,3.5vh,34px) 0;
+           display:flex; gap:10px 34px; flex-wrap:wrap; align-items:baseline}
+  .offduty .caps{color:var(--accent)}
+  .offduty span.h{font:italic 400 17px/1.4 var(--serif); color:var(--mut)}
+  .resume-strip{border-top:1px solid var(--line); padding:clamp(26px,4vh,40px) 0;
+                display:flex; align-items:baseline; gap:16px 44px; flex-wrap:wrap}
+  .resume-strip .now{flex:1 1 360px; font:400 clamp(20px,2.4vw,30px)/1.3 var(--serif)}
+  .resume-strip .now em{color:var(--accent)}
+  .r-links{display:flex; gap:12px; flex-wrap:wrap}
+  .r-links a, .r-links button{padding:14px 28px; border-radius:999px; border:1px solid var(--ink);
+             font:500 12px/1 var(--sans); text-transform:uppercase; letter-spacing:.1em;
+             text-decoration:none; transition:color .3s,border-color .3s,background .3s}
+  .r-links .primary{background:var(--accent); border-color:var(--accent); color:var(--bg)}
+  .r-links .primary:hover{background:var(--ink); border-color:var(--ink)}
+  .r-links .ghost:hover{background:var(--ink); border-color:var(--ink); color:var(--bg)}
+  .big-socials{border-top:1px solid var(--line); padding:clamp(40px,7vh,80px) 0;
+               display:flex; flex-direction:column; align-items:center; gap:4px}
+  .big-socials a{font:400 clamp(34px,6vw,72px)/1.25 var(--serif); text-decoration:none;
+                 transition:color .3s,letter-spacing .4s}
+  .big-socials a:hover{color:var(--accent); letter-spacing:.01em}
+  .about-foot{border-top:1px solid var(--line); padding:18px 0 26px;
+              display:flex; gap:10px 30px; flex-wrap:wrap; align-items:baseline; color:var(--mut)}
+  .about-foot .note{font:italic 400 13px/1.3 var(--serif); text-transform:none; letter-spacing:0}
+  .about-foot .top{margin-left:auto; text-decoration:none; border-bottom:1px solid var(--line); cursor:pointer}
+
+  /* ============ menu panel ============ */
+  #scrim{position:fixed; inset:0; z-index:49; background:rgba(5,28,44,.38);
+         opacity:0; pointer-events:none; transition:opacity .5s}
+  #scrim.on{opacity:1; pointer-events:auto}
+  #panel{position:fixed; top:10px; right:10px; bottom:10px; z-index:50;
+         width:min(430px, calc(100vw - 20px));
+         background:var(--ink); color:var(--bg); border-radius:18px;
+         transform:translateX(calc(100% + 24px));
+         transition:transform .6s cubic-bezier(.76,0,.24,1);
+         display:flex; flex-direction:column; padding:26px 34px 30px}
+  #panel.open{transform:none}
+  #panel .p-top{display:flex; justify-content:flex-end}
+  #panel .p-close{color:rgba(246,248,250,.7); font:500 12px/1 var(--sans);
+                  text-transform:uppercase; letter-spacing:.1em; display:flex;
+                  align-items:center; gap:9px; padding:8px 0; transition:color .3s}
+  #panel .p-close:hover{color:var(--bg)}
+  #panel .p-close .x{width:8px; height:8px; border-radius:50%; background:var(--accent)}
+  #panel nav{flex:1; display:flex; flex-direction:column; justify-content:center; gap:2px}
+  #panel nav button, #panel nav a{display:block; text-align:left; text-decoration:none;
+        font:400 clamp(42px,6vh,62px)/1.3 var(--serif); letter-spacing:-.01em;
+        color:var(--bg); transition:color .3s, padding-left .4s}
+  #panel nav button:hover, #panel nav a:hover{color:#6E8FFF; padding-left:10px}
+  #panel .p-foot{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap}
+  #panel .p-mail{color:rgba(246,248,250,.75); text-decoration:none; font:400 14px/1 var(--sans)}
+  #panel .p-mail:hover{color:var(--bg)}
+  #panel .p-socials{display:flex; gap:9px}
+  #panel .p-socials a{width:42px; height:42px; border-radius:50%; background:var(--bg); color:var(--ink);
+        display:flex; align-items:center; justify-content:center; text-decoration:none;
+        font:600 11px/1 var(--sans); letter-spacing:.02em;
+        transition:background .3s,color .3s,transform .3s}
+  #panel .p-socials a:hover{background:#6E8FFF; color:var(--bg); transform:translateY(-3px)}
+
+  /* ============ sound toggle & cursor ============ */
+  #snd{position:fixed; right:clamp(16px,3.5vw,40px); bottom:20px; z-index:48;
+       width:46px; height:46px; border-radius:50%; border:1px solid var(--line); background:var(--bg);
+       display:flex; align-items:center; justify-content:center; transition:border-color .3s}
+  #snd:hover{border-color:var(--ink)}
+  #snd svg{width:17px; height:17px; stroke:var(--ink); fill:none; stroke-width:1.6;
+           stroke-linecap:round; stroke-linejoin:round}
+  #snd .waves{transition:opacity .3s}
+  #snd.off .waves{opacity:0}
+  #snd.off::after{content:""; position:absolute; width:22px; height:1.5px; background:var(--accent);
+                  transform:rotate(-45deg)}
+  #cur{position:fixed; z-index:70; width:9px; height:9px; border-radius:50%;
+       background:var(--accent); pointer-events:none; top:0; left:0; opacity:0;
+       transform:translate(-50%,-50%); transition:width .25s,height .25s,opacity .3s}
+  body.cur-on #cur{opacity:.85}
+  #cur.big{width:34px; height:34px; opacity:.28}
+
+  /* ============ mobile & motion ============ */
+  @media (max-width:760px){
+    .site-head{padding:14px 16px}
+    .mode{position:fixed; left:50%; top:auto; bottom:78px; transform:translateX(-50%);
+          background:var(--bg); border:1px solid var(--line); border-radius:999px; padding:4px 18px}
+    .menu-btn{padding:10px 16px}
+    .orbit-caption h2{font-size:34px}
+    .orbit-caption{padding-bottom:132px}
+    #panel nav button, #panel nav a{font-size:36px}
+    #snd{bottom:16px}
+    .bio-stage{padding:96px 0 30px}
+    .bio{font-size:clamp(25px,6.4vw,34px)}
+    .about-photo{flex-direction:column; align-items:center; text-align:center; gap:26px}
+    .about-photo .aside{flex:none; text-align:center}
+    .big-socials a{font-size:clamp(38px,11vw,58px)}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.01ms !important; transition-duration:.01ms !important}
+    #cur{display:none}
+    .bio .w{color:var(--ink)}
+  }
+</style>
+<script src="editor.js" defer></script>
+</head>
+<body>
+
+  <!-- entry gate -->
+  <div id="gate">
+    <div class="dot" aria-hidden="true"></div>
+    <h1>Sougat Shekhar Hota</h1>
+    <p class="tag">strategic account manager · systems over heroics,<br>a ₹384 Mn portfolio run like a product</p>
+    <div class="doors">
+      <button id="enter-snd">Enter with sound</button>
+      <button id="enter-quiet">Enter without sound</button>
+    </div>
+  </div>
+
+  <!-- header -->
+  <header class="site-head">
+    <a class="brand" href="index.html" id="brand"><span class="mark">✲</span> Sougat Shekhar Hota</a>
+    <div class="mode" role="tablist" aria-label="Works view mode">
+      <button id="m-orbit" aria-pressed="true">Orbit</button>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="m-list" aria-pressed="false">List</button>
+    </div>
+    <button class="menu-btn" id="menu-open">Menu <span class="dot2"></span></button>
+  </header>
+
+  <!-- works -->
+  <main id="view-works">
+    <div id="orbit-zone" aria-label="Works carousel. Scroll or drag to rotate">
+      <div class="stage"><div class="ring" id="ring"></div></div>
+    </div>
+    <div class="orbit-caption" id="cap">
+      <div class="no"></div>
+      <h2></h2>
+      <div class="tg caps"></div>
+      <p class="hint">scroll or drag to browse · <b>click to open</b></p>
+    </div>
+    <div id="list-zone" role="list"></div>
+  </main>
+  <div id="float-prev" aria-hidden="true"><img alt=""></div>
+
+  <!-- editable content region (owner edit mode: #admin) -->
+  <div id="site">
+
+  <!-- about -->
+  <section id="view-about" data-sec data-name="About page">
+    <div class="bio-stage"><p class="bio" id="bio"></p></div>
+    <figure class="about-photo" data-card data-name="Photo & aside">
+      <div>
+        <img src="assets/sougat.jpg" alt="Portrait of Sougat Shekhar Hota">
+        <figcaption class="caps">Fig. 1 · The operator</figcaption>
+      </div>
+      <p class="aside">Every system here was built inside a live enterprise business —
+      ICICI Bank, Asian Paints, Credit Suisse, Godrej — or shipped as open source with
+      real data. Health scores instead of heroics, governance instead of goodwill,
+      automation instead of apology. All metrics reproducible on request.</p>
+    </figure>
+    <div class="offduty" data-card data-name="Off duty strip">
+      <span class="caps">Off duty</span>
+      <span class="h">strength training</span>
+      <span class="h">building with AI</span>
+      <span class="h">coffee craft</span>
+      <span class="h">travel &amp; exploration</span>
+    </div>
+    <div class="resume-strip" data-card data-name="Currently strip">
+      <p class="now">Currently: <em>Account Manager, Strategic Enterprise</em>, Bharti Airtel — Mumbai.</p>
+      <div class="r-links">
+        <button class="primary" data-open-cv>View the CV →</button>
+        <a class="ghost" href="https://linkedin.com/in/sougat-shekhar-hota" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+    <div class="big-socials" data-card data-name="Big social links">
+      <a href="https://github.com/sougatshekhar97-cpu" target="_blank" rel="noopener">github</a>
+      <a href="https://linkedin.com/in/sougat-shekhar-hota" target="_blank" rel="noopener">linkedin</a>
+      <a href="mailto:sougatshekhar97@gmail.com">email</a>
+    </div>
+    <footer class="about-foot caps" data-card data-name="About footer">
+      <span>© <span id="yr">2026</span> Sougat Shekhar Hota</span>
+      <span class="note">All claims verifiable. Unlike most launch pages.</span>
+      <a class="top" data-go-works>← Back to works</a>
+    </footer>
+  </section>
+
+  <!-- cv sheet -->
+  <div id="cv" class="sheet" aria-modal="true" role="dialog" aria-label="Curriculum vitae">
+    <div class="inner" data-sec data-name="CV content">
+      <h2 class="cv-title">Curriculum vitae<span style="color:var(--accent)">.</span></h2>
+      <p class="cv-sub caps">Sougat Shekhar Hota · Strategic Account Manager · Mumbai, IN</p>
+
+      <div class="cv-sec" data-card data-name="CV: Experience">
+        <span class="caps">01 · Experience</span>
+        <div class="row">
+          <div class="when">2024 — now</div>
+          <div class="what">
+            <h4>Bharti Airtel</h4>
+            <div class="role">Account Manager · Strategic Enterprise</div>
+            <ul>
+              <li>Own a ₹384 Mn ARR portfolio across 30+ enterprise accounts — BFSI, IT and FMCG, including ICICI Bank, Asian Paints, Credit Suisse and Godrej Group.</li>
+              <li>Built a proactive health-scoring and churn-intervention model; churn down 46% YoY and a ₹4 Cr account saved — recognised as regional best practice.</li>
+              <li>Shipped an n8n + LLM-agent incident automation to production at Asian Paints; recurring incidents down 80%, playbook adopted across accounts.</li>
+              <li>Recovered ₹60L+ in SLA value through RCA-documented, dashboard-backed negotiation at CXO level.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="when">2023</div>
+          <div class="what">
+            <h4>ITC Limited</h4>
+            <div class="role">Area Sales Manager Intern · Personal Care</div>
+            <ul>
+              <li>Audited 460+ retail outlets; built competitor intelligence versus Skinn, Nykaa and Sugar.</li>
+              <li>Designed a promoter-effectiveness scoring model that improved campaign ROI by 25%.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-sec" data-card data-name="CV: Education">
+        <span class="caps">02 · Education</span>
+        <div class="row">
+          <div class="when">2022 — 24</div>
+          <div class="what">
+            <h4>Xavier Institute of Management, Bhubaneswar (XIMB)</h4>
+            <div class="role">MBA · Business Management</div>
+            <p>Marketing, Operations and Strategy. Capstone: full BRD and GTM for Amazon India Fitness &amp; Health — awarded distinction.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-sec" data-card data-name="CV: Certifications">
+        <span class="caps">03 · Certifications</span>
+        <div class="two" style="margin-top:14px">
+          <p>Lean Six Sigma Green Belt <small>— KPMG</small></p>
+          <p>Certified Product Manager <small>— Phoenix Global</small></p>
+          <p>Zero Trust Cyber Associate (ZTCA) <small>— Zscaler</small></p>
+          <p>Zscaler Certified Sales Professional <small>— Zscaler</small></p>
+          <p>AI Automation: LLM Apps, Agents &amp; APIs <small>— Udemy</small></p>
+          <p>McKinsey Forward Program <small>— McKinsey</small></p>
+        </div>
+      </div>
+
+      <div class="cv-sec" data-card data-name="CV: Skills">
+        <span class="caps">04 · Skills &amp; stack</span>
+        <div class="row">
+          <div class="when">core</div>
+          <div class="what"><p>Strategic account management · Customer success · Process excellence (Lean Six Sigma) · Product thinking (BRD/PRD, GTM) · Executive governance (QBR/MBR, RCA) · Partner &amp; alliance management</p></div>
+        </div>
+        <div class="row">
+          <div class="when">stack</div>
+          <div class="what"><p>Power BI · Salesforce · n8n · Prompt engineering · REST APIs · Python · Streamlit · SD-WAN · ZTNA · Advanced Excel</p></div>
+        </div>
+      </div>
+
+      <div class="pill-links" data-card data-name="CV: contact pills">
+        <a href="mailto:sougatshekhar97@gmail.com">Email me</a>
+        <a class="ghost" href="https://linkedin.com/in/sougat-shekhar-hota" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /#site -->
+
+  <!-- project detail sheet -->
+  <div id="detail" class="sheet" aria-modal="true" role="dialog">
+    <div class="inner">
+      <div class="d-head">
+        <span class="d-no"></span>
+        <h2></h2>
+      </div>
+      <div class="d-tag caps"></div>
+      <div class="d-shot"><img alt=""></div>
+      <p class="d-lede"></p>
+      <p class="d-about"></p>
+      <p class="d-proof"></p>
+      <div class="pill-links">
+        <a class="open-app" href="#" target="_blank" rel="noopener">Open ↗</a>
+        <a class="open-code ghost" href="#" target="_blank" rel="noopener">Code ↗</a>
+      </div>
+      <a class="d-next" href="#">
+        <span class="caps">Next up…</span>
+        <div class="nx"></div>
+      </a>
+    </div>
+  </div>
+  <button class="sheet-close" id="d-close">Close ●</button>
+  <button class="sheet-close" id="cv-close">Close ●</button>
+
+  <!-- menu -->
+  <div id="scrim"></div>
+  <aside id="panel" aria-label="Menu">
+    <div class="p-top"><button class="p-close" id="menu-close">Close <span class="x"></span></button></div>
+    <nav>
+      <a href="index.html">← portfolio</a>
+      <button data-go="works">works</button>
+      <button data-go="about">about</button>
+      <button id="menu-cv">curriculum vitae</button>
+      <a href="mailto:sougatshekhar97@gmail.com">contact</a>
+    </nav>
+    <div class="p-foot">
+      <a class="p-mail" href="mailto:sougatshekhar97@gmail.com">sougatshekhar97@gmail.com</a>
+      <div class="p-socials">
+        <a href="https://github.com/sougatshekhar97-cpu" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+        <a href="https://linkedin.com/in/sougat-shekhar-hota" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        <a href="mailto:sougatshekhar97@gmail.com" aria-label="Email">@</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- sound toggle -->
+  <button id="snd" class="off" aria-label="Toggle sound">
+    <svg viewBox="0 0 24 24"><path d="M4 9.5v5h3.5L12 19V5L7.5 9.5H4z"/>
+    <g class="waves"><path d="M15.5 9.2a4 4 0 0 1 0 5.6"/><path d="M18 6.8a7.4 7.4 0 0 1 0 10.4"/></g></svg>
+  </button>
+
+  <div id="cur" aria-hidden="true"></div>
+
+<script>
+'use strict';
+/* ================= data ================= */
+const WORKS = [
+ {no:'№ 01', title:'PULSE-360', tag:'Marketing Intelligence · Open Source',
+  lede:'Live signals in. One health score out.',
+  about:'A Python pipeline that pulls live data from Google Trends, Wikipedia pageviews and GDELT world news, unifies it into one schema, and scores every marketing channel with a weighted health model — benchmarking Airtel against the world’s telecom giants on a Streamlit dashboard. Refreshes itself daily via GitHub Actions.',
+  proof:'Real fetched data in the repo · daily automated refresh · full handbook included.',
+  shot:'assets/shots/pulse-360.svg',
+  app:'https://pulse-360-ijsehujby7ckf5mrcs6pds.streamlit.app/',
+  code:'https://github.com/sougatshekhar97-cpu/pulse-360'},
+ {no:'№ 02', title:'OPTICHAIN', tag:'Supply Chain Control Tower · Open Source',
+  lede:'The supply chain I ran, rebuilt as a digital twin.',
+  about:'Demand forecasting with per-SKU model selection, safety stock with lead-time variance, EOQ, Monte Carlo service-vs-cost curves, and weighted supplier health scoring — for enterprise network-hardware rollouts, modeled on the delivery chains I ran across 2,000+ sites.',
+  proof:'36 SKUs · 4 vendors · 4,000-trial Monte Carlo what-if simulator.',
+  shot:'assets/shots/optichain.svg',
+  app:'https://optichain-p3bslorutecqk2ayijdr9m.streamlit.app/',
+  code:'https://github.com/sougatshekhar97-cpu/optichain'},
+ {no:'№ 03', title:'Churn Engine', tag:'Account Health Scoring · Bharti Airtel',
+  lede:'Churn down 46% — with a model, not a miracle.',
+  about:'A proactive health-scoring and intervention system across 30+ strategic enterprise accounts: weighted signals, SLA governance, and a structured QBR/MBR cadence. Recognised by regional leadership as a best-practice model, and the methodology behind both open-source projects above.',
+  proof:'−46% churn YoY · ₹4 Cr account saved · adopted as regional best practice.',
+  shot:'assets/shots/churn-engine.svg',
+  app:null, code:null},
+ {no:'№ 04', title:'Incident Autopilot', tag:'AI in Production · Asian Paints',
+  lede:'The account manager who shipped the automation himself.',
+  about:'An n8n + LLM-agent system with REST API integrations, independently designed and deployed in a live enterprise environment — predictive ticketing and incident automation. One of the few account managers in Airtel’s enterprise division to put AI into production.',
+  proof:'−80% recurring incidents · playbook adopted across multiple accounts.',
+  shot:'assets/shots/ai-automation.svg',
+  app:null, code:null},
+ {no:'№ 05', title:'SD-WAN Framework', tag:'Service Transformation · National Rollout',
+  lede:'Written for one region. Adopted by headquarters.',
+  about:'Authored the Fortinet SD-WAN Service Transformation framework while leading 15+ engineers with Cisco and Fortinet partners across 2,000+ enterprise sites. Airtel HQ adopted it for national rollout.',
+  proof:'+25% FTR/TAT · 2,000+ sites · national adoption.',
+  shot:'assets/shots/sdwan.svg',
+  app:null, code:null},
+ {no:'№ 06', title:'Service Intelligence', tag:'Executive Dashboards · Power BI',
+  lede:'The data layer that changed executive behaviour.',
+  about:'Real-time account-health visibility for executive reviews — the dashboards behind ₹60L+ in SLA penalty waivers, negotiated with RCA documentation and transformation roadmaps at CXO level.',
+  proof:'₹60L+ recovered · NPS up · VoC loops running.',
+  shot:'assets/shots/dashboards.svg',
+  app:null, code:null},
+ {no:'№ 07', title:'Health Score Engine', tag:'Flagship Side-Build · In Progress',
+  lede:'The churn playbook, productised.',
+  about:'A weekend build: React frontend, Claude API for narrative risk analysis, no backend. Computes weighted health scores across a mock enterprise CSM portfolio and generates churn-risk narratives with recommended actions per account.',
+  proof:'Shipping Q3 2026 — deploy, Loom, and case study to follow.',
+  shot:'assets/shots/health-engine.svg',
+  app:null, code:null},
+];
+const N=WORKS.length, STEP=360/N;
+const $=s=>document.querySelector(s);
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const finePointer=matchMedia('(pointer: fine)').matches;
+const editing=()=>document.body.classList.contains('sgp-editing');
+
+/* ================= tiny synth (WebAudio, no assets) ================= */
+const Snd={
+  ctx:null,on:false,
+  boot(){ if(!this.ctx){ try{ this.ctx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} }
+          if(this.ctx&&this.ctx.state==='suspended') this.ctx.resume(); },
+  osc(freq,type,attack,decay,peak,glide){
+    if(!this.on||!this.ctx) return;
+    const t=this.ctx.currentTime,o=this.ctx.createOscillator(),g=this.ctx.createGain();
+    o.type=type; o.frequency.setValueAtTime(freq,t);
+    if(glide) o.frequency.exponentialRampToValueAtTime(glide,t+attack+decay);
+    g.gain.setValueAtTime(0,t);
+    g.gain.linearRampToValueAtTime(peak,t+attack);
+    g.gain.exponentialRampToValueAtTime(.0001,t+attack+decay);
+    o.connect(g); g.connect(this.ctx.destination); o.start(t); o.stop(t+attack+decay+.05);
+  },
+  tick(){ this.osc(1800,'sine',.004,.05,.03); },
+  pluck(){ this.osc(500,'triangle',.006,.15,.055,210); },
+  swoosh(){
+    if(!this.on||!this.ctx) return;
+    const t=this.ctx.currentTime,len=.32,
+          buf=this.ctx.createBuffer(1,this.ctx.sampleRate*len,this.ctx.sampleRate),
+          d=buf.getChannelData(0);
+    for(let i=0;i<d.length;i++) d[i]=(Math.random()*2-1)*(1-i/d.length);
+    const src=this.ctx.createBufferSource(); src.buffer=buf;
+    const f=this.ctx.createBiquadFilter(); f.type='bandpass'; f.Q.value=1.1;
+    f.frequency.setValueAtTime(400,t); f.frequency.exponentialRampToValueAtTime(1300,t+len);
+    const g=this.ctx.createGain();
+    g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.05,t+.03);
+    g.gain.exponentialRampToValueAtTime(.0001,t+len);
+    src.connect(f); f.connect(g); g.connect(this.ctx.destination); src.start(t);
+  },
+  chord(){ this.osc(392,'sine',.02,.5,.04); this.osc(587.3,'sine',.02,.55,.03);
+           setTimeout(()=>this.osc(784,'sine',.02,.6,.026),90); },
+  set(v){ this.on=v; $('#snd').classList.toggle('off',!v); if(v) this.boot(); }
+};
+$('#snd').addEventListener('click',()=>{ Snd.set(!Snd.on); if(Snd.on) Snd.pluck(); });
+
+/* ================= entry gate ================= */
+function enter(withSound){
+  Snd.set(withSound);
+  if(withSound){ Snd.chord(); Snd.swoosh(); }
+  const g=$('#gate'); g.classList.add('leaving');
+  setTimeout(()=>g.remove(),850);
+  orbit.kick();
+}
+$('#enter-snd').addEventListener('click',()=>enter(true));
+$('#enter-quiet').addEventListener('click',()=>enter(false));
+
+/* ================= orbit carousel ================= */
+const ring=$('#ring');
+const orbit={
+  theta:0,target:0,active:-1,radius:520,snapT:null,dragging:false,first:false,
+  build(){
+    const cw=Math.min(400,Math.max(230,innerWidth*.3));
+    document.documentElement.style.setProperty('--cw',cw+'px');
+    this.radius=(cw/2)/Math.tan(Math.PI/N)+cw*.34;
+    if(!ring.children.length){
+      WORKS.forEach((p,i)=>{
+        const c=document.createElement('div'); c.className='oc'; c.dataset.i=i;
+        c.innerHTML=`<img src="${p.shot}" alt="${p.title} cover" draggable="false">
+                     <span class="no-badge">${p.no}</span>`;
+        ring.appendChild(c);
+      });
+    }
+    this.place();
+  },
+  place(){
+    const cards=ring.children;
+    for(let i=0;i<cards.length;i++){
+      const a=i*STEP+this.theta;
+      const front=1-Math.min(Math.abs(((a+180)%360+360)%360-180)/180,1);
+      cards[i].style.transform=`rotateY(${a}deg) translateZ(${this.radius}px)`;
+      cards[i].style.opacity=(.25+.75*front).toFixed(3);
+      cards[i].style.zIndex=Math.round(front*100);
+    }
+    const idx=((Math.round(-this.theta/STEP)%N)+N)%N;
+    if(idx!==this.active){ this.active=idx; caption(idx); if(!this.first) Snd.tick(); this.first=false; }
+  },
+  loop(){
+    this.theta+=(this.target-this.theta)*(reduced?1:.085);
+    if(Math.abs(this.target-this.theta)>.01) this.place();
+    setTimeout(()=>this.loop(),16);   /* setTimeout, not rAF — keeps working in throttled/offscreen tabs */
+  },
+  nudge(d){ this.target+=d; clearTimeout(this.snapT);
+            this.snapT=setTimeout(()=>{ this.target=Math.round(this.target/STEP)*STEP; },160); },
+  goTo(i){
+    let want=-i*STEP;
+    while(want-this.target>180) want-=360;
+    while(want-this.target<-180) want+=360;
+    this.target=want;
+  },
+  kick(){ if(reduced){ this.place(); return; }
+          this.theta=-140; this.target=0; this.first=true; this.place(); }
+};
+function caption(i){
+  const p=WORKS[i],c=$('#cap');
+  c.querySelector('.no').textContent=p.no;
+  c.querySelector('h2').textContent=p.title;
+  c.querySelector('.tg').textContent=p.tag;
+  const h=c.querySelector('h2');
+  h.classList.remove('cap-anim'); void h.offsetWidth; h.classList.add('cap-anim');
+}
+orbit.build(); orbit.loop(); caption(0);
+addEventListener('resize',()=>orbit.build());
+
+const zone=$('#orbit-zone');
+zone.addEventListener('wheel',e=>{ e.preventDefault(); orbit.nudge(-(e.deltaY+e.deltaX)*.06); },{passive:false});
+let px=0,sx=0,sy=0;
+zone.addEventListener('pointerdown',e=>{ orbit.dragging=true; orbit.moved=false;
+  px=sx=e.clientX; sy=e.clientY;
+  zone.classList.add('dragging'); zone.setPointerCapture(e.pointerId); });
+zone.addEventListener('pointermove',e=>{ if(!orbit.dragging) return;
+  const dx=e.clientX-px; px=e.clientX;
+  if(Math.abs(e.clientX-sx)>7||Math.abs(e.clientY-sy)>7) orbit.moved=true;
+  orbit.nudge(dx*.22); });
+zone.addEventListener('pointerup',e=>{ orbit.dragging=false; zone.classList.remove('dragging');
+  if(!orbit.moved){
+    const el=document.elementFromPoint(e.clientX,e.clientY);
+    const card=el&&el.closest('.oc');
+    if(card){ const i=+card.dataset.i;
+      if(i===orbit.active) openDetail(i); else { orbit.goTo(i); Snd.tick(); } }
+  }
+  setTimeout(()=>orbit.moved=false,50); });
+addEventListener('keydown',e=>{
+  if($('#detail').classList.contains('open')){ if(e.key==='Escape') closeSheet('detail'); return; }
+  if($('#cv').classList.contains('open')){ if(e.key==='Escape') closeSheet('cv'); return; }
+  if($('#panel').classList.contains('open')){ if(e.key==='Escape') menu(false); return; }
+  if(document.body.classList.contains('about')||editing()) return;
+  if(e.key==='ArrowRight') orbit.nudge(-STEP);
+  if(e.key==='ArrowLeft') orbit.nudge(STEP);
+  if(e.key==='Enter'&&document.activeElement===document.body) openDetail(orbit.active);
+});
+
+/* ================= list mode ================= */
+const listZone=$('#list-zone'),fPrev=$('#float-prev'),fImg=fPrev.querySelector('img');
+WORKS.forEach((p,i)=>{
+  const b=document.createElement('button'); b.className='li-item'; b.textContent=p.title;
+  b.setAttribute('role','listitem');
+  b.addEventListener('mouseenter',()=>{ if(finePointer){ fImg.src=p.shot; fPrev.classList.add('on'); } Snd.tick(); });
+  b.addEventListener('mouseleave',()=>fPrev.classList.remove('on'));
+  b.addEventListener('click',()=>openDetail(i));
+  listZone.appendChild(b);
+});
+let mx=0,my=0,mxT=0,myT=0;
+addEventListener('mousemove',e=>{ mxT=e.clientX; myT=e.clientY; });
+(function follow(){ mx+=(mxT-mx)*.14; my+=(myT-my)*.14;
+  fPrev.style.left=mx+'px'; fPrev.style.top=my+'px';
+  if(finePointer) setTimeout(follow,16); })();
+
+function setMode(list){
+  $('#view-works').classList.toggle('list-mode',list);
+  $('#m-orbit').setAttribute('aria-pressed',String(!list));
+  $('#m-list').setAttribute('aria-pressed',String(list));
+  fPrev.classList.remove('on'); Snd.swoosh();
+}
+$('#m-orbit').addEventListener('click',()=>setMode(false));
+$('#m-list').addEventListener('click',()=>setMode(true));
+
+/* ================= sheets: project detail + cv ================= */
+const detail=$('#detail');
+let curIdx=0;
+function openDetail(i){
+  curIdx=i; const p=WORKS[i],nx=WORKS[(i+1)%N];
+  detail.querySelector('.d-no').textContent=p.no;
+  detail.querySelector('h2').textContent=p.title;
+  detail.querySelector('.d-tag').textContent=p.tag;
+  const im=detail.querySelector('.d-shot img'); im.src=p.shot; im.alt=p.title+' cover';
+  detail.querySelector('.d-lede').textContent=p.lede;
+  detail.querySelector('.d-about').textContent=p.about;
+  detail.querySelector('.d-proof').textContent=p.proof;
+  const appA=detail.querySelector('.open-app'),codeA=detail.querySelector('.open-code');
+  appA.style.display=p.app?'':'none'; if(p.app) appA.href=p.app;
+  codeA.style.display=p.code?'':'none'; if(p.code) codeA.href=p.code;
+  detail.querySelector('.d-next .nx').textContent=nx.title;
+  detail.scrollTop=0; detail.classList.add('open'); $('#d-close').classList.add('on');
+  fPrev.classList.remove('on'); Snd.pluck(); Snd.swoosh();
+}
+function openCV(){ const cv=$('#cv'); cv.scrollTop=0; cv.classList.add('open');
+  $('#cv-close').classList.add('on'); Snd.pluck(); Snd.swoosh(); }
+function closeSheet(id){ $('#'+id).classList.remove('open');
+  $('#'+(id==='cv'?'cv-close':'d-close')).classList.remove('on'); Snd.tick(); }
+$('#d-close').addEventListener('click',()=>closeSheet('detail'));
+$('#cv-close').addEventListener('click',()=>closeSheet('cv'));
+detail.querySelector('.d-next').addEventListener('click',e=>{
+  e.preventDefault(); openDetail((curIdx+1)%N); orbit.goTo((curIdx)%N);
+});
+
+/* delegated clicks inside #site (survive the editor restoring saved drafts) */
+document.addEventListener('click',e=>{
+  if(e.target.closest('[data-open-cv]')){ openCV(); return; }
+  if(e.target.closest('[data-go-works]')){ e.preventDefault(); go('works'); }
+});
+
+/* ================= about + word fill ================= */
+const BIO=`I’m Sougat Shekhar Hota. I run *enterprise accounts* the way builders run
+products: a ₹384 Mn portfolio instrumented with *health scores*, churn down
+46%, AI automation *in production*, and a service framework a national
+carrier adopted. Calm at the helm, obsessive about the *systems below deck*.`;
+const bio=$('#bio');
+if(bio&&!bio.children.length){
+  BIO.split(/\s+/).forEach(w=>{
+    const s=document.createElement('span');
+    const acc=w.includes('*'); s.className='w'+(acc?' accent-w':'');
+    s.textContent=w.replaceAll('*','')+' ';
+    bio.appendChild(s);
+  });
+}
+function fillBio(){
+  const words=document.querySelectorAll('#bio .w');
+  if(!words.length) return;
+  if(reduced){ words.forEach(w=>w.classList.add('lit')); return; }
+  const prog=Math.min(.22+scrollY/(innerHeight*.55),1);
+  const lit=Math.floor(prog*words.length);
+  words.forEach((w,i)=>w.classList.toggle('lit',i<lit));
+}
+addEventListener('scroll',fillBio,{passive:true});
+
+function go(view){
+  document.body.classList.toggle('about',view==='about');
+  scrollTo(0,0); fPrev.classList.remove('on'); fillBio(); Snd.swoosh();
+  if(location.hash!=='#admin') history.replaceState(null,'','#'+view);
+}
+/* brand is a real link back to the main portfolio (index.html) — no interceptor */
+
+/* ================= menu ================= */
+function menu(open){
+  $('#panel').classList.toggle('open',open);
+  $('#scrim').classList.toggle('on',open);
+  if(open) Snd.swoosh(); else Snd.tick();
+}
+$('#menu-open').addEventListener('click',()=>menu(true));
+$('#menu-close').addEventListener('click',()=>menu(false));
+$('#scrim').addEventListener('click',()=>menu(false));
+document.querySelectorAll('#panel [data-go]').forEach(b=>{
+  b.addEventListener('click',()=>{ menu(false); closeSheet('detail'); closeSheet('cv'); go(b.dataset.go); });
+});
+$('#menu-cv').addEventListener('click',()=>{ menu(false); closeSheet('detail'); openCV(); });
+
+/* ================= cursor dot ================= */
+if(finePointer&&!reduced){
+  document.body.classList.add('cur-on');
+  const cur=$('#cur'); let cx=0,cy=0;
+  (function curLoop(){ cx+=(mxT-cx)*.22; cy+=(myT-cy)*.22;
+    cur.style.transform=`translate(${cx-4.5}px,${cy-4.5}px)`;
+    setTimeout(curLoop,16); })();
+  addEventListener('mouseover',e=>{
+    cur.classList.toggle('big',!!e.target.closest('a,button,.oc'));
+  });
+}
+
+/* hover ticks */
+document.querySelectorAll('.menu-btn,.mode button,#panel nav button,#panel nav a,.big-socials a')
+  .forEach(el=>el.addEventListener('mouseenter',()=>Snd.tick()));
+
+/* init from hash (leave #admin to the editor) */
+if(location.hash==='#about') go('about');
+const yr=$('#yr'); if(yr) yr.textContent=new Date().getFullYear();
+fillBio();
+</script>
+</body>
+</html>

@@ -1,832 +1,862 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sougat Shekhar Hota ✲ Portfolio</title>
-<meta name="description" content="An interactive index of systems built by Sougat Shekhar Hota — enterprise account management run like product work: churn engines, AI in production, supply chain intelligence.">
-<meta property="og:title" content="Sougat Shekhar Hota ✲ Portfolio">
-<meta property="og:description" content="An interactive index of systems built by Sougat Shekhar Hota.">
-<meta property="og:type" content="website">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sougat Shekhar Hota — Strategic Account Manager</title>
+<meta name="description" content="Sougat Shekhar Hota — Strategic Account Manager in Mumbai. ₹384 Mn enterprise portfolio, AI in production, Lean Six Sigma. Open to Product Management, Process Excellence and Partner roles.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    /* McKinsey-inspired: deep blue ink, electric blue accent, cool paper */
-    --bg:#F6F8FA; --ink:#051C2C; --mut:rgba(5,28,44,.55);
-    --line:rgba(5,28,44,.16); --card:#E6EBF1; --accent:#2251FF;
-    --serif:'Newsreader', Georgia, 'Times New Roman', serif;
-    --sans:'Helvetica Neue', Helvetica, Arial, sans-serif;
+  :root {
+    --navy: #0b2239;
+    --ink: #14283c;
+    --slate: #52667c;
+    --mist: #8fa3b5;
+    --azure: #2c7da0;
+    --turq: #61a5c2;
+    --gold: #c9a24b;
+    --coral: #c96b4b;
+    --sage: #6b9a7a;
+    --sand: #f7f6f2;
+    --white: #ffffff;
+    --line: rgba(11,34,57,0.12);
   }
-  *{box-sizing:border-box; margin:0; padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
-       -webkit-font-smoothing:antialiased; overflow-x:hidden}
-  body::before{ /* faint graph-paper grid */
-    content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
-    background-image:linear-gradient(var(--line) 1px, transparent 1px),
-                     linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size:72px 72px; opacity:.16;
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--sand); color: var(--ink);
+    font-family: 'Jost', sans-serif; font-weight: 300;
+    -webkit-font-smoothing: antialiased;
   }
-  button{font:inherit; color:inherit; background:none; border:0; cursor:pointer}
-  a{color:inherit}
-  img{user-select:none; -webkit-user-drag:none}
-  .caps{font:500 11px/1 var(--sans); text-transform:uppercase; letter-spacing:.1em}
-  [data-hidden="true"]{display:none}
+  ::selection { background: var(--azure); color: #fff; }
+  [data-hidden="true"] { display: none; }
+  h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
+  a { transition: color .3s, background .3s, border-color .3s, opacity .3s; }
+  img { max-width: 100%; }
+  @media (pointer: fine) { body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .acc-head { cursor: none; } }
 
-  /* ============ entry gate ============ */
-  #gate{position:fixed; inset:0; z-index:60; background:var(--bg);
-        display:flex; flex-direction:column; align-items:center; justify-content:center;
-        gap:26px; text-align:center; padding:24px;
-        transition:opacity .8s cubic-bezier(.65,0,.35,1)}
-  #gate.leaving{opacity:0; pointer-events:none}
-  #gate .dot{width:20px; height:20px; border-radius:50%; background:var(--accent);
-             animation:gatePulse 1.6s cubic-bezier(.45,0,.55,1) infinite}
-  @keyframes gatePulse{0%,100%{transform:scale(1)} 50%{transform:scale(1.55)}}
-  #gate h1{font:400 clamp(40px,7.5vw,92px)/1 var(--serif); letter-spacing:-.015em;
-           animation:gateUp .9s cubic-bezier(.22,1,.36,1) both .15s}
-  #gate .tag{font:400 clamp(17px,2vw,22px)/1.4 var(--serif); color:var(--mut);
-             animation:gateUp .9s cubic-bezier(.22,1,.36,1) both .3s}
-  @keyframes gateUp{from{opacity:0; transform:translateY(26px)} to{opacity:1; transform:none}}
-  #gate .doors{display:flex; gap:14px; flex-wrap:wrap; justify-content:center;
-               animation:gateUp .9s cubic-bezier(.22,1,.36,1) both .55s}
-  #gate .doors button{padding:13px 26px; border:1px solid var(--ink); border-radius:999px;
-        font:500 12px/1 var(--sans); text-transform:uppercase; letter-spacing:.1em;
-        transition:background .3s,color .3s,border-color .3s}
-  #gate .doors button:hover{background:var(--accent); border-color:var(--accent); color:var(--bg)}
-
-  /* ============ header ============ */
-  .site-head{position:fixed; top:0; left:0; right:0; z-index:40;
-             display:flex; align-items:center; justify-content:space-between;
-             padding:18px clamp(16px,3.5vw,40px); pointer-events:none}
-  .site-head>*{pointer-events:auto; position:relative}
-  .site-head::before{content:""; position:absolute; left:0; right:0; top:0; bottom:-26px;
-    background:linear-gradient(180deg, var(--bg) 58%, rgba(246,248,250,0));
-    z-index:-1; pointer-events:none}
-  .brand{font:600 13px/1 var(--sans); text-transform:uppercase; letter-spacing:.1em;
-         text-decoration:none; display:flex; align-items:center; gap:8px}
-  .brand .mark{color:var(--accent); font:400 16px/1 var(--serif);
-               display:inline-block; animation:spinMark 14s linear infinite}
-  @keyframes spinMark{to{transform:rotate(360deg)}}
-  .mode{position:absolute; left:50%; transform:translateX(-50%);
-        display:flex; align-items:center; gap:12px}
-  .mode button{font:500 12px/1 var(--sans); text-transform:uppercase; letter-spacing:.1em;
-               color:var(--mut); padding:8px 2px; transition:color .3s}
-  .mode button[aria-pressed="true"]{color:var(--ink)}
-  .mode button:hover{color:var(--accent)}
-  .mode .sep{width:5px; height:5px; border-radius:50%; background:var(--accent)}
-  body.about .mode{display:none}
-  .menu-btn{border:1px solid var(--line); border-radius:999px; padding:11px 20px;
-            background:var(--bg); font:500 12px/1 var(--sans); text-transform:uppercase;
-            letter-spacing:.1em; display:flex; align-items:center; gap:9px;
-            transition:border-color .3s}
-  .menu-btn:hover{border-color:var(--ink)}
-  .menu-btn .dot2{width:6px; height:6px; border-radius:50%; background:var(--accent)}
-
-  /* ============ works : orbit ============ */
-  #view-works{position:relative; z-index:1; height:100vh; height:100dvh; overflow:hidden;
-              display:flex; flex-direction:column}
-  #orbit-zone{flex:1; position:relative; touch-action:pan-y; cursor:grab}
-  #orbit-zone.dragging{cursor:grabbing}
-  .stage{position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-         perspective:1500px}
-  .ring{position:relative; transform-style:preserve-3d; width:0; height:0}
-  .oc{position:absolute; transform-style:preserve-3d;
-      width:var(--cw); height:calc(var(--cw)*.625);
-      left:calc(var(--cw)/-2); top:calc(var(--cw)*.625/-2);
-      background:var(--card); border:1px solid var(--line);
-      overflow:hidden; will-change:transform,opacity;
-      backface-visibility:hidden; -webkit-backface-visibility:hidden}
-  .oc img{width:100%; height:100%; object-fit:cover; object-position:top; display:block}
-  .oc .no-badge{position:absolute; top:10px; left:12px; font:italic 400 13px/1 var(--serif);
-                color:var(--bg); background:var(--ink); padding:5px 9px; border-radius:999px;
-                opacity:.92}
-  .orbit-caption{position:relative; z-index:2; text-align:center;
-                 padding:0 20px clamp(22px,4vh,44px)}
-  .orbit-caption .no{font:italic 400 14px/1 var(--serif); color:var(--accent)}
-  .orbit-caption h2{font:400 clamp(34px,5vw,64px)/1.05 var(--serif); letter-spacing:-.01em;
-                    margin:6px 0 8px}
-  .orbit-caption .tg{color:var(--mut)}
-  .orbit-caption .hint{margin-top:14px; color:var(--mut);
-                       font:italic 400 14px/1 var(--serif)}
-  .orbit-caption .hint b{color:var(--ink); font-weight:400}
-  .cap-anim{animation:capIn .45s cubic-bezier(.22,1,.36,1)}
-  @keyframes capIn{from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:none}}
-
-  /* ============ works : list ============ */
-  #list-zone{flex:1; display:none; flex-direction:column; align-items:center;
-             justify-content:center; gap:2px; position:relative; padding:90px 16px 60px}
-  #view-works.list-mode #orbit-zone, #view-works.list-mode .orbit-caption{display:none}
-  #view-works.list-mode #list-zone{display:flex}
-  .li-item{font:400 clamp(28px,5vh,52px)/1.22 var(--serif); letter-spacing:-.01em;
-           transition:opacity .35s, color .35s; position:relative; z-index:2}
-  #list-zone:hover .li-item{opacity:.28}
-  #list-zone .li-item:hover{opacity:1; color:var(--accent)}
-  #float-prev{position:fixed; z-index:1; width:min(300px,32vw); aspect-ratio:16/10;
-              border:1px solid var(--line); background:var(--card); overflow:hidden;
-              pointer-events:none; opacity:0; transition:opacity .25s;
-              transform:translate(-50%,-115%) rotate(-2deg)}
-  #float-prev img{width:100%; height:100%; object-fit:cover; object-position:top}
-  #float-prev.on{opacity:1}
-
-  /* ============ slide-up overlays (project detail + cv) ============ */
-  .sheet{position:fixed; inset:0; z-index:45; background:var(--bg);
-         transform:translateY(103%); transition:transform .65s cubic-bezier(.76,0,.24,1);
-         overflow-y:auto; overscroll-behavior:contain}
-  .sheet.open{transform:none}
-  .sheet .inner{max-width:1100px; margin:0 auto; padding:100px clamp(18px,4vw,48px) 80px}
-  #detail .d-head{display:flex; align-items:baseline; gap:12px 22px; flex-wrap:wrap}
-  #detail .d-no{font:italic 400 clamp(16px,2vw,22px)/1 var(--serif); color:var(--accent)}
-  #detail h2{font:400 clamp(46px,8vw,104px)/.98 var(--serif); letter-spacing:-.02em}
-  #detail .d-tag{color:var(--mut); margin-top:4px}
-  #detail .d-shot{margin:clamp(24px,4vh,40px) 0; border:1px solid var(--line);
-                  background:var(--card); overflow:hidden}
-  #detail .d-shot img{width:100%; display:block; aspect-ratio:16/10; object-fit:cover; object-position:top}
-  #detail .d-lede{font:400 clamp(21px,2.6vw,30px)/1.35 var(--serif); max-width:26em; text-wrap:pretty}
-  #detail .d-about{margin-top:18px; font:400 15.5px/1.65 var(--sans); color:var(--mut); max-width:64ch}
-  #detail .d-proof{margin-top:14px; font:italic 400 15px/1.5 var(--serif); color:var(--accent)}
-  .pill-links{display:flex; gap:14px; flex-wrap:wrap; margin-top:30px}
-  .pill-links a{text-decoration:none; padding:13px 26px; border-radius:999px;
-        border:1px solid var(--ink); font:500 12px/1 var(--sans); text-transform:uppercase;
-        letter-spacing:.1em; transition:background .3s,color .3s,border-color .3s}
-  .pill-links a:hover{background:var(--accent); border-color:var(--accent); color:var(--bg)}
-  .pill-links a.ghost{border-color:var(--line); color:var(--mut)}
-  .pill-links a.ghost:hover{color:var(--bg)}
-  #detail .d-next{margin-top:clamp(48px,9vh,90px); padding-top:26px; border-top:1px solid var(--line);
-                  display:block; text-decoration:none}
-  #detail .d-next .caps{color:var(--mut)}
-  #detail .d-next .nx{font:400 clamp(34px,5.5vw,66px)/1.05 var(--serif); margin-top:8px;
-                      transition:color .3s}
-  #detail .d-next:hover .nx{color:var(--accent)}
-  .sheet-close{position:fixed; top:18px; right:clamp(16px,3.5vw,40px); z-index:46;
-           border:1px solid var(--line); border-radius:999px; padding:11px 20px;
-           background:var(--bg); font:500 12px/1 var(--sans); text-transform:uppercase;
-           letter-spacing:.1em; opacity:0; pointer-events:none; transition:opacity .3s .3s, border-color .3s}
-  .sheet-close.on{opacity:1; pointer-events:auto}
-  .sheet-close:hover{border-color:var(--ink)}
-
-  /* cv sheet content */
-  #cv h2.cv-title{font:400 clamp(46px,7vw,92px)/1 var(--serif); letter-spacing:-.02em}
-  #cv .cv-sub{color:var(--mut); margin-top:8px}
-  #cv .cv-sec{margin-top:clamp(38px,6vh,64px)}
-  #cv .cv-sec>.caps{color:var(--accent)}
-  #cv h3{font:400 clamp(26px,3.4vw,40px)/1.1 var(--serif); margin-top:10px}
-  #cv .row{display:flex; gap:14px 36px; padding:22px 0; border-bottom:1px solid var(--line); flex-wrap:wrap}
-  #cv .row .when{flex:0 0 120px; font:italic 400 15px/1.5 var(--serif); color:var(--accent)}
-  #cv .row .what{flex:1 1 380px}
-  #cv .row .what h4{font:400 22px/1.25 var(--serif)}
-  #cv .row .what .role{color:var(--mut); font:500 11px/1.6 var(--sans);
-                       text-transform:uppercase; letter-spacing:.1em; margin:3px 0 8px}
-  #cv .row .what p, #cv .row .what li{font:400 15px/1.65 var(--sans); color:var(--mut)}
-  #cv .row .what ul{padding-left:18px}
-  #cv .two{columns:2; column-gap:44px}
-  #cv .two p{break-inside:avoid; padding:9px 0; border-bottom:1px solid var(--line);
-             font:400 15.5px/1.5 var(--sans)}
-  #cv .two p small{color:var(--mut)}
-  @media (max-width:700px){ #cv .two{columns:1} }
-
-  /* ============ about ============ */
-  #view-about{display:none; position:relative; z-index:1;
-              max-width:1200px; margin:0 auto; padding:0 clamp(18px,4vw,48px)}
-  body.about #view-works{display:none}
-  body.about #view-about{display:block}
-  .bio-stage{min-height:100vh; min-height:100dvh; display:flex; align-items:center;
-             padding:110px 0 40px}
-  .bio{font:400 clamp(27px,3.6vw,46px)/1.35 var(--serif); letter-spacing:-.005em;
-       max-width:24em; text-wrap:pretty}
-  .bio .w{color:var(--line); transition:color .4s}
-  .bio .w.lit{color:var(--ink)}
-  .bio .accent-w.lit{color:var(--accent); font-style:italic}
-  .about-photo{display:flex; flex-direction:row-reverse; gap:clamp(20px,4vw,52px); flex-wrap:wrap;
-               align-items:center; margin:0 0 clamp(48px,9vh,100px)}
-  .about-photo img{width:clamp(190px,22vw,290px); height:auto; border:1px solid var(--line); display:block}
-  .about-photo figcaption{margin-top:8px; color:var(--mut)}
-  .about-photo .aside{flex:1 1 300px; font:400 16px/1.65 var(--sans); color:var(--mut); max-width:52ch}
-  .offduty{border-top:1px solid var(--line); padding:clamp(22px,3.5vh,34px) 0;
-           display:flex; gap:10px 34px; flex-wrap:wrap; align-items:baseline}
-  .offduty .caps{color:var(--accent)}
-  .offduty span.h{font:italic 400 17px/1.4 var(--serif); color:var(--mut)}
-  .resume-strip{border-top:1px solid var(--line); padding:clamp(26px,4vh,40px) 0;
-                display:flex; align-items:baseline; gap:16px 44px; flex-wrap:wrap}
-  .resume-strip .now{flex:1 1 360px; font:400 clamp(20px,2.4vw,30px)/1.3 var(--serif)}
-  .resume-strip .now em{color:var(--accent)}
-  .r-links{display:flex; gap:12px; flex-wrap:wrap}
-  .r-links a, .r-links button{padding:14px 28px; border-radius:999px; border:1px solid var(--ink);
-             font:500 12px/1 var(--sans); text-transform:uppercase; letter-spacing:.1em;
-             text-decoration:none; transition:color .3s,border-color .3s,background .3s}
-  .r-links .primary{background:var(--accent); border-color:var(--accent); color:var(--bg)}
-  .r-links .primary:hover{background:var(--ink); border-color:var(--ink)}
-  .r-links .ghost:hover{background:var(--ink); border-color:var(--ink); color:var(--bg)}
-  .big-socials{border-top:1px solid var(--line); padding:clamp(40px,7vh,80px) 0;
-               display:flex; flex-direction:column; align-items:center; gap:4px}
-  .big-socials a{font:400 clamp(34px,6vw,72px)/1.25 var(--serif); text-decoration:none;
-                 transition:color .3s,letter-spacing .4s}
-  .big-socials a:hover{color:var(--accent); letter-spacing:.01em}
-  .about-foot{border-top:1px solid var(--line); padding:18px 0 26px;
-              display:flex; gap:10px 30px; flex-wrap:wrap; align-items:baseline; color:var(--mut)}
-  .about-foot .note{font:italic 400 13px/1.3 var(--serif); text-transform:none; letter-spacing:0}
-  .about-foot .top{margin-left:auto; text-decoration:none; border-bottom:1px solid var(--line); cursor:pointer}
-
-  /* ============ menu panel ============ */
-  #scrim{position:fixed; inset:0; z-index:49; background:rgba(5,28,44,.38);
-         opacity:0; pointer-events:none; transition:opacity .5s}
-  #scrim.on{opacity:1; pointer-events:auto}
-  #panel{position:fixed; top:10px; right:10px; bottom:10px; z-index:50;
-         width:min(430px, calc(100vw - 20px));
-         background:var(--ink); color:var(--bg); border-radius:18px;
-         transform:translateX(calc(100% + 24px));
-         transition:transform .6s cubic-bezier(.76,0,.24,1);
-         display:flex; flex-direction:column; padding:26px 34px 30px}
-  #panel.open{transform:none}
-  #panel .p-top{display:flex; justify-content:flex-end}
-  #panel .p-close{color:rgba(246,248,250,.7); font:500 12px/1 var(--sans);
-                  text-transform:uppercase; letter-spacing:.1em; display:flex;
-                  align-items:center; gap:9px; padding:8px 0; transition:color .3s}
-  #panel .p-close:hover{color:var(--bg)}
-  #panel .p-close .x{width:8px; height:8px; border-radius:50%; background:var(--accent)}
-  #panel nav{flex:1; display:flex; flex-direction:column; justify-content:center; gap:2px}
-  #panel nav button, #panel nav a{display:block; text-align:left; text-decoration:none;
-        font:400 clamp(42px,6vh,62px)/1.3 var(--serif); letter-spacing:-.01em;
-        color:var(--bg); transition:color .3s, padding-left .4s}
-  #panel nav button:hover, #panel nav a:hover{color:#6E8FFF; padding-left:10px}
-  #panel .p-foot{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap}
-  #panel .p-mail{color:rgba(246,248,250,.75); text-decoration:none; font:400 14px/1 var(--sans)}
-  #panel .p-mail:hover{color:var(--bg)}
-  #panel .p-socials{display:flex; gap:9px}
-  #panel .p-socials a{width:42px; height:42px; border-radius:50%; background:var(--bg); color:var(--ink);
-        display:flex; align-items:center; justify-content:center; text-decoration:none;
-        font:600 11px/1 var(--sans); letter-spacing:.02em;
-        transition:background .3s,color .3s,transform .3s}
-  #panel .p-socials a:hover{background:#6E8FFF; color:var(--bg); transform:translateY(-3px)}
-
-  /* ============ sound toggle & cursor ============ */
-  #snd{position:fixed; right:clamp(16px,3.5vw,40px); bottom:20px; z-index:48;
-       width:46px; height:46px; border-radius:50%; border:1px solid var(--line); background:var(--bg);
-       display:flex; align-items:center; justify-content:center; transition:border-color .3s}
-  #snd:hover{border-color:var(--ink)}
-  #snd svg{width:17px; height:17px; stroke:var(--ink); fill:none; stroke-width:1.6;
-           stroke-linecap:round; stroke-linejoin:round}
-  #snd .waves{transition:opacity .3s}
-  #snd.off .waves{opacity:0}
-  #snd.off::after{content:""; position:absolute; width:22px; height:1.5px; background:var(--accent);
-                  transform:rotate(-45deg)}
-  #cur{position:fixed; z-index:70; width:9px; height:9px; border-radius:50%;
-       background:var(--accent); pointer-events:none; top:0; left:0; opacity:0;
-       transform:translate(-50%,-50%); transition:width .25s,height .25s,opacity .3s}
-  body.cur-on #cur{opacity:.85}
-  #cur.big{width:34px; height:34px; opacity:.28}
-
-  /* ============ mobile & motion ============ */
-  @media (max-width:760px){
-    .site-head{padding:14px 16px}
-    .mode{position:fixed; left:50%; top:auto; bottom:78px; transform:translateX(-50%);
-          background:var(--bg); border:1px solid var(--line); border-radius:999px; padding:4px 18px}
-    .menu-btn{padding:10px 16px}
-    .orbit-caption h2{font-size:34px}
-    .orbit-caption{padding-bottom:132px}
-    #panel nav button, #panel nav a{font-size:36px}
-    #snd{bottom:16px}
-    .bio-stage{padding:96px 0 30px}
-    .bio{font-size:clamp(25px,6.4vw,34px)}
-    .about-photo{flex-direction:column; align-items:center; text-align:center; gap:26px}
-    .about-photo .aside{flex:none; text-align:center}
-    .big-socials a{font-size:clamp(38px,11vw,58px)}
+  .eyebrow {
+    font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.34em; text-transform: uppercase; color: var(--azure);
   }
-  @media (prefers-reduced-motion: reduce){
-    *,*::before,*::after{animation-duration:.01ms !important; transition-duration:.01ms !important}
-    #cur{display:none}
-    .bio .w{color:var(--ink)}
+
+  /* ---------- views (SPA pages) ---------- */
+  .view { display: none; }
+  .view.active { display: block; animation: viewIn .7s ease both; }
+  @keyframes viewIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+  /* ---------- curtain wipe transition ---------- */
+  .wipe { position: fixed; inset: 0; z-index: 300; pointer-events: none; display: flex; }
+  .wipe i { flex: 1; background: var(--navy); transform: scaleY(0); transform-origin: top; }
+  .wipe i:nth-child(2) { background: #17466a; }
+  .wipe i:nth-child(3) { background: var(--azure); }
+  .wipe.on { pointer-events: all; }
+  .wipe.on i { animation: wipeDown .48s cubic-bezier(.7,0,.3,1) both; }
+  .wipe.off i { animation: wipeUp .48s cubic-bezier(.7,0,.3,1) both; }
+  .wipe i:nth-child(2) { animation-delay: .07s !important; }
+  .wipe i:nth-child(3) { animation-delay: .14s !important; }
+  @keyframes wipeDown { from { transform: scaleY(0); transform-origin: top; } to { transform: scaleY(1); transform-origin: top; } }
+  @keyframes wipeUp { from { transform: scaleY(1); transform-origin: bottom; } to { transform: scaleY(0); transform-origin: bottom; } }
+
+  /* ---------- custom cursor ---------- */
+  .cur-dot, .cur-ring { position: fixed; top: 0; left: 0; z-index: 400; pointer-events: none; border-radius: 50%; display: none; }
+  @media (pointer: fine) { .cur-dot, .cur-ring { display: block; } }
+  .cur-dot { width: 7px; height: 7px; background: var(--azure); transform: translate(-50%,-50%); }
+  .cur-ring {
+    width: 38px; height: 38px; border: 1.5px solid rgba(44,125,160,0.6);
+    transform: translate(-50%,-50%); transition: width .25s, height .25s, border-color .25s, background .25s;
+  }
+  .cur-ring.big { width: 64px; height: 64px; border-color: var(--turq); background: rgba(97,165,194,0.12); }
+
+  /* ---------- nav ---------- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 90;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 48px; transition: background .45s, box-shadow .45s, padding .45s;
+    color: #fff; background: rgba(11,34,57,0.92); box-shadow: 0 8px 30px rgba(11,34,57,0.18);
+  }
+  .brand { font-family: 'Cormorant Garamond', serif; font-size: 21px; letter-spacing: 0.12em; color: #fff; text-decoration: none; text-transform: uppercase; }
+  .brand span { color: var(--turq); }
+  .nav-links { display: flex; align-items: center; gap: 34px; font-size: 12.5px; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; }
+  .nav-links > a, .nav-drop > button {
+    color: rgba(255,255,255,0.85); text-decoration: none; background: none; border: 0;
+    font: inherit; letter-spacing: inherit; text-transform: inherit; cursor: pointer;
+    padding: 6px 0; position: relative;
+  }
+  .nav-links > a::after, .nav-drop > button::after {
+    content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 1px;
+    background: var(--turq); transition: width .35s;
+  }
+  .nav-links > a:hover::after, .nav-drop > button:hover::after { width: 100%; }
+  .nav-links > a:hover, .nav-drop > button:hover { color: #fff; }
+  .nav-cta { border: 1px solid rgba(255,255,255,0.55) !important; padding: 10px 22px !important; border-radius: 999px; }
+  .nav-cta:hover { background: #fff; color: var(--navy) !important; }
+  .nav-cta::after { display: none; }
+  .nav-drop { position: relative; }
+  .nav-drop-menu {
+    position: absolute; top: calc(100% + 14px); left: 50%; transform: translate(-50%, 8px);
+    background: #fff; color: var(--ink); border-radius: 12px; padding: 10px;
+    min-width: 230px; box-shadow: 0 24px 60px rgba(11,34,57,0.28);
+    opacity: 0; visibility: hidden; transition: opacity .3s, transform .3s, visibility .3s;
+  }
+  .nav-drop:hover .nav-drop-menu, .nav-drop:focus-within .nav-drop-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+  .nav-drop-menu a { display: block; padding: 11px 16px; border-radius: 8px; text-decoration: none; color: var(--ink); font-size: 12px; letter-spacing: 0.18em; }
+  .nav-drop-menu a:hover { background: var(--sand); color: var(--azure); }
+  .burger { display: none; background: none; border: 0; color: #fff; font-size: 26px; cursor: pointer; padding: 4px 8px; }
+
+  /* mobile menu */
+  .mmenu {
+    position: fixed; inset: 0; z-index: 200; background: linear-gradient(170deg, #0b2239, #17466a);
+    display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 26px;
+    opacity: 0; visibility: hidden; transition: opacity .4s, visibility .4s;
+  }
+  .mmenu.open { opacity: 1; visibility: visible; }
+  .mmenu a { font-family: 'Cormorant Garamond', serif; font-size: 34px; color: #fff; text-decoration: none; }
+  .mmenu a:hover { color: var(--turq); }
+  .mmenu .close { position: absolute; top: 22px; right: 26px; font-size: 30px; background: none; border: 0; color: #fff; cursor: pointer; }
+
+  /* ---------- hero (home) ---------- */
+  header.hero {
+    min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 150px 24px 90px; position: relative; overflow: hidden; color: #fff;
+    background:
+      radial-gradient(120% 90% at 80% 10%, rgba(97,165,194,0.35), transparent 55%),
+      radial-gradient(100% 80% at 15% 90%, rgba(44,125,160,0.45), transparent 60%),
+      linear-gradient(175deg, #0b2239 0%, #133a57 48%, #1d5a7a 100%);
+  }
+  header.hero::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(70% 45% at 50% 108%, rgba(247,246,242,0.28), transparent 70%); }
+  .hero-inner { max-width: 940px; position: relative; z-index: 1; }
+  .hero .eyebrow { color: var(--turq); animation: rise 1s .1s both; }
+  .hero h1 { margin: 26px 0 10px; font-size: clamp(50px, 8.5vw, 108px); font-weight: 600; line-height: 1.04; letter-spacing: 0.01em; animation: rise 1s .25s both; }
+  .rotator-line { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(26px, 3.6vw, 44px); color: var(--turq); min-height: 1.4em; animation: rise 1s .4s both; }
+  #rotator { display: inline-block; transition: opacity .35s, transform .35s; }
+  #rotator.swap { opacity: 0; transform: translateY(12px); }
+  .hero p.sub { margin: 26px auto 0; max-width: 640px; font-size: 17.5px; line-height: 1.8; font-weight: 300; color: rgba(255,255,255,0.85); animation: rise 1s .5s both; }
+  .hero .hero-cta { margin-top: 44px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; animation: rise 1s .65s both; }
+  .btn-light { text-decoration: none; display: inline-block; background: #fff; color: var(--navy); padding: 15px 36px; border-radius: 999px; font-size: 13px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; transition: transform .25s, background .3s, color .3s; }
+  .btn-light:hover { background: var(--turq); color: var(--navy); }
+  .btn-ghost { text-decoration: none; display: inline-block; border: 1px solid rgba(255,255,255,0.55); color: #fff; padding: 15px 36px; border-radius: 999px; font-size: 13px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; transition: transform .25s, background .3s; }
+  .btn-ghost:hover { background: rgba(255,255,255,0.12); }
+  .scroll-cue { position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%); z-index: 1; color: rgba(255,255,255,0.75); font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .scroll-cue::after { content: ""; width: 1px; height: 44px; background: linear-gradient(rgba(255,255,255,0.8), transparent); animation: drip 2.2s infinite; }
+  @keyframes drip { 0% { transform: scaleY(0); transform-origin: top; } 55% { transform: scaleY(1); transform-origin: top; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+  @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+
+  /* ---------- explore tiles (interactive grid) ---------- */
+  .tiles { padding: 100px 24px; }
+  .tiles-grid { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .tile {
+    position: relative; overflow: hidden; border-radius: 6px; padding: 44px 30px 38px; min-height: 250px;
+    display: flex; flex-direction: column; justify-content: flex-end; gap: 10px;
+    background: var(--white); border: 1px solid var(--line); text-decoration: none; color: var(--ink);
+    transition: transform .4s, box-shadow .4s;
+  }
+  .tile::before { content: ""; position: absolute; inset: 0; background: var(--tile, var(--azure)); transform: translateY(101%); transition: transform .45s cubic-bezier(.7,0,.3,1); }
+  .tile:hover::before { transform: translateY(0); }
+  .tile:hover { transform: translateY(-6px); box-shadow: 0 26px 55px rgba(11,34,57,0.2); }
+  .tile > * { position: relative; z-index: 1; transition: color .3s; }
+  .tile .no { font-family: 'Cormorant Garamond', serif; font-size: 46px; font-weight: 600; color: var(--mist); position: absolute; top: 26px; left: 30px; z-index: 1; }
+  .tile h3 { margin: 0; font-size: 28px; font-weight: 600; }
+  .tile p { margin: 0; font-size: 14px; line-height: 1.7; color: var(--slate); }
+  .tile .go { font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--azure); margin-top: 8px; }
+  .tile:hover .no, .tile:hover h3, .tile:hover p, .tile:hover .go { color: #fff; }
+  .tile:hover p { color: rgba(255,255,255,0.85); }
+
+  /* ---------- transitions on reveal ---------- */
+  .rv { opacity: 0; transform: translateY(30px); transition: opacity .9s ease, transform .9s ease; }
+  .rv.rv-in { opacity: 1; transform: none; }
+
+  /* ---------- generic sections ---------- */
+  section { padding: 110px 24px; }
+  .wrap { max-width: 1120px; margin: 0 auto; }
+  .page-head { text-align: center; max-width: 760px; margin: 0 auto 70px; padding-top: 130px; }
+  .page-head h2 { margin: 18px 0 16px; font-size: clamp(42px, 6vw, 72px); font-weight: 600; line-height: 1.08; color: var(--navy); }
+  .page-head p { margin: 0; font-size: 16.5px; line-height: 1.8; color: var(--slate); }
+
+  /* ---------- stats ---------- */
+  .stats { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 76px 24px; }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 1120px; margin: 0 auto; text-align: center; }
+  .stat .num { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 600; color: var(--navy); line-height: 1; }
+  .stat .num em { font-style: normal; color: var(--azure); }
+  .stat .lbl { margin-top: 12px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); line-height: 1.8; }
+
+  /* ---------- about ---------- */
+  .about-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 72px; align-items: center; }
+  .about-photo { position: relative; }
+  .about-photo img { display: block; width: 100%; border-radius: 4px; box-shadow: 0 30px 70px rgba(11,34,57,0.25); }
+  .about-photo::before { content: ""; position: absolute; inset: 22px -22px -22px 22px; border: 1px solid var(--turq); border-radius: 4px; z-index: -1; }
+  .about-copy h2 { margin: 18px 0 22px; font-size: clamp(36px, 4.5vw, 52px); font-weight: 600; line-height: 1.12; color: var(--navy); }
+  .about-copy p { margin: 0 0 18px; font-size: 16.5px; line-height: 1.9; color: var(--slate); }
+
+  /* ---------- CV accordions ---------- */
+  .acc { border-bottom: 1px solid var(--line); }
+  .acc:first-of-type { border-top: 1px solid var(--line); }
+  .acc-head { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 34px 8px; cursor: pointer; transition: padding .35s; }
+  .acc-head:hover { padding-left: 18px; }
+  .acc-head .t { display: flex; flex-direction: column; gap: 8px; }
+  .acc-head h3 { margin: 0; font-size: clamp(26px, 3.2vw, 38px); font-weight: 600; color: var(--navy); line-height: 1.1; }
+  .acc-chev { flex: 0 0 auto; width: 46px; height: 46px; border: 1px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--azure); font-size: 18px; transition: transform .45s, background .3s, color .3s, border-color .3s; }
+  .acc-head:hover .acc-chev { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .acc.open .acc-chev { transform: rotate(180deg); background: var(--azure); color: #fff; border-color: var(--azure); }
+  .acc-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .6s cubic-bezier(.4,0,.2,1); }
+  .acc.open .acc-body { grid-template-rows: 1fr; }
+  .acc-body > .acc-inner { overflow: hidden; }
+  .acc-content { padding: 6px 8px 46px; }
+
+  .xp { display: flex; gap: 28px; padding: 26px 0; border-top: 1px solid var(--line); }
+  .xp:first-child { border-top: 0; }
+  .xp .when { flex: 0 0 130px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--azure); padding-top: 6px; }
+  .xp .what h4 { margin: 0 0 4px; font-family: 'Cormorant Garamond', serif; font-size: 25px; font-weight: 600; color: var(--navy); }
+  .xp .what .role { font-size: 12.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate); margin-bottom: 12px; }
+  .xp .what p, .xp .what li { font-size: 15.5px; line-height: 1.85; color: var(--slate); }
+  .xp .what ul { margin: 0; padding-left: 18px; }
+  .xp .what li { margin-bottom: 6px; }
+
+  .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+  .proj { background: var(--sand); border: 1px solid var(--line); border-radius: 4px; padding: 34px; transition: transform .3s, box-shadow .4s; transform-style: preserve-3d; will-change: transform; }
+  .proj:hover { box-shadow: 0 24px 50px rgba(11,34,57,0.14); }
+  .proj .eyebrow { font-size: 10.5px; }
+  .proj h4 { margin: 14px 0 12px; font-family: 'Cormorant Garamond', serif; font-size: 27px; font-weight: 600; color: var(--navy); line-height: 1.15; }
+  .proj p { margin: 0 0 18px; font-size: 15px; line-height: 1.8; color: var(--slate); }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--azure); border: 1px solid rgba(44,125,160,0.35); padding: 6px 14px; border-radius: 999px; }
+  .chip.solid { background: var(--azure); color: #fff; border-color: var(--azure); }
+
+  .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 40px; }
+  .cert { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 16px; color: var(--ink); }
+  .cert::before { content: "◆"; font-size: 9px; color: var(--turq); }
+  .cert small { color: var(--mist); letter-spacing: 0.08em; }
+
+  /* ---------- hobbies ---------- */
+  .hobby-grid { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .hobby {
+    position: relative; border-radius: 6px; padding: 40px 28px; min-height: 300px; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: flex-end; gap: 12px;
+    color: #fff; background: linear-gradient(165deg, var(--hb1, #0b2239), var(--hb2, #2c7da0));
+    transition: transform .3s, box-shadow .4s; transform-style: preserve-3d; will-change: transform;
+  }
+  .hobby:hover { box-shadow: 0 30px 60px rgba(11,34,57,0.3); }
+  .hobby .ico { font-size: 44px; position: absolute; top: 32px; left: 28px; transition: transform .4s; }
+  .hobby:hover .ico { transform: scale(1.25) rotate(-8deg); }
+  .hobby h3 { margin: 0; font-size: 27px; font-weight: 600; }
+  .hobby p { margin: 0; font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.85); max-height: 0; opacity: 0; overflow: hidden; transition: max-height .5s cubic-bezier(.4,0,.2,1), opacity .5s; }
+  .hobby:hover p, .hobby.open p { max-height: 200px; opacity: 1; }
+  .hobby .tag { font-size: 10.5px; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+
+  /* ---------- contact ---------- */
+  .banner { background: radial-gradient(90% 120% at 85% 0%, rgba(97,165,194,0.3), transparent 55%), linear-gradient(170deg, #0b2239, #17466a); color: #fff; text-align: center; padding: 190px 24px 130px; min-height: 90vh; }
+  .banner h2 { margin: 20px auto 26px; max-width: 860px; font-size: clamp(38px, 5.5vw, 66px); font-weight: 600; line-height: 1.15; }
+  .banner p { margin: 0 auto 44px; max-width: 560px; color: rgba(255,255,255,0.8); font-size: 16.5px; line-height: 1.8; }
+
+  /* ---------- footer ---------- */
+  footer { background: #081a2c; color: rgba(255,255,255,0.72); padding: 56px 24px 36px; }
+  .foot-grid { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px; }
+  .foot-grid h5 { margin: 0 0 18px; font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--turq); font-weight: 500; }
+  .foot-grid a { display: block; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 14.5px; margin-bottom: 10px; background: none; border: 0; padding: 0; text-align: left; cursor: pointer; font-family: inherit; }
+  .foot-grid a:hover { color: #fff; }
+  .foot-brand { font-family: 'Cormorant Garamond', serif; font-size: 24px; letter-spacing: 0.1em; color: #fff; text-transform: uppercase; margin-bottom: 14px; }
+  .foot-note { max-width: 1120px; margin: 46px auto 0; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.12); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 12px; letter-spacing: 0.12em; color: rgba(255,255,255,0.45); }
+
+  @media (max-width: 980px) {
+    .tiles-grid, .hobby-grid { grid-template-columns: 1fr 1fr; }
+    .stats-grid, .proj-grid, .cert-grid { grid-template-columns: 1fr 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .foot-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 760px) {
+    nav { padding: 16px 22px; }
+    .nav-links { display: none; }
+    .burger { display: block; }
+  }
+  @media (max-width: 620px) {
+    .tiles-grid, .hobby-grid, .stats-grid, .proj-grid, .cert-grid { grid-template-columns: 1fr; }
+    .xp { flex-direction: column; gap: 8px; }
+    section { padding: 80px 20px; }
+    .page-head { padding-top: 110px; }
   }
 </style>
 <script src="editor.js" defer></script>
 </head>
 <body>
 
-  <!-- entry gate -->
-  <div id="gate">
-    <div class="dot" aria-hidden="true"></div>
-    <h1>Sougat Shekhar Hota</h1>
-    <p class="tag">strategic account manager · systems over heroics,<br>a ₹384 Mn portfolio run like a product</p>
-    <div class="doors">
-      <button id="enter-snd">Enter with sound</button>
-      <button id="enter-quiet">Enter without sound</button>
-    </div>
-  </div>
+<div id="site">
 
-  <!-- header -->
-  <header class="site-head">
-    <a class="brand" href="#works" id="brand"><span class="mark">✲</span> Sougat Shekhar Hota</a>
-    <div class="mode" role="tablist" aria-label="Works view mode">
-      <button id="m-orbit" aria-pressed="true">Orbit</button>
-      <span class="sep" aria-hidden="true"></span>
-      <button id="m-list" aria-pressed="false">List</button>
-    </div>
-    <button class="menu-btn" id="menu-open">Menu <span class="dot2"></span></button>
-  </header>
-
-  <!-- works -->
-  <main id="view-works">
-    <div id="orbit-zone" aria-label="Works carousel. Scroll or drag to rotate">
-      <div class="stage"><div class="ring" id="ring"></div></div>
-    </div>
-    <div class="orbit-caption" id="cap">
-      <div class="no"></div>
-      <h2></h2>
-      <div class="tg caps"></div>
-      <p class="hint">scroll or drag to browse · <b>click to open</b></p>
-    </div>
-    <div id="list-zone" role="list"></div>
-  </main>
-  <div id="float-prev" aria-hidden="true"><img alt=""></div>
-
-  <!-- editable content region (owner edit mode: #admin) -->
-  <div id="site">
-
-  <!-- about -->
-  <section id="view-about" data-sec data-name="About page">
-    <div class="bio-stage"><p class="bio" id="bio"></p></div>
-    <figure class="about-photo" data-card data-name="Photo & aside">
-      <div>
-        <img src="assets/sougat.jpg" alt="Portrait of Sougat Shekhar Hota">
-        <figcaption class="caps">Fig. 1 · The operator</figcaption>
-      </div>
-      <p class="aside">Every system here was built inside a live enterprise business —
-      ICICI Bank, Asian Paints, Credit Suisse, Godrej — or shipped as open source with
-      real data. Health scores instead of heroics, governance instead of goodwill,
-      automation instead of apology. All metrics reproducible on request.</p>
-    </figure>
-    <div class="offduty" data-card data-name="Off duty strip">
-      <span class="caps">Off duty</span>
-      <span class="h">strength training</span>
-      <span class="h">building with AI</span>
-      <span class="h">coffee craft</span>
-      <span class="h">travel &amp; exploration</span>
-    </div>
-    <div class="resume-strip" data-card data-name="Currently strip">
-      <p class="now">Currently: <em>Account Manager, Strategic Enterprise</em>, Bharti Airtel — Mumbai.</p>
-      <div class="r-links">
-        <button class="primary" data-open-cv>View the CV →</button>
-        <a class="ghost" href="https://linkedin.com/in/sougat-shekhar-hota" target="_blank" rel="noopener">LinkedIn ↗</a>
-      </div>
-    </div>
-    <div class="big-socials" data-card data-name="Big social links">
-      <a href="https://github.com/sougatshekhar97-cpu" target="_blank" rel="noopener">github</a>
-      <a href="https://linkedin.com/in/sougat-shekhar-hota" target="_blank" rel="noopener">linkedin</a>
-      <a href="mailto:sougatshekhar97@gmail.com">email</a>
-    </div>
-    <footer class="about-foot caps" data-card data-name="About footer">
-      <span>© <span id="yr">2026</span> Sougat Shekhar Hota</span>
-      <span class="note">All claims verifiable. Unlike most launch pages.</span>
-      <a class="top" data-go-works>← Back to works</a>
-    </footer>
-  </section>
-
-  <!-- cv sheet -->
-  <div id="cv" class="sheet" aria-modal="true" role="dialog" aria-label="Curriculum vitae">
-    <div class="inner" data-sec data-name="CV content">
-      <h2 class="cv-title">Curriculum vitae<span style="color:var(--accent)">.</span></h2>
-      <p class="cv-sub caps">Sougat Shekhar Hota · Strategic Account Manager · Mumbai, IN</p>
-
-      <div class="cv-sec" data-card data-name="CV: Experience">
-        <span class="caps">01 · Experience</span>
-        <div class="row">
-          <div class="when">2024 — now</div>
-          <div class="what">
-            <h4>Bharti Airtel</h4>
-            <div class="role">Account Manager · Strategic Enterprise</div>
-            <ul>
-              <li>Own a ₹384 Mn ARR portfolio across 30+ enterprise accounts — BFSI, IT and FMCG, including ICICI Bank, Asian Paints, Credit Suisse and Godrej Group.</li>
-              <li>Built a proactive health-scoring and churn-intervention model; churn down 46% YoY and a ₹4 Cr account saved — recognised as regional best practice.</li>
-              <li>Shipped an n8n + LLM-agent incident automation to production at Asian Paints; recurring incidents down 80%, playbook adopted across accounts.</li>
-              <li>Recovered ₹60L+ in SLA value through RCA-documented, dashboard-backed negotiation at CXO level.</li>
-            </ul>
+  <!-- NAV -->
+  <div data-sec data-name="Navigation">
+    <nav id="topnav">
+      <a class="brand" href="#/home" data-nav="home">Sougat <span>Shekhar</span> Hota</a>
+      <div class="nav-links">
+        <a href="#/about" data-nav="about">About</a>
+        <div class="nav-drop">
+          <button type="button">Curriculum Vitae ▾</button>
+          <div class="nav-drop-menu">
+            <a href="#/cv" data-nav="cv" data-open-acc="cv-experience">Experience</a>
+            <a href="#/cv" data-nav="cv" data-open-acc="cv-projects">Key Projects</a>
+            <a href="works.html" style="color:var(--azure)">Interactive Showcase ↗</a>
+            <a href="#/cv" data-nav="cv" data-open-acc="cv-education">Education</a>
+            <a href="#/cv" data-nav="cv" data-open-acc="cv-certs">Certifications</a>
+            <a href="#/cv" data-nav="cv" data-open-acc="cv-skills">Skills &amp; Stack</a>
           </div>
         </div>
-        <div class="row">
-          <div class="when">2023</div>
-          <div class="what">
-            <h4>ITC Limited</h4>
-            <div class="role">Area Sales Manager Intern · Personal Care</div>
-            <ul>
-              <li>Audited 460+ retail outlets; built competitor intelligence versus Skinn, Nykaa and Sugar.</li>
-              <li>Designed a promoter-effectiveness scoring model that improved campaign ROI by 25%.</li>
-            </ul>
-          </div>
-        </div>
+        <a href="#/hobbies" data-nav="hobbies">Hobbies</a>
+        <a class="nav-cta" href="#/contact" data-nav="contact">Contact</a>
       </div>
-
-      <div class="cv-sec" data-card data-name="CV: Education">
-        <span class="caps">02 · Education</span>
-        <div class="row">
-          <div class="when">2022 — 24</div>
-          <div class="what">
-            <h4>Xavier Institute of Management, Bhubaneswar (XIMB)</h4>
-            <div class="role">MBA · Business Management</div>
-            <p>Marketing, Operations and Strategy. Capstone: full BRD and GTM for Amazon India Fitness &amp; Health — awarded distinction.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="cv-sec" data-card data-name="CV: Certifications">
-        <span class="caps">03 · Certifications</span>
-        <div class="two" style="margin-top:14px">
-          <p>Lean Six Sigma Green Belt <small>— KPMG</small></p>
-          <p>Certified Product Manager <small>— Phoenix Global</small></p>
-          <p>Zero Trust Cyber Associate (ZTCA) <small>— Zscaler</small></p>
-          <p>Zscaler Certified Sales Professional <small>— Zscaler</small></p>
-          <p>AI Automation: LLM Apps, Agents &amp; APIs <small>— Udemy</small></p>
-          <p>McKinsey Forward Program <small>— McKinsey</small></p>
-        </div>
-      </div>
-
-      <div class="cv-sec" data-card data-name="CV: Skills">
-        <span class="caps">04 · Skills &amp; stack</span>
-        <div class="row">
-          <div class="when">core</div>
-          <div class="what"><p>Strategic account management · Customer success · Process excellence (Lean Six Sigma) · Product thinking (BRD/PRD, GTM) · Executive governance (QBR/MBR, RCA) · Partner &amp; alliance management</p></div>
-        </div>
-        <div class="row">
-          <div class="when">stack</div>
-          <div class="what"><p>Power BI · Salesforce · n8n · Prompt engineering · REST APIs · Python · Streamlit · SD-WAN · ZTNA · Advanced Excel</p></div>
-        </div>
-      </div>
-
-      <div class="pill-links" data-card data-name="CV: contact pills">
-        <a href="mailto:sougatshekhar97@gmail.com">Email me</a>
-        <a class="ghost" href="https://linkedin.com/in/sougat-shekhar-hota" target="_blank" rel="noopener">LinkedIn ↗</a>
-      </div>
-    </div>
-  </div>
-
-  </div><!-- /#site -->
-
-  <!-- project detail sheet -->
-  <div id="detail" class="sheet" aria-modal="true" role="dialog">
-    <div class="inner">
-      <div class="d-head">
-        <span class="d-no"></span>
-        <h2></h2>
-      </div>
-      <div class="d-tag caps"></div>
-      <div class="d-shot"><img alt=""></div>
-      <p class="d-lede"></p>
-      <p class="d-about"></p>
-      <p class="d-proof"></p>
-      <div class="pill-links">
-        <a class="open-app" href="#" target="_blank" rel="noopener">Open ↗</a>
-        <a class="open-code ghost" href="#" target="_blank" rel="noopener">Code ↗</a>
-      </div>
-      <a class="d-next" href="#">
-        <span class="caps">Next up…</span>
-        <div class="nx"></div>
-      </a>
-    </div>
-  </div>
-  <button class="sheet-close" id="d-close">Close ●</button>
-  <button class="sheet-close" id="cv-close">Close ●</button>
-
-  <!-- menu -->
-  <div id="scrim"></div>
-  <aside id="panel" aria-label="Menu">
-    <div class="p-top"><button class="p-close" id="menu-close">Close <span class="x"></span></button></div>
-    <nav>
-      <button data-go="works">works</button>
-      <button data-go="about">about</button>
-      <button id="menu-cv">curriculum vitae</button>
-      <a href="mailto:sougatshekhar97@gmail.com">contact</a>
+      <button class="burger" type="button" data-mmenu-open>☰</button>
     </nav>
-    <div class="p-foot">
-      <a class="p-mail" href="mailto:sougatshekhar97@gmail.com">sougatshekhar97@gmail.com</a>
-      <div class="p-socials">
-        <a href="https://github.com/sougatshekhar97-cpu" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
-        <a href="https://linkedin.com/in/sougat-shekhar-hota" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
-        <a href="mailto:sougatshekhar97@gmail.com" aria-label="Email">@</a>
+    <div class="mmenu" id="mmenu">
+      <button class="close" type="button" data-mmenu-close>✕</button>
+      <a href="#/home" data-nav="home">Home</a>
+      <a href="#/about" data-nav="about">About</a>
+      <a href="#/cv" data-nav="cv">Curriculum Vitae</a>
+      <a href="#/hobbies" data-nav="hobbies">Hobbies</a>
+      <a href="#/contact" data-nav="contact">Contact</a>
+    </div>
+  </div>
+
+  <!-- ============ VIEW: HOME ============ -->
+  <div class="view" data-view="home" data-sec data-name="Page: Home">
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="eyebrow">Strategic Account Manager · Mumbai, India</div>
+        <h1>Where enterprise trust<br>meets quiet precision</h1>
+        <div class="rotator-line">— shipping toward <span id="rotator">Product Management</span></div>
+        <p class="sub">I steward a ₹384 Mn enterprise portfolio the way a captain runs a vessel — calm at the helm, obsessive about the systems below deck.</p>
+        <div class="hero-cta">
+          <a class="btn-light magnet" href="#/cv" data-nav="cv">Explore the CV</a>
+          <a class="btn-ghost magnet" href="#/contact" data-nav="contact">Get in touch</a>
+        </div>
+      </div>
+      <span class="scroll-cue">Scroll</span>
+    </header>
+
+    <div class="stats" data-card data-name="Numbers strip">
+      <div class="stats-grid">
+        <div class="stat rv" data-card data-name="Stat: ARR">
+          <div class="num">₹<em data-count="384">384</em> Mn</div>
+          <div class="lbl">ARR portfolio owned<br>30+ enterprise accounts</div>
+        </div>
+        <div class="stat rv" data-card data-name="Stat: Churn">
+          <div class="num"><em>−<span data-count="46">46</span>%</em></div>
+          <div class="lbl">YoY churn, via a health-scoring<br>system built from scratch</div>
+        </div>
+        <div class="stat rv" data-card data-name="Stat: Incidents">
+          <div class="num"><em>−<span data-count="80">80</span>%</em></div>
+          <div class="lbl">Recurring incidents, via AI<br>automation in production</div>
+        </div>
+        <div class="stat rv" data-card data-name="Stat: SLA">
+          <div class="num">₹<em data-count="60">60</em>L+</div>
+          <div class="lbl">SLA value recovered through<br>data-backed CXO negotiation</div>
+        </div>
       </div>
     </div>
-  </aside>
 
-  <!-- sound toggle -->
-  <button id="snd" class="off" aria-label="Toggle sound">
-    <svg viewBox="0 0 24 24"><path d="M4 9.5v5h3.5L12 19V5L7.5 9.5H4z"/>
-    <g class="waves"><path d="M15.5 9.2a4 4 0 0 1 0 5.6"/><path d="M18 6.8a7.4 7.4 0 0 1 0 10.4"/></g></svg>
-  </button>
+    <div class="tiles" data-card data-name="Explore tiles">
+      <div class="tiles-grid">
+        <a class="tile rv" href="#/about" data-nav="about" style="--tile:#2c7da0" data-card data-name="Tile: About">
+          <span class="no">01</span>
+          <h3 class="serif">About</h3>
+          <p>The person behind the portfolio — and why "account manager" undersells it.</p>
+          <span class="go">Enter →</span>
+        </a>
+        <a class="tile rv" href="#/cv" data-nav="cv" style="--tile:#0b2239" data-card data-name="Tile: CV">
+          <span class="no">02</span>
+          <h3 class="serif">Curriculum Vitae</h3>
+          <p>Experience, projects, education, credentials — each section unfolds.</p>
+          <span class="go">Enter →</span>
+        </a>
+        <a class="tile rv" href="#/hobbies" data-nav="hobbies" style="--tile:#6b9a7a" data-card data-name="Tile: Hobbies">
+          <span class="no">03</span>
+          <h3 class="serif">Hobbies</h3>
+          <p>What keeps the engine running when the laptop is closed.</p>
+          <span class="go">Enter →</span>
+        </a>
+        <a class="tile rv" href="#/contact" data-nav="contact" style="--tile:#c9a24b" data-card data-name="Tile: Contact">
+          <span class="no">04</span>
+          <h3 class="serif">Contact</h3>
+          <p>Open to PM, Process Excellence and Partner &amp; Alliances conversations.</p>
+          <span class="go">Enter →</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
-  <div id="cur" aria-hidden="true"></div>
+  <!-- ============ VIEW: ABOUT ============ -->
+  <div class="view" data-view="about" data-sec data-name="Page: About">
+    <div class="page-head rv">
+      <div class="eyebrow">01 · The Profile</div>
+      <h2>A builder wearing an account manager's badge.</h2>
+    </div>
+    <section style="padding-top:0">
+      <div class="wrap about-grid">
+        <div class="about-photo rv" data-card data-name="Photo">
+          <img src="assets/sougat.jpg" alt="Sougat Shekhar Hota">
+        </div>
+        <div class="about-copy rv" data-card data-name="About copy">
+          <p>Two years inside Bharti Airtel's strategic enterprise business — ICICI Bank, Asian Paints, Credit Suisse, Godrej — taught me that great account management is quiet systems work: health scores instead of heroics, governance instead of goodwill, automation instead of apology.</p>
+          <p>The evidence pattern reads like a product portfolio: a churn engine adopted as regional best practice, LLM automation shipped to production, a service framework rolled out nationally, and dashboards that changed how executives make decisions.</p>
+          <p>MBA from XIMB. Lean Six Sigma Green Belt. Three coffees a day. Every claim on this page is reproducible on request.</p>
+          <div class="hero-cta" style="justify-content:flex-start; margin-top:34px">
+            <a class="btn-ghost magnet" style="border-color:var(--line); color:var(--navy)" href="#/cv" data-nav="cv">Read the CV →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ VIEW: CV ============ -->
+  <div class="view" data-view="cv" data-sec data-name="Page: Curriculum Vitae">
+    <div class="page-head rv">
+      <div class="eyebrow">02 · Curriculum Vitae</div>
+      <h2>The full manifest.</h2>
+      <p>Everything below unfolds — open what interests you.</p>
+    </div>
+    <section style="padding-top:0; background:var(--white); border-top:1px solid var(--line)">
+      <div class="wrap" style="padding-top:60px">
+
+        <div class="acc rv" id="cv-experience" data-card data-name="CV: Experience">
+          <div class="acc-head" role="button" aria-expanded="false">
+            <div class="t">
+              <span class="eyebrow">01 · Experience</span>
+              <h3>Professional experience</h3>
+            </div>
+            <span class="acc-chev" contenteditable="false">↓</span>
+          </div>
+          <div class="acc-body"><div class="acc-inner"><div class="acc-content">
+            <div class="xp" data-card data-name="Experience: Airtel">
+              <div class="when">2024 — Now</div>
+              <div class="what">
+                <h4>Bharti Airtel</h4>
+                <div class="role">Account Manager · Strategic Enterprise</div>
+                <ul>
+                  <li>Own a ₹384 Mn ARR portfolio across 30+ enterprise accounts — BFSI, IT and FMCG, including ICICI Bank, Asian Paints, Credit Suisse and Godrej Group.</li>
+                  <li>Built a proactive health-scoring and churn-intervention model; churn down 46% YoY and a ₹4 Cr account saved — recognised as regional best practice.</li>
+                  <li>Shipped an n8n + LLM-agent incident automation to production at Asian Paints; recurring incidents down 80%, playbook adopted across accounts.</li>
+                  <li>Recovered ₹60L+ in SLA value through RCA-documented, dashboard-backed negotiation at CXO level.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="xp" data-card data-name="Experience: ITC">
+              <div class="when">2023</div>
+              <div class="what">
+                <h4>ITC Limited</h4>
+                <div class="role">Area Sales Manager Intern · Personal Care</div>
+                <ul>
+                  <li>Audited 460+ retail outlets; built competitor intelligence versus Skinn, Nykaa and Sugar.</li>
+                  <li>Designed a promoter-effectiveness scoring model that improved campaign ROI by 25%.</li>
+                </ul>
+              </div>
+            </div>
+          </div></div></div>
+        </div>
+
+        <div class="acc rv" id="cv-projects" data-card data-name="CV: Key Projects">
+          <div class="acc-head" role="button" aria-expanded="false">
+            <div class="t">
+              <span class="eyebrow">02 · Proof of Work</span>
+              <h3>Key projects &amp; systems</h3>
+            </div>
+            <span class="acc-chev" contenteditable="false">↓</span>
+          </div>
+          <div class="acc-body"><div class="acc-inner"><div class="acc-content">
+            <a class="proj-showcase" data-card data-name="Interactive showcase link" href="works.html"
+               style="display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
+               text-decoration:none; border:1px solid var(--azure); border-radius:14px; padding:24px 28px; margin-bottom:26px;
+               background:linear-gradient(120deg, rgba(44,125,160,0.1), transparent 70%); transition:transform .3s, box-shadow .3s;">
+              <span>
+                <span class="eyebrow" style="color:var(--azure)">Interactive Showcase</span>
+                <span style="display:block; font-family:'Cormorant Garamond',serif; font-size:26px; color:var(--navy); margin-top:6px; line-height:1.2">Explore all projects in the interactive orbit →</span>
+                <span style="display:block; font-size:14px; color:var(--slate); margin-top:6px">A drag-to-spin carousel with live dashboards, case studies and the full story.</span>
+              </span>
+              <span style="flex:0 0 auto; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:#fff; background:var(--navy); padding:12px 24px; border-radius:999px">Open ↗</span>
+            </a>
+            <div class="proj-grid">
+              <div class="proj tilt" data-card data-name="Project: Churn engine">
+                <div class="eyebrow">Churn Engine · 2024–26</div>
+                <h4>Proactive health-scoring model</h4>
+                <p>Churn prediction and intervention across 30+ accounts — weighted signals, SLA governance, structured QBR/MBR cadence.</p>
+                <div class="chips"><span class="chip">46% churn ↓</span><span class="chip">₹4 Cr saved</span></div>
+              </div>
+              <div class="proj tilt" data-card data-name="Project: AI automation">
+                <div class="eyebrow">AI in Production · Asian Paints</div>
+                <h4>Predictive ticketing &amp; incident automation</h4>
+                <p>Independently designed and deployed an n8n + LLM-agent system with REST API integrations in a live enterprise environment.</p>
+                <div class="chips"><span class="chip">80% incidents ↓</span><span class="chip">n8n · LLM · APIs</span></div>
+              </div>
+              <div class="proj tilt" data-card data-name="Project: SD-WAN framework">
+                <div class="eyebrow">National Framework · SD-WAN</div>
+                <h4>Service transformation, adopted by HQ</h4>
+                <p>Authored the Fortinet SD-WAN Service Transformation framework leading 15+ engineers across 2,000+ enterprise sites; adopted for national rollout.</p>
+                <div class="chips"><span class="chip">25% FTR/TAT ↑</span><span class="chip">2,000+ sites</span></div>
+              </div>
+              <div class="proj tilt" data-card data-name="Project: Health Score Engine">
+                <div class="eyebrow">Flagship Side-Build</div>
+                <h4>Customer Health Score Engine</h4>
+                <p>A weekend build — React frontend, Claude API for narrative risk analysis. The Airtel churn playbook, productised.</p>
+                <div class="chips"><span class="chip solid">React</span><span class="chip solid">Claude API</span></div>
+              </div>
+              <div class="proj tilt" data-card data-name="Project: PULSE-360">
+                <div class="eyebrow">Open Source · Live Data</div>
+                <h4>PULSE-360 — Marketing Intelligence</h4>
+                <p>Python pipeline that pulls live signals — Google Trends, Wikipedia pageviews, world news — into one schema and scores every channel with my weighted health model, on a Streamlit dashboard.</p>
+                <div class="chips"><a class="chip solid" style="text-decoration:none" href="https://pulse-360-ijsehujby7ckf5mrcs6pds.streamlit.app/" target="_blank" rel="noopener">Live dashboard ↗</a><a class="chip" style="text-decoration:none" href="https://github.com/sougatshekhar97-cpu/pulse-360" target="_blank" rel="noopener">GitHub ↗</a></div>
+              </div>
+              <div class="proj tilt" data-card data-name="Project: OPTICHAIN">
+                <div class="eyebrow">Open Source · Supply Chain</div>
+                <h4>OPTICHAIN — Supply Chain Control Tower</h4>
+                <p>Digital twin of the network-hardware chains I ran across 2,000+ sites: demand forecasting, safety stock &amp; EOQ, Monte Carlo service-vs-cost simulation, and weighted supplier health scoring.</p>
+                <div class="chips"><a class="chip solid" style="text-decoration:none" href="https://optichain-p3bslorutecqk2ayijdr9m.streamlit.app/" target="_blank" rel="noopener">Live dashboard ↗</a><a class="chip" style="text-decoration:none" href="https://github.com/sougatshekhar97-cpu/optichain" target="_blank" rel="noopener">GitHub ↗</a></div>
+              </div>
+            </div>
+          </div></div></div>
+        </div>
+
+        <div class="acc rv" id="cv-education" data-card data-name="CV: Education">
+          <div class="acc-head" role="button" aria-expanded="false">
+            <div class="t">
+              <span class="eyebrow">03 · Education</span>
+              <h3>Education</h3>
+            </div>
+            <span class="acc-chev" contenteditable="false">↓</span>
+          </div>
+          <div class="acc-body"><div class="acc-inner"><div class="acc-content">
+            <div class="xp" data-card data-name="Education: XIMB">
+              <div class="when">2022 — 24</div>
+              <div class="what">
+                <h4>Xavier Institute of Management, Bhubaneswar (XIMB)</h4>
+                <div class="role">MBA · Business Management</div>
+                <p>Marketing, Operations and Strategy. Capstone: full BRD and GTM for Amazon India Fitness &amp; Health — awarded distinction.</p>
+              </div>
+            </div>
+          </div></div></div>
+        </div>
+
+        <div class="acc rv" id="cv-certs" data-card data-name="CV: Certifications">
+          <div class="acc-head" role="button" aria-expanded="false">
+            <div class="t">
+              <span class="eyebrow">04 · Credentials</span>
+              <h3>Certifications</h3>
+            </div>
+            <span class="acc-chev" contenteditable="false">↓</span>
+          </div>
+          <div class="acc-body"><div class="acc-inner"><div class="acc-content">
+            <div class="cert-grid">
+              <div class="cert" data-card data-name="Cert: LSS">Lean Six Sigma Green Belt <small>— KPMG</small></div>
+              <div class="cert" data-card data-name="Cert: CPM">Certified Product Manager <small>— Phoenix Global</small></div>
+              <div class="cert" data-card data-name="Cert: ZTCA">Zero Trust Cyber Associate (ZTCA) <small>— Zscaler</small></div>
+              <div class="cert" data-card data-name="Cert: ZCSP">Zscaler Certified Sales Professional <small>— Zscaler</small></div>
+              <div class="cert" data-card data-name="Cert: AI">AI Automation: LLM Apps, Agents &amp; APIs <small>— Udemy</small></div>
+              <div class="cert" data-card data-name="Cert: McKinsey">McKinsey Forward Program <small>— McKinsey</small></div>
+            </div>
+          </div></div></div>
+        </div>
+
+        <div class="acc rv" id="cv-skills" data-card data-name="CV: Skills">
+          <div class="acc-head" role="button" aria-expanded="false">
+            <div class="t">
+              <span class="eyebrow">05 · Capabilities</span>
+              <h3>Skills &amp; stack</h3>
+            </div>
+            <span class="acc-chev" contenteditable="false">↓</span>
+          </div>
+          <div class="acc-body"><div class="acc-inner"><div class="acc-content">
+            <div class="xp" data-card data-name="Skills: Core">
+              <div class="when">Core</div>
+              <div class="what">
+                <p>Strategic account management · Customer success · Process excellence (Lean Six Sigma) · Product thinking (BRD/PRD, GTM) · Executive governance (QBR/MBR, RCA) · Partner &amp; alliance management</p>
+              </div>
+            </div>
+            <div class="xp" data-card data-name="Skills: Stack">
+              <div class="when">Stack</div>
+              <div class="what">
+                <div class="chips">
+                  <span class="chip">Power BI</span><span class="chip">Salesforce</span><span class="chip">n8n</span>
+                  <span class="chip">Prompt engineering</span><span class="chip">REST APIs</span><span class="chip">SD-WAN</span>
+                  <span class="chip">ZTNA</span><span class="chip">Advanced Excel</span>
+                </div>
+              </div>
+            </div>
+          </div></div></div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ VIEW: HOBBIES ============ -->
+  <div class="view" data-view="hobbies" data-sec data-name="Page: Hobbies">
+    <div class="page-head rv">
+      <div class="eyebrow">03 · Off Duty</div>
+      <h2>What keeps the engine running.</h2>
+      <p>Hover a card — everything here is a system too, just a more enjoyable one.</p>
+    </div>
+    <section style="padding-top:0">
+      <div class="hobby-grid">
+        <div class="hobby tilt rv" style="--hb1:#0b2239; --hb2:#2c7da0" data-card data-name="Hobby: Strength training">
+          <span class="ico">🏋️</span>
+          <span class="tag">Discipline</span>
+          <h3 class="serif">Strength training</h3>
+          <p>Weights are gym-dependent, alignment is customer-first. Progressive overload is just Lean Six Sigma for the body.</p>
+        </div>
+        <div class="hobby tilt rv" style="--hb1:#123a2e; --hb2:#6b9a7a" data-card data-name="Hobby: AI side-builds">
+          <span class="ico">🤖</span>
+          <span class="tag">Curiosity</span>
+          <h3 class="serif">Building with AI</h3>
+          <p>Weekend agent experiments — n8n flows, Claude API builds, automations nobody asked for. Some escape into production.</p>
+        </div>
+        <div class="hobby tilt rv" style="--hb1:#3a2417; --hb2:#c96b4b" data-card data-name="Hobby: Coffee">
+          <span class="ico">☕</span>
+          <span class="tag">Fuel</span>
+          <h3 class="serif">Coffee craft</h3>
+          <p>Power draw: three cups a day. Rotating through brew methods with the same rigour as a QBR cadence.</p>
+        </div>
+        <div class="hobby tilt rv" style="--hb1:#2c2440; --hb2:#c9a24b" data-card data-name="Hobby: Travel">
+          <span class="ico">🧭</span>
+          <span class="tag">Perspective</span>
+          <h3 class="serif">Travel &amp; exploration</h3>
+          <p>New cities, new coastlines, new food. The best account strategy ideas arrive somewhere far from the desk.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ VIEW: CONTACT ============ -->
+  <div class="view" data-view="contact" data-sec data-name="Page: Contact">
+    <section class="banner" style="margin:0">
+      <div class="eyebrow" style="color:var(--turq)">04 · Set a course</div>
+      <h2>If I can systematise a ₹384 Mn portfolio, imagine what I can do for your product.</h2>
+      <p>Open to Product Management, Process Excellence and Partner &amp; Alliances conversations.</p>
+      <div class="hero-cta" style="margin-top:0">
+        <a class="btn-light magnet" href="mailto:sougatshekhar97@gmail.com">sougatshekhar97@gmail.com</a>
+        <a class="btn-ghost magnet" href="https://linkedin.com/in/sougat-shekhar-hota">LinkedIn ↗</a>
+      </div>
+      <p style="margin-top:44px; font-size:14px; letter-spacing:0.12em; color:rgba(255,255,255,0.6)">+91 76558 45685 · Mumbai, India</p>
+    </section>
+  </div>
+
+  <!-- FOOTER (all views) -->
+  <div data-sec data-name="Footer">
+    <footer>
+      <div class="foot-grid">
+        <div data-card data-name="Footer: brand">
+          <div class="foot-brand">Sougat Shekhar Hota</div>
+          <p style="margin:0; font-size:14.5px; line-height:1.8; max-width:320px">Strategic Account Manager, Mumbai. Systems over heroics — and every metric reproducible.</p>
+        </div>
+        <div data-card data-name="Footer: explore">
+          <h5>Explore</h5>
+          <a href="#/about" data-nav="about">About</a>
+          <a href="#/cv" data-nav="cv">Curriculum Vitae</a>
+          <a href="#/hobbies" data-nav="hobbies">Hobbies</a>
+          <a href="#/contact" data-nav="contact">Contact</a>
+        </div>
+        <div data-card data-name="Footer: contact">
+          <h5>Contact</h5>
+          <a href="mailto:sougatshekhar97@gmail.com">sougatshekhar97@gmail.com</a>
+          <a href="https://linkedin.com/in/sougat-shekhar-hota">LinkedIn</a>
+          <a href="tel:+917655845685">+91 76558 45685</a>
+          <span style="font-size:14.5px">Mumbai, India</span>
+        </div>
+      </div>
+      <div class="foot-note">
+        <span>© 2026 Sougat Shekhar Hota</span>
+        <span>All claims verifiable. Unlike most launch pages.</span>
+      </div>
+    </footer>
+  </div>
+
+</div>
 
 <script>
-'use strict';
-/* ================= data ================= */
-const WORKS = [
- {no:'№ 01', title:'PULSE-360', tag:'Marketing Intelligence · Open Source',
-  lede:'Live signals in. One health score out.',
-  about:'A Python pipeline that pulls live data from Google Trends, Wikipedia pageviews and GDELT world news, unifies it into one schema, and scores every marketing channel with a weighted health model — benchmarking Airtel against the world’s telecom giants on a Streamlit dashboard. Refreshes itself daily via GitHub Actions.',
-  proof:'Real fetched data in the repo · daily automated refresh · full handbook included.',
-  shot:'assets/shots/pulse-360.svg',
-  app:'https://pulse-360-ijsehujby7ckf5mrcs6pds.streamlit.app/',
-  code:'https://github.com/sougatshekhar97-cpu/pulse-360'},
- {no:'№ 02', title:'OPTICHAIN', tag:'Supply Chain Control Tower · Open Source',
-  lede:'The supply chain I ran, rebuilt as a digital twin.',
-  about:'Demand forecasting with per-SKU model selection, safety stock with lead-time variance, EOQ, Monte Carlo service-vs-cost curves, and weighted supplier health scoring — for enterprise network-hardware rollouts, modeled on the delivery chains I ran across 2,000+ sites.',
-  proof:'36 SKUs · 4 vendors · 4,000-trial Monte Carlo what-if simulator.',
-  shot:'assets/shots/optichain.svg',
-  app:'https://optichain-p3bslorutecqk2ayijdr9m.streamlit.app/',
-  code:'https://github.com/sougatshekhar97-cpu/optichain'},
- {no:'№ 03', title:'Churn Engine', tag:'Account Health Scoring · Bharti Airtel',
-  lede:'Churn down 46% — with a model, not a miracle.',
-  about:'A proactive health-scoring and intervention system across 30+ strategic enterprise accounts: weighted signals, SLA governance, and a structured QBR/MBR cadence. Recognised by regional leadership as a best-practice model, and the methodology behind both open-source projects above.',
-  proof:'−46% churn YoY · ₹4 Cr account saved · adopted as regional best practice.',
-  shot:'assets/shots/churn-engine.svg',
-  app:null, code:null},
- {no:'№ 04', title:'Incident Autopilot', tag:'AI in Production · Asian Paints',
-  lede:'The account manager who shipped the automation himself.',
-  about:'An n8n + LLM-agent system with REST API integrations, independently designed and deployed in a live enterprise environment — predictive ticketing and incident automation. One of the few account managers in Airtel’s enterprise division to put AI into production.',
-  proof:'−80% recurring incidents · playbook adopted across multiple accounts.',
-  shot:'assets/shots/ai-automation.svg',
-  app:null, code:null},
- {no:'№ 05', title:'SD-WAN Framework', tag:'Service Transformation · National Rollout',
-  lede:'Written for one region. Adopted by headquarters.',
-  about:'Authored the Fortinet SD-WAN Service Transformation framework while leading 15+ engineers with Cisco and Fortinet partners across 2,000+ enterprise sites. Airtel HQ adopted it for national rollout.',
-  proof:'+25% FTR/TAT · 2,000+ sites · national adoption.',
-  shot:'assets/shots/sdwan.svg',
-  app:null, code:null},
- {no:'№ 06', title:'Service Intelligence', tag:'Executive Dashboards · Power BI',
-  lede:'The data layer that changed executive behaviour.',
-  about:'Real-time account-health visibility for executive reviews — the dashboards behind ₹60L+ in SLA penalty waivers, negotiated with RCA documentation and transformation roadmaps at CXO level.',
-  proof:'₹60L+ recovered · NPS up · VoC loops running.',
-  shot:'assets/shots/dashboards.svg',
-  app:null, code:null},
- {no:'№ 07', title:'Health Score Engine', tag:'Flagship Side-Build · In Progress',
-  lede:'The churn playbook, productised.',
-  about:'A weekend build: React frontend, Claude API for narrative risk analysis, no backend. Computes weighted health scores across a mock enterprise CSM portfolio and generates churn-risk narratives with recommended actions per account.',
-  proof:'Shipping Q3 2026 — deploy, Loom, and case study to follow.',
-  shot:'assets/shots/health-engine.svg',
-  app:null, code:null},
-];
-const N=WORKS.length, STEP=360/N;
-const $=s=>document.querySelector(s);
-const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const finePointer=matchMedia('(pointer: fine)').matches;
-const editing=()=>document.body.classList.contains('sgp-editing');
+(function () {
+  'use strict';
+  var VIEWS = ['home', 'about', 'cv', 'hobbies', 'contact'];
+  var navigating = false;
 
-/* ================= tiny synth (WebAudio, no assets) ================= */
-const Snd={
-  ctx:null,on:false,
-  boot(){ if(!this.ctx){ try{ this.ctx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} }
-          if(this.ctx&&this.ctx.state==='suspended') this.ctx.resume(); },
-  osc(freq,type,attack,decay,peak,glide){
-    if(!this.on||!this.ctx) return;
-    const t=this.ctx.currentTime,o=this.ctx.createOscillator(),g=this.ctx.createGain();
-    o.type=type; o.frequency.setValueAtTime(freq,t);
-    if(glide) o.frequency.exponentialRampToValueAtTime(glide,t+attack+decay);
-    g.gain.setValueAtTime(0,t);
-    g.gain.linearRampToValueAtTime(peak,t+attack);
-    g.gain.exponentialRampToValueAtTime(.0001,t+attack+decay);
-    o.connect(g); g.connect(this.ctx.destination); o.start(t); o.stop(t+attack+decay+.05);
-  },
-  tick(){ this.osc(1800,'sine',.004,.05,.03); },
-  pluck(){ this.osc(500,'triangle',.006,.15,.055,210); },
-  swoosh(){
-    if(!this.on||!this.ctx) return;
-    const t=this.ctx.currentTime,len=.32,
-          buf=this.ctx.createBuffer(1,this.ctx.sampleRate*len,this.ctx.sampleRate),
-          d=buf.getChannelData(0);
-    for(let i=0;i<d.length;i++) d[i]=(Math.random()*2-1)*(1-i/d.length);
-    const src=this.ctx.createBufferSource(); src.buffer=buf;
-    const f=this.ctx.createBiquadFilter(); f.type='bandpass'; f.Q.value=1.1;
-    f.frequency.setValueAtTime(400,t); f.frequency.exponentialRampToValueAtTime(1300,t+len);
-    const g=this.ctx.createGain();
-    g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.05,t+.03);
-    g.gain.exponentialRampToValueAtTime(.0001,t+len);
-    src.connect(f); f.connect(g); g.connect(this.ctx.destination); src.start(t);
-  },
-  chord(){ this.osc(392,'sine',.02,.5,.04); this.osc(587.3,'sine',.02,.55,.03);
-           setTimeout(()=>this.osc(784,'sine',.02,.6,.026),90); },
-  set(v){ this.on=v; $('#snd').classList.toggle('off',!v); if(v) this.boot(); }
-};
-$('#snd').addEventListener('click',()=>{ Snd.set(!Snd.on); if(Snd.on) Snd.pluck(); });
+  function isEditing() { return document.body.classList.contains('sgp-editing'); }
 
-/* ================= entry gate ================= */
-function enter(withSound){
-  Snd.set(withSound);
-  if(withSound){ Snd.chord(); Snd.swoosh(); }
-  const g=$('#gate'); g.classList.add('leaving');
-  setTimeout(()=>g.remove(),850);
-  orbit.kick();
-}
-$('#enter-snd').addEventListener('click',()=>enter(true));
-$('#enter-quiet').addEventListener('click',()=>enter(false));
+  /* ---------- curtain wipe + view router ---------- */
+  var wipe = document.createElement('div');
+  wipe.className = 'wipe';
+  wipe.innerHTML = '<i></i><i></i><i></i>';
+  document.body.appendChild(wipe);
 
-/* ================= orbit carousel ================= */
-const ring=$('#ring');
-const orbit={
-  theta:0,target:0,active:-1,radius:520,snapT:null,dragging:false,first:false,
-  build(){
-    const cw=Math.min(400,Math.max(230,innerWidth*.3));
-    document.documentElement.style.setProperty('--cw',cw+'px');
-    this.radius=(cw/2)/Math.tan(Math.PI/N)+cw*.34;
-    if(!ring.children.length){
-      WORKS.forEach((p,i)=>{
-        const c=document.createElement('div'); c.className='oc'; c.dataset.i=i;
-        c.innerHTML=`<img src="${p.shot}" alt="${p.title} cover" draggable="false">
-                     <span class="no-badge">${p.no}</span>`;
-        ring.appendChild(c);
-      });
-    }
-    this.place();
-  },
-  place(){
-    const cards=ring.children;
-    for(let i=0;i<cards.length;i++){
-      const a=i*STEP+this.theta;
-      const front=1-Math.min(Math.abs(((a+180)%360+360)%360-180)/180,1);
-      cards[i].style.transform=`rotateY(${a}deg) translateZ(${this.radius}px)`;
-      cards[i].style.opacity=(.25+.75*front).toFixed(3);
-      cards[i].style.zIndex=Math.round(front*100);
-    }
-    const idx=((Math.round(-this.theta/STEP)%N)+N)%N;
-    if(idx!==this.active){ this.active=idx; caption(idx); if(!this.first) Snd.tick(); this.first=false; }
-  },
-  loop(){
-    this.theta+=(this.target-this.theta)*(reduced?1:.085);
-    if(Math.abs(this.target-this.theta)>.01) this.place();
-    setTimeout(()=>this.loop(),16);   /* setTimeout, not rAF — keeps working in throttled/offscreen tabs */
-  },
-  nudge(d){ this.target+=d; clearTimeout(this.snapT);
-            this.snapT=setTimeout(()=>{ this.target=Math.round(this.target/STEP)*STEP; },160); },
-  goTo(i){
-    let want=-i*STEP;
-    while(want-this.target>180) want-=360;
-    while(want-this.target<-180) want+=360;
-    this.target=want;
-  },
-  kick(){ if(reduced){ this.place(); return; }
-          this.theta=-140; this.target=0; this.first=true; this.place(); }
-};
-function caption(i){
-  const p=WORKS[i],c=$('#cap');
-  c.querySelector('.no').textContent=p.no;
-  c.querySelector('h2').textContent=p.title;
-  c.querySelector('.tg').textContent=p.tag;
-  const h=c.querySelector('h2');
-  h.classList.remove('cap-anim'); void h.offsetWidth; h.classList.add('cap-anim');
-}
-orbit.build(); orbit.loop(); caption(0);
-addEventListener('resize',()=>orbit.build());
-
-const zone=$('#orbit-zone');
-zone.addEventListener('wheel',e=>{ e.preventDefault(); orbit.nudge(-(e.deltaY+e.deltaX)*.06); },{passive:false});
-let px=0,sx=0,sy=0;
-zone.addEventListener('pointerdown',e=>{ orbit.dragging=true; orbit.moved=false;
-  px=sx=e.clientX; sy=e.clientY;
-  zone.classList.add('dragging'); zone.setPointerCapture(e.pointerId); });
-zone.addEventListener('pointermove',e=>{ if(!orbit.dragging) return;
-  const dx=e.clientX-px; px=e.clientX;
-  if(Math.abs(e.clientX-sx)>7||Math.abs(e.clientY-sy)>7) orbit.moved=true;
-  orbit.nudge(dx*.22); });
-zone.addEventListener('pointerup',e=>{ orbit.dragging=false; zone.classList.remove('dragging');
-  if(!orbit.moved){
-    const el=document.elementFromPoint(e.clientX,e.clientY);
-    const card=el&&el.closest('.oc');
-    if(card){ const i=+card.dataset.i;
-      if(i===orbit.active) openDetail(i); else { orbit.goTo(i); Snd.tick(); } }
+  function currentView() {
+    var m = (location.hash || '').match(/^#\/(\w+)/);
+    return m && VIEWS.indexOf(m[1]) !== -1 ? m[1] : 'home';
   }
-  setTimeout(()=>orbit.moved=false,50); });
-addEventListener('keydown',e=>{
-  if($('#detail').classList.contains('open')){ if(e.key==='Escape') closeSheet('detail'); return; }
-  if($('#cv').classList.contains('open')){ if(e.key==='Escape') closeSheet('cv'); return; }
-  if($('#panel').classList.contains('open')){ if(e.key==='Escape') menu(false); return; }
-  if(document.body.classList.contains('about')||editing()) return;
-  if(e.key==='ArrowRight') orbit.nudge(-STEP);
-  if(e.key==='ArrowLeft') orbit.nudge(STEP);
-  if(e.key==='Enter'&&document.activeElement===document.body) openDetail(orbit.active);
-});
 
-/* ================= list mode ================= */
-const listZone=$('#list-zone'),fPrev=$('#float-prev'),fImg=fPrev.querySelector('img');
-WORKS.forEach((p,i)=>{
-  const b=document.createElement('button'); b.className='li-item'; b.textContent=p.title;
-  b.setAttribute('role','listitem');
-  b.addEventListener('mouseenter',()=>{ if(finePointer){ fImg.src=p.shot; fPrev.classList.add('on'); } Snd.tick(); });
-  b.addEventListener('mouseleave',()=>fPrev.classList.remove('on'));
-  b.addEventListener('click',()=>openDetail(i));
-  listZone.appendChild(b);
-});
-let mx=0,my=0,mxT=0,myT=0;
-addEventListener('mousemove',e=>{ mxT=e.clientX; myT=e.clientY; });
-(function follow(){ mx+=(mxT-mx)*.14; my+=(myT-my)*.14;
-  fPrev.style.left=mx+'px'; fPrev.style.top=my+'px';
-  if(finePointer) setTimeout(follow,16); })();
+  function setActive(name) {
+    document.querySelectorAll('.view').forEach(function (v) {
+      v.classList.toggle('active', v.getAttribute('data-view') === name);
+    });
+    window.scrollTo(0, 0);
+    setTimeout(revealCheck, 60);
+    if (name === 'home') setTimeout(runCounters, 400);
+  }
 
-function setMode(list){
-  $('#view-works').classList.toggle('list-mode',list);
-  $('#m-orbit').setAttribute('aria-pressed',String(!list));
-  $('#m-list').setAttribute('aria-pressed',String(list));
-  fPrev.classList.remove('on'); Snd.swoosh();
-}
-$('#m-orbit').addEventListener('click',()=>setMode(false));
-$('#m-list').addEventListener('click',()=>setMode(true));
+  function go(name, openAccId) {
+    if (navigating) return;
+    var from = document.querySelector('.view.active');
+    var already = from && from.getAttribute('data-view') === name;
+    if (already && !openAccId) return;
+    if (already && openAccId) { openAcc(openAccId); return; }
+    navigating = true;
+    wipe.classList.remove('off');
+    wipe.classList.add('on');
+    setTimeout(function () {
+      if (location.hash !== '#/' + name) history.pushState(null, '', '#/' + name);
+      setActive(name);
+      if (openAccId) openAcc(openAccId, true);
+      wipe.classList.remove('on');
+      wipe.classList.add('off');
+      setTimeout(function () { wipe.classList.remove('off'); navigating = false; }, 620);
+    }, 640);
+  }
 
-/* ================= sheets: project detail + cv ================= */
-const detail=$('#detail');
-let curIdx=0;
-function openDetail(i){
-  curIdx=i; const p=WORKS[i],nx=WORKS[(i+1)%N];
-  detail.querySelector('.d-no').textContent=p.no;
-  detail.querySelector('h2').textContent=p.title;
-  detail.querySelector('.d-tag').textContent=p.tag;
-  const im=detail.querySelector('.d-shot img'); im.src=p.shot; im.alt=p.title+' cover';
-  detail.querySelector('.d-lede').textContent=p.lede;
-  detail.querySelector('.d-about').textContent=p.about;
-  detail.querySelector('.d-proof').textContent=p.proof;
-  const appA=detail.querySelector('.open-app'),codeA=detail.querySelector('.open-code');
-  appA.style.display=p.app?'':'none'; if(p.app) appA.href=p.app;
-  codeA.style.display=p.code?'':'none'; if(p.code) codeA.href=p.code;
-  detail.querySelector('.d-next .nx').textContent=nx.title;
-  detail.scrollTop=0; detail.classList.add('open'); $('#d-close').classList.add('on');
-  fPrev.classList.remove('on'); Snd.pluck(); Snd.swoosh();
-}
-function openCV(){ const cv=$('#cv'); cv.scrollTop=0; cv.classList.add('open');
-  $('#cv-close').classList.add('on'); Snd.pluck(); Snd.swoosh(); }
-function closeSheet(id){ $('#'+id).classList.remove('open');
-  $('#'+(id==='cv'?'cv-close':'d-close')).classList.remove('on'); Snd.tick(); }
-$('#d-close').addEventListener('click',()=>closeSheet('detail'));
-$('#cv-close').addEventListener('click',()=>closeSheet('cv'));
-detail.querySelector('.d-next').addEventListener('click',e=>{
-  e.preventDefault(); openDetail((curIdx+1)%N); orbit.goTo((curIdx)%N);
-});
+  function openAcc(id, instant) {
+    var acc = document.getElementById(id);
+    if (!acc) return;
+    acc.classList.add('open');
+    var head = acc.querySelector('.acc-head');
+    if (head) head.setAttribute('aria-expanded', 'true');
+    setTimeout(function () { acc.scrollIntoView({ behavior: instant ? 'auto' : 'smooth', block: 'start' }); }, instant ? 60 : 120);
+  }
 
-/* delegated clicks inside #site (survive the editor restoring saved drafts) */
-document.addEventListener('click',e=>{
-  if(e.target.closest('[data-open-cv]')){ openCV(); return; }
-  if(e.target.closest('[data-go-works]')){ e.preventDefault(); go('works'); }
-});
-
-/* ================= about + word fill ================= */
-const BIO=`I’m Sougat Shekhar Hota. I run *enterprise accounts* the way builders run
-products: a ₹384 Mn portfolio instrumented with *health scores*, churn down
-46%, AI automation *in production*, and a service framework a national
-carrier adopted. Calm at the helm, obsessive about the *systems below deck*.`;
-const bio=$('#bio');
-if(bio&&!bio.children.length){
-  BIO.split(/\s+/).forEach(w=>{
-    const s=document.createElement('span');
-    const acc=w.includes('*'); s.className='w'+(acc?' accent-w':'');
-    s.textContent=w.replaceAll('*','')+' ';
-    bio.appendChild(s);
+  window.addEventListener('hashchange', function () {
+    var name = currentView();
+    var active = document.querySelector('.view.active');
+    if (!active || active.getAttribute('data-view') !== name) setActive(name);
   });
-}
-function fillBio(){
-  const words=document.querySelectorAll('#bio .w');
-  if(!words.length) return;
-  if(reduced){ words.forEach(w=>w.classList.add('lit')); return; }
-  const prog=Math.min(.22+scrollY/(innerHeight*.55),1);
-  const lit=Math.floor(prog*words.length);
-  words.forEach((w,i)=>w.classList.toggle('lit',i<lit));
-}
-addEventListener('scroll',fillBio,{passive:true});
 
-function go(view){
-  document.body.classList.toggle('about',view==='about');
-  scrollTo(0,0); fPrev.classList.remove('on'); fillBio(); Snd.swoosh();
-  if(location.hash!=='#admin') history.replaceState(null,'','#'+view);
-}
-$('#brand').addEventListener('click',e=>{ e.preventDefault(); go('works'); });
+  /* ---------- delegated clicks: nav, accordions, mobile menu, hobbies tap ---------- */
+  document.addEventListener('click', function (e) {
+    var mo = e.target.closest('[data-mmenu-open]');
+    if (mo) { document.getElementById('mmenu').classList.add('open'); return; }
+    var mc = e.target.closest('[data-mmenu-close]');
+    if (mc) { document.getElementById('mmenu').classList.remove('open'); return; }
 
-/* ================= menu ================= */
-function menu(open){
-  $('#panel').classList.toggle('open',open);
-  $('#scrim').classList.toggle('on',open);
-  if(open) Snd.swoosh(); else Snd.tick();
-}
-$('#menu-open').addEventListener('click',()=>menu(true));
-$('#menu-close').addEventListener('click',()=>menu(false));
-$('#scrim').addEventListener('click',()=>menu(false));
-document.querySelectorAll('#panel [data-go]').forEach(b=>{
-  b.addEventListener('click',()=>{ menu(false); closeSheet('detail'); closeSheet('cv'); go(b.dataset.go); });
-});
-$('#menu-cv').addEventListener('click',()=>{ menu(false); closeSheet('detail'); openCV(); });
+    var nav = e.target.closest('[data-nav]');
+    if (nav) {
+      e.preventDefault();
+      document.getElementById('mmenu').classList.remove('open');
+      go(nav.getAttribute('data-nav'), nav.getAttribute('data-open-acc'));
+      return;
+    }
 
-/* ================= cursor dot ================= */
-if(finePointer&&!reduced){
-  document.body.classList.add('cur-on');
-  const cur=$('#cur'); let cx=0,cy=0;
-  (function curLoop(){ cx+=(mxT-cx)*.22; cy+=(myT-cy)*.22;
-    cur.style.transform=`translate(${cx-4.5}px,${cy-4.5}px)`;
-    setTimeout(curLoop,16); })();
-  addEventListener('mouseover',e=>{
-    cur.classList.toggle('big',!!e.target.closest('a,button,.oc'));
+    var head = e.target.closest('.acc-head');
+    if (head) {
+      if (isEditing() && !e.target.closest('.acc-chev')) return;
+      var acc = head.closest('.acc');
+      var open = !acc.classList.contains('open');
+      acc.classList.toggle('open', open);
+      head.setAttribute('aria-expanded', open ? 'true' : 'false');
+      return;
+    }
+
+    var hobby = e.target.closest('.hobby');
+    if (hobby && !isEditing()) hobby.classList.toggle('open');
   });
-}
 
-/* hover ticks */
-document.querySelectorAll('.menu-btn,.mode button,#panel nav button,#panel nav a,.big-socials a')
-  .forEach(el=>el.addEventListener('mouseenter',()=>Snd.tick()));
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') document.getElementById('mmenu').classList.remove('open');
+  });
 
-/* init from hash (leave #admin to the editor) */
-if(location.hash==='#about') go('about');
-const yr=$('#yr'); if(yr) yr.textContent=new Date().getFullYear();
-fillBio();
+  /* ---------- reveal transitions (rect-based, no IO/rAF dependency) ---------- */
+  function revealCheck() {
+    document.querySelectorAll('.view.active .rv:not(.rv-in), [data-sec] > footer .rv:not(.rv-in)').forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.92 && r.bottom > 0) el.classList.add('rv-in');
+    });
+  }
+  var rvTick = false;
+  window.addEventListener('scroll', function () {
+    if (rvTick) return;
+    rvTick = true;
+    setTimeout(function () { rvTick = false; revealCheck(); }, 90);
+  }, { passive: true });
+  window.addEventListener('resize', revealCheck);
+  document.addEventListener('click', function () { setTimeout(revealCheck, 400); });
+
+  /* ---------- animated counters ---------- */
+  var counted = false;
+  function runCounters() {
+    if (counted || isEditing()) return;
+    var els = document.querySelectorAll('[data-count]');
+    if (!els.length) return;
+    counted = true;
+    els.forEach(function (el) {
+      var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+      var steps = 40, i = 0;
+      var iv = setInterval(function () {
+        i++;
+        el.textContent = Math.round(target * (1 - Math.pow(1 - i / steps, 3)));
+        if (i >= steps) { el.textContent = target; clearInterval(iv); }
+      }, 28);
+    });
+  }
+
+  /* ---------- rotating hero word ---------- */
+  var words = ['Product Management', 'Process Excellence', 'Partner & Alliances'];
+  var wi = 0;
+  setInterval(function () {
+    var el = document.getElementById('rotator');
+    if (!el || isEditing()) return;
+    el.classList.add('swap');
+    setTimeout(function () {
+      wi = (wi + 1) % words.length;
+      el.textContent = words[wi];
+      el.classList.remove('swap');
+    }, 360);
+  }, 3000);
+
+  /* ---------- custom cursor ---------- */
+  if (window.matchMedia && matchMedia('(pointer: fine)').matches) {
+    var dot = document.createElement('div'); dot.className = 'cur-dot';
+    var ring = document.createElement('div'); ring.className = 'cur-ring';
+    document.body.appendChild(dot); document.body.appendChild(ring);
+    document.body.classList.add('has-cursor');
+    var rx = -100, ry = -100;
+    document.addEventListener('mousemove', function (e) {
+      dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
+      rx = e.clientX; ry = e.clientY;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      var hot = e.target.closest('a, button, .acc-head, .tile, .hobby, .proj');
+      ring.classList.toggle('big', !!hot);
+    }, { passive: true });
+  }
+
+  /* ---------- 3D tilt cards ---------- */
+  document.addEventListener('mousemove', function (e) {
+    if (isEditing()) return;
+    var card = e.target.closest('.tilt');
+    document.querySelectorAll('.tilt').forEach(function (c) {
+      if (c !== card) c.style.transform = '';
+    });
+    if (!card) return;
+    var r = card.getBoundingClientRect();
+    var px = (e.clientX - r.left) / r.width - 0.5;
+    var py = (e.clientY - r.top) / r.height - 0.5;
+    card.style.transform = 'perspective(800px) rotateX(' + (-py * 7) + 'deg) rotateY(' + (px * 9) + 'deg) translateY(-4px)';
+  }, { passive: true });
+
+  /* ---------- magnetic buttons ---------- */
+  document.addEventListener('mousemove', function (e) {
+    if (isEditing()) return;
+    var b = e.target.closest('.magnet');
+    document.querySelectorAll('.magnet').forEach(function (m) { if (m !== b) m.style.transform = ''; });
+    if (!b) return;
+    var r = b.getBoundingClientRect();
+    var dx = e.clientX - (r.left + r.width / 2);
+    var dy = e.clientY - (r.top + r.height / 2);
+    b.style.transform = 'translate(' + dx * 0.18 + 'px,' + dy * 0.28 + 'px)';
+  }, { passive: true });
+
+  /* ---------- boot (after editor restores any saved draft) ---------- */
+  function boot() { setActive(currentView()); }
+  if (document.readyState !== 'loading') setTimeout(boot, 120);
+  else document.addEventListener('DOMContentLoaded', function () { setTimeout(boot, 120); });
+})();
 </script>
+
 </body>
 </html>

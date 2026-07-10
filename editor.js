@@ -13,7 +13,9 @@
 (function () {
   'use strict';
 
-  var PAGE = /360/.test(location.pathname) ? '360' : 'index';
+  // Per-page draft namespace, derived from the filename, so index.html and
+  // works.html keep separate drafts.
+  var PAGE = (location.pathname.replace(/\/+$/, '').split('/').pop() || 'index').replace(/\.html?$/i, '') || 'index';
   var KEY_CONTENT = 'sgp:v1:content:' + PAGE;
   var KEY_HASH = 'sgp:v1:passhash';
   var site = null;
@@ -252,7 +254,7 @@
     var blob = new Blob([html], { type: 'text/html' });
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = PAGE === '360' ? '360-analysis.html' : 'index.html';
+    a.download = PAGE + '.html';
     a.click();
     URL.revokeObjectURL(a.href);
     toast('Exported. Replace this file in the GitHub repo to publish for everyone.');
