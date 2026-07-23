@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="800" height="500" fill="#E6EBF1"/>
+  <g stroke="#051C2C" stroke-opacity="0.08" stroke-width="1">
+    <line x1="0" y1="0" x2="0" y2="500"/><line x1="72" y1="0" x2="72" y2="500"/><line x1="144" y1="0" x2="144" y2="500"/><line x1="216" y1="0" x2="216" y2="500"/><line x1="288" y1="0" x2="288" y2="500"/><line x1="360" y1="0" x2="360" y2="500"/><line x1="432" y1="0" x2="432" y2="500"/><line x1="504" y1="0" x2="504" y2="500"/><line x1="576" y1="0" x2="576" y2="500"/><line x1="648" y1="0" x2="648" y2="500"/><line x1="720" y1="0" x2="720" y2="500"/><line x1="792" y1="0" x2="792" y2="500"/>
+    <line x1="0" y1="0" x2="800" y2="0"/><line x1="0" y1="72" x2="800" y2="72"/><line x1="0" y1="144" x2="800" y2="144"/><line x1="0" y1="216" x2="800" y2="216"/><line x1="0" y1="288" x2="800" y2="288"/><line x1="0" y1="360" x2="800" y2="360"/><line x1="0" y1="432" x2="800" y2="432"/>
+  </g>
+  <!-- kaleidoscope star (KALEIDO mark) -->
+  <g transform="translate(628,300)">
+    <g transform="rotate(22.5)"><path d="M0,-97 L20,-20 L97,0 L20,20 L0,97 L-20,20 L-97,0 L-20,-20 Z" fill="#2251FF" fill-opacity="0.10"/></g>
+    <path d="M0,-97 L20,-20 L97,0 L20,20 L0,97 L-20,20 L-97,0 L-20,-20 Z" fill="none" stroke="#2251FF" stroke-opacity="0.45" stroke-width="2"/>
+    <path d="M0,-58 L12,-12 L58,0 L12,12 L0,58 L-12,12 L-58,0 L-12,-12 Z" fill="#2251FF" fill-opacity="0.20"/>
+    <circle r="7" fill="#2251FF"/>
+  </g>
+  <text x="52" y="96" font-size="26" font-style="italic" fill="#2251FF">No. 04</text>
+  <text x="52" y="208" font-size="64" letter-spacing="-1" fill="#051C2C">KALEIDO</text>
+  <text x="52" y="248" font-family="Helvetica, Arial, sans-serif" font-size="15" letter-spacing="3" fill="#051C2C" fill-opacity="0.55">DESIGN SYSTEM GENERATOR</text>
+  <text x="52" y="448" font-size="21" font-style="italic" fill="#051C2C" fill-opacity="0.62">one brief in · a whole design system out</text>
+  <text x="726" y="96" font-size="34" fill="#2251FF">&#10034;</text>
+</svg>
