@@ -299,7 +299,7 @@
   </section>
 </main>
 
-<button id="editBtn" class="editbtn" type="button">✎ Edit page</button>
+<button id="editBtn" class="editbtn" type="button" style="display:none">✎ Edit page</button>
 <div class="edithint">Click any text to edit · saved to this browser · <button id="resetBtn" type="button">reset</button></div>
 
 <script>
@@ -336,6 +336,11 @@
 <script>
   /* ---- inline "edit anything": click any text to edit, saved to this browser ---- */
   (function(){
+    // Owner-only: the Edit button stays hidden for all visitors and only appears
+    // when you open the page with #edit (or ?edit=1). Edits are per-browser regardless.
+    var GATE = location.hash==='#edit' || /(?:^|[?&])edit=1(?:&|$)/.test(location.search);
+    if(!GATE) return;
+    document.getElementById('editBtn').style.display='';
     var SEL='h1,h2,h3,h4,.eyebrow,.kicker,.tag,.lead,.lede,.body-lg,.q,.attrib,.metric .n,.metric .l,.cred .when,.cred p,.chips span,.hero .cue,.credit,.work .mid p,.contact .fine,.links a';
     var editables=[].slice.call(document.querySelectorAll(SEL)).filter(function(el){
       return !el.closest('header') && el.id!=='editBtn' && el.id!=='resetBtn';
