@@ -342,7 +342,7 @@
     });
     // dedupe (a selector like .lead + h-tag could overlap)
     editables=editables.filter(function(el,i){ return editables.indexOf(el)===i; });
-    var KEY='sph-aeon-edits-v1';
+    var KEY='sph-visual-edits-v1';
     editables.forEach(function(el,i){ el.setAttribute('data-ed', i); });
     try{ var saved=JSON.parse(localStorage.getItem(KEY)||'{}');
          editables.forEach(function(el,i){ if(saved[i]!=null) el.innerHTML=saved[i]; }); }catch(e){}
