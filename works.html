@@ -146,6 +146,11 @@
   #detail .d-lede{font:400 clamp(21px,2.6vw,30px)/1.35 var(--serif); max-width:26em; text-wrap:pretty}
   #detail .d-about{margin-top:18px; font:400 15.5px/1.65 var(--sans); color:var(--mut); max-width:64ch}
   #detail .d-proof{margin-top:14px; font:italic 400 15px/1.5 var(--serif); color:var(--accent)}
+  #detail .d-case{margin-top:30px; padding-top:26px; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:22px; max-width:66ch}
+  #detail .d-case-row .k{font:600 11px/1 var(--sans); text-transform:uppercase; letter-spacing:.13em; color:var(--accent); margin-bottom:9px}
+  #detail .d-case-row p{font:400 15.5px/1.66 var(--sans); color:rgba(5,28,44,.82)}
+  #detail .d-case-row ul{margin:0; padding-left:18px}
+  #detail .d-case-row li{font:400 15.5px/1.6 var(--sans); color:rgba(5,28,44,.82); margin-bottom:7px}
   .pill-links{display:flex; gap:14px; flex-wrap:wrap; margin-top:30px}
   .pill-links a{text-decoration:none; padding:13px 26px; border-radius:999px;
         border:1px solid var(--ink); font:500 12px/1 var(--sans); text-transform:uppercase;
@@ -473,6 +478,7 @@
       <p class="d-lede"></p>
       <p class="d-about"></p>
       <p class="d-proof"></p>
+      <div class="d-case"></div>
       <div class="pill-links">
         <a class="open-app" href="#" target="_blank" rel="noopener">Open ↗</a>
         <a class="open-sample" href="#" target="_blank" rel="noopener">✦ Sample essay ↗</a>
@@ -520,28 +526,28 @@
 'use strict';
 /* ================= data ================= */
 const WORKS = [
- {no:'№ 01', title:'PULSE-360', tag:'Marketing Intelligence · Open Source',
+ {no:'№ 01', title:'PULSE-360', problem:"Marketing and strategy teams drown in scattered public signals — search trends, press, encyclopedic interest — with no single, comparable read on how a brand is actually tracking against its rivals.", approach:"I unified live public data (Google Trends, Wikipedia pageviews, GDELT news) into one schema and scored every channel with a weighted brand-health model, benchmarking Airtel against six global telecom operators — plus a research mode that scores any brand you enter.", decisions:["Used free public APIs over paid feeds, so it runs at zero cost and stays fully reproducible.","Built one weighted health-score methodology — the same model behind my Airtel churn work — so channels are comparable, not just displayed.","Automated a daily GitHub Actions refresh, so the dashboard is always current with no manual effort."], impact:"Turns a week of manual competitive research into a live, always-current dashboard — the kind of continuous market read a CMO or strategy team would pay analysts to assemble.", roadmap:"Sentiment drill-downs, alerting on brand-health swings, and a paid-data tier for regulated enterprise use.", tag:'Marketing Intelligence · Open Source',
   lede:'Live signals in. One health score out.',
   about:'A Python pipeline that pulls live data from Google Trends, Wikipedia pageviews and GDELT world news, unifies it into one schema, and scores every marketing channel with a weighted health model — benchmarking Airtel against the world’s telecom giants on a Streamlit dashboard. Refreshes itself daily via GitHub Actions.',
   proof:'Real fetched data in the repo · daily automated refresh · full handbook included.',
   shot:'assets/shots/pulse-360.svg',
   app:'https://sougatshekharhota.github.io/pulse-360/',
   code:'https://github.com/sougatshekharhota/pulse-360'},
- {no:'№ 02', title:'OPTICHAIN', tag:'Supply Chain Control Tower · Open Source',
+ {no:'№ 02', title:'OPTICHAIN', problem:"Enterprise hardware rollouts stall on stockouts and overstock because demand is spiky, vendor lead times vary, and planners still run on gut feel and spreadsheets.", approach:"I modelled the network-hardware chain I ran at Airtel (2,000+ sites) as a digital twin, then layered demand forecasting, safety stock, EOQ and a Monte-Carlo service-vs-cost simulator — with an upload-your-own-data mode.", decisions:["Per-SKU model selection instead of one global forecast, because demand patterns differ item to item.","Framed the output as a service-level-versus-cost trade-off — the language executives actually decide in.","Made it upload-your-own-data, so any planner can run their real chain, not just my sample."], impact:"Replaces reactive firefighting with a quantified plan: fewer stockouts, less trapped working capital, and decisions defensible to finance.", roadmap:"Supplier scorecards feeding procurement, multi-echelon inventory, and live ERP connectors.", tag:'Supply Chain Control Tower · Open Source',
   lede:'The supply chain I ran, rebuilt as a digital twin.',
   about:'Demand forecasting with per-SKU model selection, safety stock with lead-time variance, EOQ, Monte Carlo service-vs-cost curves, and weighted supplier health scoring — for enterprise network-hardware rollouts, modeled on the delivery chains I ran across 2,000+ sites.',
   proof:'36 SKUs · 4 vendors · 4,000-trial Monte Carlo what-if simulator.',
   shot:'assets/shots/optichain.svg',
   app:'https://sougatshekharhota.github.io/optichain/',
   code:'https://github.com/sougatshekharhota/optichain'},
- {no:'№ 03', title:'IPSCOPE', tag:'Firewall &amp; IP Threat Scanner · Open Source',
+ {no:'№ 03', title:'IPSCOPE', problem:"Most organisations cannot quickly answer a basic security question — is our firewall running a version with known, actively-exploited holes, and if so, what do we upgrade to?", approach:"I built a zero-backend scanner that aggregates 1,700+ CVEs across seven firewall platforms from the NVD, cross-references CISA's actively-exploited catalog, and returns a clear verdict with the exact fix version — plus IP threat and geolocation scoring.", decisions:["Precomputed the CVE index with a weekly GitHub Action, so the tool needs no backend or API keys.","Cross-referenced CISA KEV, so results prioritise what attackers are truly exploiting — not just theoretical CVEs.","Kept it fully client-side, so sensitive version data never leaves the user's device."], impact:"Compresses an expert, manual task into a ten-second check — the kind of triage that helps security and account teams cut real breach risk.", roadmap:"More vendors, config-file upload for auto-detection, and alerts when a running version turns vulnerable.", tag:'Firewall &amp; IP Threat Scanner · Open Source',
   lede:'Is your firewall running a version with known holes?',
   about:'Two tools in one, zero backend. A firewall patch-gap scanner checks whether your device runs a version with known, actively-exploited vulnerabilities — aggregating 1,700+ CVEs across Fortinet, Palo Alto, Cisco, SonicWall, Juniper and pfSense from the NVD, cross-referenced with CISA’s actively-exploited catalog, and returning the exact version to upgrade to. Plus IP threat &amp; geolocation scoring for any address, all in the browser.',
   proof:'1,700+ CVEs across 7 firewall platforms · CISA KEV cross-referenced · auto-refreshed weekly via GitHub Actions.',
   shot:'assets/shots/ipscope.svg',
   app:'https://sougatshekharhota.github.io/ipscope/',
   code:'https://github.com/sougatshekharhota/ipscope'},
- {no:'№ 04', title:'KALEIDO', tag:'Design System Generator · Open Source',
+ {no:'№ 04', title:'KALEIDO', problem:"Non-designers and small teams stall at the blank canvas — choosing colour, type and layout that are coherent and accessible is slow, and generic templates all look the same.", approach:"I built a generator that turns a one-line brief — industry, product, mood, platform — into a complete, WCAG-AA-tuned design system, with a live animated preview and export to code tokens or a ready-made landing page.", decisions:["Generated palettes algorithmically with an adaptive-contrast pass, so every output passes accessibility — not just looks nice.","Wrote an original engine and dataset rather than wrapping an existing library, so the work is defensibly mine.","Shipped real exports (tokens plus a runnable page), so the output is usable, not just a mockup."], impact:"Collapses hours of early design decisions into seconds and guarantees accessibility — speed-to-first-draft that de-risks any product launch.", roadmap:"Brand-logo colour extraction, more page templates per product type, and shareable saved systems.", tag:'Design System Generator · Open Source',
   lede:'One brief in. A whole design system out.',
   about:'A browser-based design-system generator. Enter your industry, product, mood and platform and KALEIDO refracts them into a complete system — a generated, WCAG-AA-tuned colour palette, a style direction, a type pairing, layout tokens, UX guidance and a recommended stack — with a live animated preview. Export the tokens as JSON, CSS or a Tailwind theme, or a ready-made animated landing hero. Original engine and data, no backend.',
   proof:'18 industries × 8 products × 10 moods · every palette WCAG-AA checked · one-click token &amp; animated-hero export.',
@@ -549,31 +555,31 @@ const WORKS = [
   app:'https://sougatshekharhota.github.io/kaleido/',
   sample:'https://sougatshekharhota.github.io/kaleido/samples/art-and-philosophy.html',
   code:'https://github.com/sougatshekharhota/kaleido'},
- {no:'№ 05', title:'Churn Engine', tag:'Account Health Scoring · Bharti Airtel',
+ {no:'№ 05', title:'Churn Engine', problem:"Enterprise churn was being caught too late — after escalations — because account health lived in people's heads, not in a system.", approach:"I built a proactive customer health-scoring model with weighted signals, systematised SLA governance, and ran a structured QBR/MBR cadence across 30+ strategic accounts.", decisions:["Weighted leading signals (usage, SLA, sentiment) over lagging ones, so risk surfaces early enough to act.","Paired the score with a fixed governance rhythm, so insight reliably turned into intervention."], impact:"Churn down 46% year on year, a Rs 4 Cr at-risk account saved, and recognition as a regional best-practice model — the methodology that seeds every product above.", roadmap:"Productised as a reusable CSM scoring tool — see the Health Score Engine.", tag:'Account Health Scoring · Bharti Airtel',
   lede:'Churn down 46% — with a model, not a miracle.',
   about:'A proactive health-scoring and intervention system across 30+ strategic enterprise accounts: weighted signals, SLA governance, and a structured QBR/MBR cadence. Recognised by regional leadership as a best-practice model, and the methodology behind both open-source projects above.',
   proof:'−46% churn YoY · ₹4 Cr account saved · adopted as regional best practice.',
   shot:'assets/shots/churn-engine.svg',
   app:null, code:null},
- {no:'№ 06', title:'Incident Autopilot', tag:'AI in Production · Asian Paints',
+ {no:'№ 06', title:'Incident Autopilot', problem:"Recurring end-user incidents were burning support capacity and eroding a strategic client's experience.", approach:"I independently designed and deployed a predictive ticketing and incident-automation system using n8n, LLM agents and REST integrations — in a live enterprise environment.", decisions:["Automated the highest-volume recurring incident types first, for the fastest return.","Built it as a reusable playbook, so it could scale beyond a single account."], impact:"Recurring incidents down 80%, and a playbook adopted across multiple accounts — one of few account managers in Airtel's enterprise division to put AI into production.", roadmap:"Extend to proactive resolution and self-serve deflection.", tag:'AI in Production · Asian Paints',
   lede:'The account manager who shipped the automation himself.',
   about:'An n8n + LLM-agent system with REST API integrations, independently designed and deployed in a live enterprise environment — predictive ticketing and incident automation. One of the few account managers in Airtel’s enterprise division to put AI into production.',
   proof:'−80% recurring incidents · playbook adopted across multiple accounts.',
   shot:'assets/shots/ai-automation.svg',
   app:null, code:null},
- {no:'№ 07', title:'SD-WAN Framework', tag:'Service Transformation · National Rollout',
+ {no:'№ 07', title:'SD-WAN Framework', problem:"Inconsistent SD-WAN service delivery across 2,000+ sites hurt resolution times and customer trust.", approach:"I authored the Fortinet SD-WAN Service Transformation framework while leading 15+ engineers alongside Cisco and Fortinet partners.", decisions:["Standardised the delivery playbook, so quality no longer depended on individual heroics."], impact:"First-time resolution and turnaround up 25%, and the framework adopted by Airtel HQ for national rollout.", roadmap:"Adapt the template to other managed-service lines.", tag:'Service Transformation · National Rollout',
   lede:'Written for one region. Adopted by headquarters.',
   about:'Authored the Fortinet SD-WAN Service Transformation framework while leading 15+ engineers with Cisco and Fortinet partners across 2,000+ enterprise sites. Airtel HQ adopted it for national rollout.',
   proof:'+25% FTR/TAT · 2,000+ sites · national adoption.',
   shot:'assets/shots/sdwan.svg',
   app:null, code:null},
- {no:'№ 08', title:'Service Intelligence', tag:'Executive Dashboards · Power BI',
+ {no:'№ 08', title:'Service Intelligence', problem:"Executive reviews ran on stale, manually-assembled data — slowing decisions and weakening the case in CXO negotiations.", approach:"I built real-time Power BI service-intelligence dashboards giving account-health visibility across 30+ accounts and 2,000+ sites.", decisions:["Designed for the MBR/QBR decision moment, not just for reporting — so the data drove behaviour."], impact:"Underpinned Rs 60L+ in SLA penalty waivers negotiated with RCA and transformation roadmaps, plus measurable NPS lift.", roadmap:"Predictive alerts and self-serve executive views.", tag:'Executive Dashboards · Power BI',
   lede:'The data layer that changed executive behaviour.',
   about:'Real-time account-health visibility for executive reviews — the dashboards behind ₹60L+ in SLA penalty waivers, negotiated with RCA documentation and transformation roadmaps at CXO level.',
   proof:'₹60L+ recovered · NPS up · VoC loops running.',
   shot:'assets/shots/dashboards.svg',
   app:null, code:null},
- {no:'№ 09', title:'Health Score Engine', tag:'Flagship Side-Build · In Progress',
+ {no:'№ 09', title:'Health Score Engine', problem:"The churn playbook that worked at Airtel is locked inside enterprise process — it should be a product any customer-success team can use.", approach:"A React and Claude-API build that computes weighted health scores across a CSM portfolio and generates churn-risk narratives with a recommended action per account.", decisions:["No backend — the Claude API does the narrative reasoning, keeping it shippable as a weekend build."], impact:"Productises a method that cut churn 46% in production, aimed squarely at the customer-success tooling market.", roadmap:"Live deploy, a written case study, and a public demo — shipping Q3 2026.", tag:'Flagship Side-Build · In Progress',
   lede:'The churn playbook, productised.',
   about:'A weekend build: React frontend, Claude API for narrative risk analysis, no backend. Computes weighted health scores across a mock enterprise CSM portfolio and generates churn-risk narratives with recommended actions per account.',
   proof:'Shipping Q3 2026 — deploy, Loom, and case study to follow.',
@@ -756,6 +762,22 @@ function openDetail(i){
   detail.querySelector('.d-lede').textContent=p.lede;
   detail.querySelector('.d-about').textContent=p.about;
   detail.querySelector('.d-proof').textContent=p.proof;
+  var caseEl=detail.querySelector('.d-case'), proofEl=detail.querySelector('.d-proof');
+  function esc(s){ return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+  function row(k,v){ return v ? '<div class="d-case-row"><div class="k">'+k+'</div><p>'+esc(v)+'</p></div>' : ''; }
+  if(p.problem){
+    proofEl.style.display='none';
+    var dec=(p.decisions||[]).map(function(x){return '<li>'+esc(x)+'</li>';}).join('');
+    caseEl.style.display='';
+    caseEl.innerHTML =
+      row('Business Problem', p.problem) +
+      row('My Approach', p.approach) +
+      (dec ? '<div class="d-case-row"><div class="k">Key Decisions</div><ul>'+dec+'</ul></div>' : '') +
+      row('Business Impact', p.impact) +
+      row('Future Roadmap', p.roadmap);
+  } else {
+    proofEl.style.display=''; caseEl.style.display='none'; caseEl.innerHTML='';
+  }
   const appA=detail.querySelector('.open-app'),codeA=detail.querySelector('.open-code');
   appA.style.display=p.app?'':'none'; if(p.app) appA.href=p.app;
   codeA.style.display=p.code?'':'none'; if(p.code) codeA.href=p.code;
