@@ -132,6 +132,21 @@
   .hero .eyebrow,.hero h1,.hero .lede,.hero .cue{opacity:0; transform:translateY(26px); animation:heroUp 1.1s var(--e) forwards}
   .hero h1{animation-delay:.16s} .hero .lede{animation-delay:.34s} .hero .cue{animation-delay:.5s}
   @keyframes heroUp{to{opacity:1; transform:none}}
+  /* inline editor (passcode-gated, owner only) */
+  .editbtn{position:fixed; right:22px; bottom:22px; z-index:70; cursor:pointer; font-family:var(--mono); font-size:11px;
+    letter-spacing:.14em; text-transform:uppercase; color:#fff; background:var(--accent); border:0; border-radius:999px;
+    padding:13px 20px; box-shadow:0 14px 34px -14px rgba(51,82,111,.8); transition:transform .2s var(--e), background .2s}
+  .editbtn:hover{transform:translateY(-2px)} .editbtn.on{background:var(--ink)}
+  .edithint{position:fixed; right:22px; bottom:70px; z-index:70; font-family:var(--mono); font-size:10px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted); background:var(--panel); border:1px solid var(--line); border-radius:8px;
+    padding:9px 13px; opacity:0; transform:translateY(6px); transition:opacity .3s, transform .3s; pointer-events:none; max-width:230px; text-align:right}
+  body.editing .edithint{opacity:1; transform:none; pointer-events:auto}
+  .edithint button{background:none; border:0; color:var(--accent); cursor:pointer; font:inherit; text-transform:uppercase; letter-spacing:.08em}
+  body.editing [data-ed]{outline:1px dashed rgba(51,82,111,.55); outline-offset:4px; border-radius:2px; cursor:text}
+  body.editing [data-ed]:hover{background:rgba(51,82,111,.08)}
+  body.editing [data-ed]:focus{outline:2px solid var(--accent); background:rgba(51,82,111,.12)}
+  body.editing a{cursor:text}
+
   @media (prefers-reduced-motion:reduce){ *{animation:none !important; transition:none !important} .rise{opacity:1 !important; transform:none !important} .hero .art img{height:100% !important} }
 </style>
 </head>
@@ -284,6 +299,8 @@
   </section>
 </main>
 
+<button id="editBtn" class="editbtn" type="button" style="display:none">✎ Edit page</button>
+<div class="edithint">Click any text to edit · saved to this browser · <button id="resetBtn" type="button">reset</button></div>
 
 <script>
   // reading progress + header state
@@ -314,6 +331,59 @@
       });
     }, {passive:true});
   }
+</script>
+
+<script>
+  /* ---- passcode-gated owner editor: invisible to visitors ---- */
+  (function(){
+    var PASS = 'sougat384';                 // ← your edit passcode (change this string anytime)
+    var btn = document.getElementById('editBtn');
+    var ready = false;
+
+    function unlocked(){
+      if(sessionStorage.getItem('sph-edit-unlocked') === '1') return true;
+      var p = prompt('Owner passcode to edit this page:');
+      if(p === PASS){ sessionStorage.setItem('sph-edit-unlocked','1'); return true; }
+      if(p !== null) alert('Incorrect passcode.');
+      return false;
+    }
+
+    function enableEditor(){
+      btn.style.display = '';
+      if(ready) return; ready = true;
+      var SEL='h1,h2,h3,h4,.eyebrow,.kicker,.tag,.lead,.lede,.body-lg,.q,.attrib,.metric .n,.metric .l,.cred .when,.cred p,.chips span,.hero .cue,.credit,.work .mid p,.contact .fine,.links a';
+      var editables=[].slice.call(document.querySelectorAll(SEL)).filter(function(el){
+        return !el.closest('header') && el.id!=='editBtn' && el.id!=='resetBtn';
+      });
+      editables=editables.filter(function(el,i){ return editables.indexOf(el)===i; });
+      var KEY='sph-visual-edits-v1';
+      editables.forEach(function(el,i){ el.setAttribute('data-ed', i); });
+      try{ var saved=JSON.parse(localStorage.getItem(KEY)||'{}');
+           editables.forEach(function(el,i){ if(saved[i]!=null) el.innerHTML=saved[i]; }); }catch(e){}
+      function persist(){ var o={}; editables.forEach(function(el,i){ o[i]=el.innerHTML; });
+        try{ localStorage.setItem(KEY, JSON.stringify(o)); }catch(e){} }
+      var editing=false;
+      btn.addEventListener('click', function(){
+        editing=!editing; document.body.classList.toggle('editing', editing);
+        editables.forEach(function(el){ el.contentEditable = editing?'true':'false'; });
+        btn.textContent = editing?'✓ Done editing':'✎ Edit page'; btn.classList.toggle('on', editing);
+        if(!editing) persist();
+      });
+      document.addEventListener('click', function(e){ if(editing){ var a=e.target.closest('a'); if(a) e.preventDefault(); } }, true);
+      editables.forEach(function(el){ el.addEventListener('input', persist); el.addEventListener('blur', persist); });
+      document.getElementById('resetBtn').addEventListener('click', function(){
+        try{ localStorage.removeItem(KEY); }catch(e){}; location.reload();
+      });
+    }
+
+    // owner triggers editing via #edit in the URL, or Ctrl/Cmd+Shift+E
+    function trigger(){ if(unlocked()) enableEditor(); }
+    if(location.hash === '#edit') trigger();
+    addEventListener('hashchange', function(){ if(location.hash === '#edit') trigger(); });
+    addEventListener('keydown', function(e){
+      if((e.ctrlKey||e.metaKey) && e.shiftKey && (e.key==='E'||e.key==='e')){ e.preventDefault(); trigger(); }
+    });
+  })();
 </script>
 
 </body>
