@@ -14,8 +14,8 @@
     <circle r="9" fill="#2251FF"/>
   </g>
   <text x="52" y="96" font-size="26" font-style="italic" fill="#2251FF">No. 03</text>
-  <text x="52" y="208" font-size="64" letter-spacing="-1" fill="#051C2C">IPSCOPE</text>
-  <text x="52" y="248" font-family="Helvetica, Arial, sans-serif" font-size="15" letter-spacing="3" fill="#051C2C" fill-opacity="0.55">IP THREAT INTELLIGENCE</text>
-  <text x="52" y="448" font-size="21" font-style="italic" fill="#051C2C" fill-opacity="0.62">location · reputation · risk score</text>
+  <text x="52" y="208" font-size="58" letter-spacing="-1" fill="#051C2C">VULNSCOPE</text>
+  <text x="52" y="248" font-family="Helvetica, Arial, sans-serif" font-size="15" letter-spacing="3" fill="#051C2C" fill-opacity="0.55">FIREWALL CVE ANALYSIS</text>
+  <text x="52" y="448" font-size="21" font-style="italic" fill="#051C2C" fill-opacity="0.62">firewall CVEs · patch gaps · CERT-In</text>
   <text x="726" y="96" font-size="34" fill="#2251FF">&#10034;</text>
 </svg>
