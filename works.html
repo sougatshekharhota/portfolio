@@ -585,6 +585,13 @@ const WORKS = [
   proof:'Shipping Q3 2026 — deploy, Loom, and case study to follow.',
   shot:'assets/shots/health-engine.svg',
   app:null, code:null},
+ {no:'№ 10', title:'FREIGHTLENS', problem:"Freight quotes arrive as a single black-box number, yet transportation is the swing cost for FMCG and heavy-metals shippers — and costing a truck by tonnage alone is 30–40% wrong the moment cargo cubes out or weights out.", approach:"I built a client-side estimator that prices door-to-door primary freight from first principles across road, rail and coastal — resolving the weight-vs-volume binding constraint, diesel per state and toll per axle class — and always ships a P50/P80/P95 range instead of a false-precision point estimate.", decisions:["Made the binding constraint the centrepiece: FMCG cubes out, heavy metals weight out — because tonnage-only costing is the freight industry's biggest error.","Kept every rupee explainable — each coefficient carries a source, and a 5,000-run Monte-Carlo band replaces the false precision of a single number.","Added a click-to-build custom route with supplier-mandated stops and a residual-calibration screen, so the model tightens as real invoices arrive."], impact:"Turns an opaque quote into a line-by-line, defensible estimate a procurement lead can take to a CXO — the road-vs-rail-vs-coastal crossover included.", roadmap:"Per-plaza toll, the full 150–200 primary lanes, and calibration against 200+ real invoices to reach ±6%.", tag:'Primary-Freight Intelligence · Open Source',
+  lede:'Every rupee of a freight quote, explained.',
+  about:'A zero-backend React tool that estimates door-to-door primary freight for FMCG and heavy-metals shipments across road (FTL), rail and coastal India. Resolves whether a shipment cubes out or weights out, prices fuel per state and toll per axle class, ships a P50/P80/P95 Monte-Carlo band, an interactive route map with custom stops, and a residual-calibration screen — every coefficient carrying its source.',
+  proof:'~26 seeded lanes · 45 engine unit tests · P50/P80/P95 band · interactive route map · CI/CD to GitHub Pages.',
+  shot:'assets/shots/freightlens.svg',
+  app:'https://sougatshekharhota.github.io/freightlens/',
+  code:'https://github.com/sougatshekharhota/freightlens'},
 ];
 const N=WORKS.length, STEP=360/N;
 const $=s=>document.querySelector(s);
