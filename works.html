@@ -592,6 +592,12 @@ const WORKS = [
   shot:'assets/shots/freightlens.svg',
   app:'https://sougatshekharhota.github.io/freightlens/',
   code:'https://github.com/sougatshekharhota/freightlens'},
+ {no:'№ 11', title:'MeetScribe', problem:"Indian meetings run in Hinglish, switching between Hindi and English mid-sentence — and most transcription tools, built for clean monolingual English, quietly mangle exactly the words that matter: names, numbers, commitments.", approach:"A local, app-agnostic transcription tool that captures mic and system audio directly from the laptop's own audio devices — so it works alongside any call app without integrating with one — transcribes Hinglish live, translates it, tags speakers by role, and drafts action items that a human reviews and approves before anything is assigned.", decisions:["Kept every action-item suggestion behind a human-approval gate rather than auto-assigning, since a wrong name or date in a meeting record is worse than a late one.","Built the capture layer to mirror whatever the OS plays through its default output device, so it never needed per-platform integration with Teams, Meet or Zoom."], impact:"Early-stage prototype, currently being trialled on real meetings to measure transcription and action-item accuracy before deciding on scope.", roadmap:"Benchmark word-error-rate and action-item precision across real meetings; kept private for now.", tag:'Private Build · Prototype Stage',
+  lede:'A meeting transcriber that actually understands Hinglish.',
+  about:'A local transcription and meeting-intelligence tool built for Indian code-switched speech: live Hindi/Hinglish transcription with English translation, per-speaker role tagging, and a human-approved action-item tracker that drafts meeting minutes. Captures mic and system audio directly, independent of whichever call app is in use.',
+  proof:'Prototype stage — real-meeting accuracy benchmarking in progress.',
+  shot:'assets/shots/meetscribe.svg',
+  app:null, code:null},
 ];
 const N=WORKS.length, STEP=360/N;
 const $=s=>document.querySelector(s);
