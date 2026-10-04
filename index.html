@@ -222,6 +222,24 @@
   .chips { display: flex; gap: 8px; flex-wrap: wrap; }
   .proj-media { position: relative; margin: -34px -34px 24px; border-bottom: 1px solid var(--line); border-radius: 4px 4px 0 0; overflow: hidden; background: var(--navy); cursor: zoom-in; }
   .proj-media video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: top; }
+  .featured { padding-bottom: 40px; }
+  .feat-head { max-width: 760px; margin-bottom: 44px; }
+  .feat-head h2 { margin: 16px 0 14px; font-size: clamp(36px, 4.6vw, 56px); font-weight: 600; line-height: 1.1; color: var(--navy); }
+  .feat-head p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--slate); }
+  .feat-grid .proj { display: flex; flex-direction: column; }
+  .feat-grid .feat-body { display: flex; flex-direction: column; flex: 1; }
+  .feat-grid .feat-body .chips { margin-top: auto; }
+  .feat-wide { grid-column: 1 / -1; flex-direction: row !important; align-items: stretch; }
+  .feat-wide .proj-media { flex: 0 0 58%; margin: -34px 34px -34px -34px; border-bottom: 0; border-right: 1px solid var(--line); border-radius: 4px 0 0 4px; }
+  .feat-wide .proj-media video { height: 100%; }
+  .feat-wide .feat-body { justify-content: center; }
+  .feat-more { margin-top: 30px; text-align: center; }
+  .feat-more .chip { display: inline-block; }
+  @media (max-width: 900px) {
+    .feat-wide { flex-direction: column !important; }
+    .feat-wide .proj-media { flex: none; margin: -34px -34px 24px; border-right: 0; border-bottom: 1px solid var(--line); border-radius: 4px 4px 0 0; }
+    .feat-wide .proj-media video { height: auto; }
+  }
   .proj-media-tag { position: absolute; left: 12px; bottom: 12px; padding: 4px 10px; border-radius: 999px; background: rgba(11,34,57,0.82); color: #fff; font-size: 11px; letter-spacing: .06em; pointer-events: none; }
   .chip { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--azure); border: 1px solid rgba(44,125,160,0.35); padding: 6px 14px; border-radius: 999px; }
   .chip.solid { background: var(--azure); color: #fff; border-color: var(--azure); }
@@ -354,6 +372,40 @@
         </div>
       </div>
     </div>
+
+
+    <section class="featured" data-card data-name="Featured work">
+      <div class="wrap">
+        <div class="feat-head rv">
+          <div class="eyebrow">Featured Work · Built &amp; Shipped</div>
+          <h2>Things I've built — running live, right now.</h2>
+          <p>Every project below is open source and deployed. Each demo plays as you scroll past — click one to watch it fullscreen.</p>
+        </div>
+        <div class="proj-grid feat-grid">
+        <div class="proj tilt rv feat-wide" data-card data-name="Featured: FREIGHTLENS">
+          <div class="proj-media"><video src="assets/video/freightlens.webm" poster="assets/video/freightlens.jpg" muted loop playsinline preload="none" aria-label="FREIGHTLENS walkthrough video"></video><span class="proj-media-tag">▶ Live demo</span></div>
+          <div class="feat-body"><div class="eyebrow">Logistics · React</div><h4>FREIGHTLENS — Primary-Freight Intelligence</h4><p>Explainable door-to-door freight costing for FMCG &amp; heavy metals across road, rail and coastal India. FMCG cubes out, metals weight out — one engine resolves both, prices diesel per state and toll per axle, and lets you click a custom route on the map.</p><div class="chips"><a class="chip solid" style="text-decoration:none" href="https://sougatshekharhota.github.io/freightlens/" target="_blank" rel="noopener">Try it live ↗</a><a class="chip" style="text-decoration:none" href="https://github.com/sougatshekharhota/freightlens" target="_blank" rel="noopener">GitHub ↗</a></div></div>
+        </div>
+        <div class="proj tilt rv" data-card data-name="Featured: PULSE-360">
+          <div class="proj-media"><video src="assets/video/pulse.webm" poster="assets/video/pulse.jpg" muted loop playsinline preload="none" aria-label="PULSE-360 walkthrough video"></video><span class="proj-media-tag">▶ Live demo</span></div>
+          <div class="feat-body"><div class="eyebrow">Marketing Intelligence · Live Data</div><h4>PULSE-360</h4><p>Google Trends, Wikipedia and world news pulled daily into one weighted channel-health score — Airtel benchmarked against six global telcos.</p><div class="chips"><a class="chip solid" style="text-decoration:none" href="https://sougatshekharhota.github.io/pulse-360/" target="_blank" rel="noopener">Try it live ↗</a><a class="chip" style="text-decoration:none" href="https://github.com/sougatshekharhota/pulse-360" target="_blank" rel="noopener">GitHub ↗</a></div></div>
+        </div>
+        <div class="proj tilt rv" data-card data-name="Featured: OPTICHAIN">
+          <div class="proj-media"><video src="assets/video/optichain.webm" poster="assets/video/optichain.jpg" muted loop playsinline preload="none" aria-label="OPTICHAIN walkthrough video"></video><span class="proj-media-tag">▶ Live demo</span></div>
+          <div class="feat-body"><div class="eyebrow">Supply Chain · Digital Twin</div><h4>OPTICHAIN</h4><p>A control tower for network-hardware rollouts: per-SKU forecasting, safety stock &amp; EOQ, supplier health scoring and a Monte-Carlo what-if simulator.</p><div class="chips"><a class="chip solid" style="text-decoration:none" href="https://sougatshekharhota.github.io/optichain/" target="_blank" rel="noopener">Try it live ↗</a><a class="chip" style="text-decoration:none" href="https://github.com/sougatshekharhota/optichain" target="_blank" rel="noopener">GitHub ↗</a></div></div>
+        </div>
+        <div class="proj tilt rv" data-card data-name="Featured: VULNSCOPE">
+          <div class="proj-media"><video src="assets/video/vulnscope.webm" poster="assets/video/vulnscope.jpg" muted loop playsinline preload="none" aria-label="VULNSCOPE walkthrough video"></video><span class="proj-media-tag">▶ Live demo</span></div>
+          <div class="feat-body"><div class="eyebrow">Cybersecurity · Zero Backend</div><h4>VULNSCOPE</h4><p>Enter a firewall version, get every known and actively-exploited CVE affecting it (NVD × CISA KEV) and the exact version to patch to.</p><div class="chips"><a class="chip solid" style="text-decoration:none" href="https://sougatshekharhota.github.io/ipscope/" target="_blank" rel="noopener">Try it live ↗</a><a class="chip" style="text-decoration:none" href="https://github.com/sougatshekharhota/ipscope" target="_blank" rel="noopener">GitHub ↗</a></div></div>
+        </div>
+        <div class="proj tilt rv" data-card data-name="Featured: KALEIDO">
+          <div class="proj-media"><video src="assets/video/kaleido.webm" poster="assets/video/kaleido.jpg" muted loop playsinline preload="none" aria-label="KALEIDO walkthrough video"></video><span class="proj-media-tag">▶ Live demo</span></div>
+          <div class="feat-body"><div class="eyebrow">Design Tools · In-Browser</div><h4>KALEIDO</h4><p>One brief in, a whole design system out — WCAG-AA palette, type pairing, layout tokens, UX guidance and a live preview you can export.</p><div class="chips"><a class="chip solid" style="text-decoration:none" href="https://sougatshekharhota.github.io/kaleido/" target="_blank" rel="noopener">Try it live ↗</a><a class="chip" style="text-decoration:none" href="https://github.com/sougatshekharhota/kaleido" target="_blank" rel="noopener">GitHub ↗</a></div></div>
+        </div>
+        </div>
+        <div class="feat-more rv"><a class="chip" style="text-decoration:none" href="works.html">All projects &amp; case studies →</a></div>
+      </div>
+    </section>
 
     <div class="tiles" data-card data-name="Explore tiles">
       <div class="tiles-grid">
