@@ -143,6 +143,7 @@
   #detail .d-shot{margin:clamp(24px,4vh,40px) 0; border:1px solid var(--line);
                   background:var(--card); overflow:hidden}
   #detail .d-shot img{width:100%; display:block; aspect-ratio:16/10; object-fit:cover; object-position:top}
+  #detail .d-shot video{width:100%; display:block; aspect-ratio:16/9; background:#000}
   #detail .d-lede{font:400 clamp(21px,2.6vw,30px)/1.35 var(--serif); max-width:26em; text-wrap:pretty}
   #detail .d-about{margin-top:18px; font:400 15.5px/1.65 var(--sans); color:var(--mut); max-width:64ch}
   #detail .d-proof{margin-top:14px; font:italic 400 15px/1.5 var(--serif); color:var(--accent)}
@@ -474,7 +475,7 @@
         <h2></h2>
       </div>
       <div class="d-tag caps"></div>
-      <div class="d-shot"><img alt=""></div>
+      <div class="d-shot"><img alt=""><video controls muted loop playsinline preload="none" style="display:none"></video></div>
       <p class="d-lede"></p>
       <p class="d-about"></p>
       <p class="d-proof"></p>
@@ -530,28 +531,28 @@ const WORKS = [
   lede:'Live signals in. One health score out.',
   about:'A Python pipeline that pulls live data from Google Trends, Wikipedia pageviews and GDELT world news, unifies it into one schema, and scores every marketing channel with a weighted health model — benchmarking Airtel against the world’s telecom giants on a Streamlit dashboard. Refreshes itself daily via GitHub Actions.',
   proof:'Real fetched data in the repo · daily automated refresh · full handbook included.',
-  shot:'assets/shots/pulse-360.svg',
+  shot:'assets/shots/pulse-360.svg', video:'assets/video/pulse.webm', poster:'assets/video/pulse.jpg',
   app:'https://sougatshekharhota.github.io/pulse-360/',
   code:'https://github.com/sougatshekharhota/pulse-360'},
  {no:'№ 02', title:'OPTICHAIN', problem:"Enterprise hardware rollouts stall on stockouts and overstock because demand is spiky, vendor lead times vary, and planners still run on gut feel and spreadsheets.", approach:"I modelled the network-hardware chain I ran at Airtel (2,000+ sites) as a digital twin, then layered demand forecasting, safety stock, EOQ and a Monte-Carlo service-vs-cost simulator — with an upload-your-own-data mode.", decisions:["Per-SKU model selection instead of one global forecast, because demand patterns differ item to item.","Framed the output as a service-level-versus-cost trade-off — the language executives actually decide in.","Made it upload-your-own-data, so any planner can run their real chain, not just my sample."], impact:"Replaces reactive firefighting with a quantified plan: fewer stockouts, less trapped working capital, and decisions defensible to finance.", roadmap:"Supplier scorecards feeding procurement, multi-echelon inventory, and live ERP connectors.", tag:'Supply Chain Control Tower · Open Source',
   lede:'The supply chain I ran, rebuilt as a digital twin.',
   about:'Demand forecasting with per-SKU model selection, safety stock with lead-time variance, EOQ, Monte Carlo service-vs-cost curves, and weighted supplier health scoring — for enterprise network-hardware rollouts, modeled on the delivery chains I ran across 2,000+ sites.',
   proof:'36 SKUs · 4 vendors · 4,000-trial Monte Carlo what-if simulator.',
-  shot:'assets/shots/optichain.svg',
+  shot:'assets/shots/optichain.svg', video:'assets/video/optichain.webm', poster:'assets/video/optichain.jpg',
   app:'https://sougatshekharhota.github.io/optichain/',
   code:'https://github.com/sougatshekharhota/optichain'},
  {no:'№ 03', title:'VULNSCOPE', problem:"Most organisations cannot quickly answer a basic security question — is our firewall running a version with known, actively-exploited holes, and if so, what do we upgrade to?", approach:"I built a zero-backend scanner that aggregates 1,700+ CVEs across seven firewall platforms from the NVD, cross-references CISA's actively-exploited catalog, and returns a clear verdict with the exact fix version. It also does CVE-by-ID lookup, Excel export of results, and maps every CVE to CERT-In for the Indian ecosystem — plus IP threat and geolocation scoring.", decisions:["Precomputed the CVE index with a weekly GitHub Action, so the tool needs no backend or API keys.","Cross-referenced CISA KEV, so results prioritise what attackers are truly exploiting — not just theoretical CVEs.","Kept it fully client-side, so sensitive version data never leaves the user's device."], impact:"Compresses an expert, manual task into a ten-second check — the kind of triage that helps security and account teams cut real breach risk.", roadmap:"More vendors, config-file upload for auto-detection, and alerts when a running version turns vulnerable.", tag:'Firewall CVE & Vulnerability Analysis · Open Source',
   lede:'Is your firewall running a version with known holes?',
   about:'Two tools in one, zero backend. A firewall patch-gap scanner checks whether your device runs a version with known, actively-exploited vulnerabilities — aggregating 1,700+ CVEs across Fortinet, Palo Alto, Cisco, SonicWall, Juniper and pfSense from the NVD, cross-referenced with CISA’s actively-exploited catalog, and returning the exact version to upgrade to. Plus IP threat &amp; geolocation scoring for any address, all in the browser.',
   proof:'1,700+ CVEs across 7 firewall platforms · CISA KEV cross-referenced · auto-refreshed weekly via GitHub Actions.',
-  shot:'assets/shots/ipscope.svg',
+  shot:'assets/shots/ipscope.svg', video:'assets/video/vulnscope.webm', poster:'assets/video/vulnscope.jpg',
   app:'https://sougatshekharhota.github.io/ipscope/',
   code:'https://github.com/sougatshekharhota/ipscope'},
  {no:'№ 04', title:'KALEIDO', problem:"Non-designers and small teams stall at the blank canvas — choosing colour, type and layout that are coherent and accessible is slow, and generic templates all look the same.", approach:"I built a generator that turns a one-line brief — industry, product, mood, platform — into a complete, WCAG-AA-tuned design system, with a live animated preview and export to code tokens or a ready-made landing page.", decisions:["Generated palettes algorithmically with an adaptive-contrast pass, so every output passes accessibility — not just looks nice.","Wrote an original engine and dataset rather than wrapping an existing library, so the work is defensibly mine.","Shipped real exports (tokens plus a runnable page), so the output is usable, not just a mockup."], impact:"Collapses hours of early design decisions into seconds and guarantees accessibility — speed-to-first-draft that de-risks any product launch.", roadmap:"Brand-logo colour extraction, more page templates per product type, and shareable saved systems.", tag:'Design System Generator · Open Source',
   lede:'One brief in. A whole design system out.',
   about:'A browser-based design-system generator. Enter your industry, product, mood and platform and KALEIDO refracts them into a complete system — a generated, WCAG-AA-tuned colour palette, a style direction, a type pairing, layout tokens, UX guidance and a recommended stack — with a live animated preview. Export the tokens as JSON, CSS or a Tailwind theme, or a ready-made animated landing hero. Original engine and data, no backend.',
   proof:'18 industries × 8 products × 10 moods · every palette WCAG-AA checked · one-click token &amp; animated-hero export.',
-  shot:'assets/shots/kaleido.svg',
+  shot:'assets/shots/kaleido.svg', video:'assets/video/kaleido.webm', poster:'assets/video/kaleido.jpg',
   app:'https://sougatshekharhota.github.io/kaleido/',
   sample:'https://sougatshekharhota.github.io/kaleido/samples/art-and-philosophy.html',
   code:'https://github.com/sougatshekharhota/kaleido'},
@@ -589,7 +590,7 @@ const WORKS = [
   lede:'Every rupee of a freight quote, explained.',
   about:'A zero-backend React tool that estimates door-to-door primary freight for FMCG and heavy-metals shipments across road (FTL), rail and coastal India. Resolves whether a shipment cubes out or weights out, prices fuel per state and toll per axle class, ships a P50/P80/P95 Monte-Carlo band, an interactive route map with custom stops, and a residual-calibration screen — every coefficient carrying its source.',
   proof:'~26 seeded lanes · 45 engine unit tests · P50/P80/P95 band · interactive route map · CI/CD to GitHub Pages.',
-  shot:'assets/shots/freightlens.svg',
+  shot:'assets/shots/freightlens.svg', video:'assets/video/freightlens.webm', poster:'assets/video/freightlens.jpg',
   app:'https://sougatshekharhota.github.io/freightlens/',
   code:'https://github.com/sougatshekharhota/freightlens'},
  {no:'№ 11', title:'MeetScribe', problem:"Indian meetings run in Hinglish, switching between Hindi and English mid-sentence — and most transcription tools, built for clean monolingual English, quietly mangle exactly the words that matter: names, numbers, commitments.", approach:"A local, app-agnostic transcription tool that captures mic and system audio directly from the laptop's own audio devices — so it works alongside any call app without integrating with one — transcribes Hinglish live, translates it, tags speakers by role, and drafts action items that a human reviews and approves before anything is assigned.", decisions:["Kept every action-item suggestion behind a human-approval gate rather than auto-assigning, since a wrong name or date in a meeting record is worse than a late one.","Built the capture layer to mirror whatever the OS plays through its default output device, so it never needed per-platform integration with Teams, Meet or Zoom."], impact:"Early-stage prototype, currently being trialled on real meetings to measure transcription and action-item accuracy before deciding on scope.", roadmap:"Benchmark word-error-rate and action-item precision across real meetings; kept private for now.", tag:'Private Build · Prototype Stage',
@@ -771,7 +772,16 @@ function openDetail(i){
   detail.querySelector('.d-no').textContent=p.no;
   detail.querySelector('h2').textContent=p.title;
   detail.querySelector('.d-tag').textContent=p.tag;
-  const im=detail.querySelector('.d-shot img'); im.src=p.shot; im.alt=p.title+' cover';
+  const im=detail.querySelector('.d-shot img'), dv=detail.querySelector('.d-shot video');
+  dv.pause();
+  if(p.video){
+    im.style.display='none'; dv.style.display=''; dv.poster=p.poster||''; dv.src=p.video;
+    dv.setAttribute('aria-label',p.title+' walkthrough video');
+    var pl=dv.play(); if(pl&&pl.catch) pl.catch(function(){});
+  } else {
+    dv.style.display='none'; dv.removeAttribute('src'); dv.load();
+    im.style.display=''; im.src=p.shot; im.alt=p.title+' cover';
+  }
   detail.querySelector('.d-lede').textContent=p.lede;
   detail.querySelector('.d-about').textContent=p.about;
   detail.querySelector('.d-proof').textContent=p.proof;
@@ -802,7 +812,7 @@ function openDetail(i){
 }
 function openCV(){ const cv=$('#cv'); cv.scrollTop=0; cv.classList.add('open');
   $('#cv-close').classList.add('on'); Snd.pluck(); Snd.swoosh(); }
-function closeSheet(id){ $('#'+id).classList.remove('open');
+function closeSheet(id){ $('#'+id).classList.remove('open'); if(id==='detail') detail.querySelector('.d-shot video').pause();
   $('#'+(id==='cv'?'cv-close':'d-close')).classList.remove('on'); Snd.tick(); }
 $('#d-close').addEventListener('click',()=>closeSheet('detail'));
 $('#cv-close').addEventListener('click',()=>closeSheet('cv'));

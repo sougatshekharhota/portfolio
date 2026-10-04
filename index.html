@@ -220,6 +220,9 @@
   .proj h4 { margin: 14px 0 12px; font-family: 'Cormorant Garamond', serif; font-size: 27px; font-weight: 600; color: var(--navy); line-height: 1.15; }
   .proj p { margin: 0 0 18px; font-size: 15px; line-height: 1.8; color: var(--slate); }
   .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .proj-media { position: relative; margin: -34px -34px 24px; border-bottom: 1px solid var(--line); border-radius: 4px 4px 0 0; overflow: hidden; background: var(--navy); cursor: zoom-in; }
+  .proj-media video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: top; }
+  .proj-media-tag { position: absolute; left: 12px; bottom: 12px; padding: 4px 10px; border-radius: 999px; background: rgba(11,34,57,0.82); color: #fff; font-size: 11px; letter-spacing: .06em; pointer-events: none; }
   .chip { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--azure); border: 1px solid rgba(44,125,160,0.35); padding: 6px 14px; border-radius: 999px; }
   .chip.solid { background: var(--azure); color: #fff; border-color: var(--azure); }
 
@@ -498,30 +501,35 @@
                 <div class="chips"><span class="chip solid">React</span><span class="chip solid">Claude API</span></div>
               </div>
               <div class="proj tilt" data-card data-name="Project: PULSE-360">
+                <div class="proj-media"><video src="assets/video/pulse.webm" poster="assets/video/pulse.jpg" muted loop playsinline preload="none" aria-label="PULSE-360 walkthrough video"></video><span class="proj-media-tag">▶ Live demo</span></div>
                 <div class="eyebrow">Open Source · Live Data</div>
                 <h4>PULSE-360 — Marketing Intelligence</h4>
                 <p>Python pipeline that pulls live signals — Google Trends, Wikipedia pageviews, world news — into one schema and scores every channel with my weighted health model, on a Streamlit dashboard.</p>
                 <div class="chips"><a class="chip solid" style="text-decoration:none" href="https://sougatshekharhota.github.io/pulse-360/" target="_blank" rel="noopener">Live dashboard ↗</a><a class="chip" style="text-decoration:none" href="https://github.com/sougatshekharhota/pulse-360" target="_blank" rel="noopener">GitHub ↗</a></div>
               </div>
               <div class="proj tilt" data-card data-name="Project: OPTICHAIN">
+                <div class="proj-media"><video src="assets/video/optichain.webm" poster="assets/video/optichain.jpg" muted loop playsinline preload="none" aria-label="OPTICHAIN walkthrough video"></video><span class="proj-media-tag">▶ Live demo</span></div>
                 <div class="eyebrow">Open Source · Supply Chain</div>
                 <h4>OPTICHAIN — Supply Chain Control Tower</h4>
                 <p>Digital twin of the network-hardware chains I ran across 2,000+ sites: demand forecasting, safety stock &amp; EOQ, Monte Carlo service-vs-cost simulation, and weighted supplier health scoring.</p>
                 <div class="chips"><a class="chip solid" style="text-decoration:none" href="https://sougatshekharhota.github.io/optichain/" target="_blank" rel="noopener">Live dashboard ↗</a><a class="chip" style="text-decoration:none" href="https://github.com/sougatshekharhota/optichain" target="_blank" rel="noopener">GitHub ↗</a></div>
               </div>
               <div class="proj tilt" data-card data-name="Project: IPSCOPE">
+                <div class="proj-media"><video src="assets/video/vulnscope.webm" poster="assets/video/vulnscope.jpg" muted loop playsinline preload="none" aria-label="VULNSCOPE walkthrough video"></video><span class="proj-media-tag">▶ Live demo</span></div>
                 <div class="eyebrow">Open Source · Cybersecurity</div>
                 <h4>VULNSCOPE — Firewall CVE &amp; Vulnerability Analysis</h4>
                 <p>Enter a firewall version to see every known, actively-exploited CVE affecting it (1,700+ CVEs across seven platforms from the NVD, cross-referenced with CISA KEV) with the exact fix version; look up any CVE by ID; export results to Excel; and every CVE is mapped to CERT-In for the Indian ecosystem. Zero-backend, runs in the browser.</p>
                 <div class="chips"><a class="chip solid" style="text-decoration:none" href="https://sougatshekharhota.github.io/ipscope/" target="_blank" rel="noopener">Live tool ↗</a><a class="chip" style="text-decoration:none" href="https://github.com/sougatshekharhota/ipscope" target="_blank" rel="noopener">GitHub ↗</a></div>
               </div>
               <div class="proj tilt" data-card data-name="Project: KALEIDO">
+                <div class="proj-media"><video src="assets/video/kaleido.webm" poster="assets/video/kaleido.jpg" muted loop playsinline preload="none" aria-label="KALEIDO walkthrough video"></video><span class="proj-media-tag">▶ Live demo</span></div>
                 <div class="eyebrow">Open Source · Design Tools</div>
                 <h4>KALEIDO — Design System Generator</h4>
                 <p>Enter an industry, product and mood; KALEIDO generates a complete, WCAG-AA-tuned design system — palette, type pairing, layout tokens and UX guidance — with a live animated preview and one-click token or animated-hero export. Original engine, runs in the browser.</p>
                 <div class="chips"><a class="chip solid" style="text-decoration:none" href="https://sougatshekharhota.github.io/kaleido/" target="_blank" rel="noopener">Live tool ↗</a><a class="chip solid" style="text-decoration:none" href="https://sougatshekharhota.github.io/kaleido/samples/art-and-philosophy.html" target="_blank" rel="noopener">✦ Sample: an animated essay ↗</a><a class="chip" style="text-decoration:none" href="https://github.com/sougatshekharhota/kaleido" target="_blank" rel="noopener">GitHub ↗</a></div>
               </div>
               <div class="proj tilt" data-card data-name="Project: FREIGHTLENS">
+                <div class="proj-media"><video src="assets/video/freightlens.webm" poster="assets/video/freightlens.jpg" muted loop playsinline preload="none" aria-label="FREIGHTLENS walkthrough video"></video><span class="proj-media-tag">▶ Live demo</span></div>
                 <div class="eyebrow">Open Source · Logistics</div>
                 <h4>FREIGHTLENS — Primary-Freight Intelligence</h4>
                 <p>Explainable door-to-door freight-cost estimator for FMCG &amp; heavy-metals shipments across road, rail and coastal India. Resolves the weight-vs-volume binding constraint (FMCG cubes out, metals weight out), prices fuel per state and toll per axle class, ships a P50/P80/P95 Monte-Carlo band, an interactive route map with custom supplier-mandated stops, and a residual-calibration screen. Zero-backend React, runs in the browser.</p>
@@ -850,6 +858,30 @@
       ring.classList.toggle('big', !!hot);
     }, { passive: true });
   }
+
+  /* ---------- project demo videos: play only while on screen, click for fullscreen ---------- */
+  (function () {
+    var vids = document.querySelectorAll('.proj-media video');
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if ('IntersectionObserver' in window && !still) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { var p = en.target.play(); if (p && p.catch) p.catch(function () {}); }
+          else en.target.pause();
+        });
+      }, { threshold: 0.5 });
+      vids.forEach(function (v) { io.observe(v); });
+    }
+    vids.forEach(function (v) {
+      v.parentNode.addEventListener('click', function () {
+        if (isEditing()) return;
+        v.controls = true; v.muted = true; v.play();
+        if (v.requestFullscreen) v.requestFullscreen();
+        else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen();
+      });
+      v.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement) v.controls = false; });
+    });
+  })();
 
   /* ---------- 3D tilt cards ---------- */
   document.addEventListener('mousemove', function (e) {
